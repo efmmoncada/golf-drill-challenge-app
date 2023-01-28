@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "golf-drill-challenge-app",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
