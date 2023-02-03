@@ -1,17 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Pressable, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Pressable, Text, View, Image, TextInput, SafeAreaView } from 'react-native';
 import { useState } from 'react';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from 'expo-font';
 import * as ImagePicker from 'expo-image-picker';
 
-import Buttons from './buttons'
+import Buttons from '../src/components/Buttons'
 
-const bennyProfilePic = require('./assets/images/bennyprofpic.png')
+const bennyProfilePic = require('../assets/images/bennyprofpic.png')
 
-export default function App() {
+export default function Profile() {
   const [loaded] = useFonts({
-    Karma: require('./assets/fonts/Karma-Regular.ttf')
+    Karma: require('../assets/fonts/Karma-Regular.ttf')
   })
 
   if(!loaded)
@@ -33,10 +33,10 @@ export default function App() {
         <View style={styles.mainContainer}>
           <Text style={styles.subtitleWhite}>Email</Text>
           <View style={styles.textContainer}>
-            <Text style={styles.textGrey}>bennythebeaver@oregonstate.edu</Text> 
+            <Text style={styles.textGrey}>bennythebeaver@oregonstate.edu</Text>
           </View>
           <Pressable style={styles.whiteButton} onPress={()=> alert("You pressed the reset password button")}>
-            <Text style={styles.subtitleGrey}>Reset your password</Text> 
+            <Text style={styles.subtitleGrey}>Reset your password</Text>
           </Pressable>
         </View>
       <StatusBar style="auto" />
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     paddingRight: 30
   },
   whiteButton:{
-    width: 370, 
+    width: 370,
     backgroundColor: "#F0E8E8",
     alignItems: 'center',
     height: 40,

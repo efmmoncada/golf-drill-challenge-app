@@ -3,11 +3,11 @@ import { StyleSheet, Pressable, Text, View } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from 'expo-font';
 
-import Buttons from './buttons'
+import Buttons from '../src/components/Buttons'
 
-export default function App() {
+export default function Settings() {
   const [loaded] = useFonts({
-    Karma: require('./assets/fonts/Karma-Regular.ttf')
+    Karma: require('../assets/fonts/Karma-Regular.ttf')
   })
 
   if(!loaded)
