@@ -1,8 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Profile from './screens/Profile';
+import { React, useState } from "react";
+import TeamData from "./data/teamData.json";
+import Banner from "./components/Banner";
+import DrillList from "./components/DrillList";
 
 export default function App() {
+  const [drillData, setDrillData] = useState(TeamData.drills);
   return (
     <View style={styles.container}>
         <Profile />
@@ -13,8 +15,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#D73F09F5",
+  },
+  drills: {
+    flex: 6,
   },
 });
