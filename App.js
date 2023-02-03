@@ -1,14 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { React, useState } from "react";
+import { StyleSheet, View } from "react-native";
+import TeamData from "./data/teamData.json";
 import Banner from "./components/Banner";
 import DrillList from "./components/DrillList";
 
 export default function App() {
+  const [drillData, setDrillData] = useState(TeamData.drills);
   return (
     <View style={styles.container}>
       <Banner />
-      <DrillList />
-      <StatusBar style="auto" />
+      <DrillList listData={drillData} />
     </View>
   );
 }
