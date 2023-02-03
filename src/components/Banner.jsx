@@ -1,5 +1,5 @@
 import React from "react";
-import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
+import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { StyleSheet, ImageBackground, Text, View } from "react-native";
 
 const Banner = () => {
