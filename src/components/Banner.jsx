@@ -2,11 +2,16 @@ import React from "react";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { StyleSheet, ImageBackground, Text, View } from "react-native";
 
-const Banner = () => {
+/**
+ *
+ * @param {object} props
+ * @param {string} props.text
+ */
+const Banner = ({ text }) => {
   return (
     <View style={banner.container}>
       <ImageBackground style={banner.image} source={Fuenmayor}>
-        <Text style={banner.heading}>Drills</Text>
+        <Text style={banner.heading}>{text}</Text>
       </ImageBackground>
     </View>
   );
