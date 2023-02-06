@@ -1,6 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Text, ImageBackground, Pressable } from "react-native";
+import { View, StyleSheet, Text, ImageBackground, Pressable, Dimensions, ScrollView } from "react-native";
 import Banner from "./Banner";
+import ImageCarrousel from "./ImageCarrousel";
 
 /**
  *
@@ -15,55 +16,40 @@ import Banner from "./Banner";
  *
  */
 export default function Drill({ id, name, description, media, headerImg, dueDate, type }) {
-
+    const {height, width} = Dimensions.get("window");
 
     return (
         <View style={styles.container}>
             <Banner text={name} />
 
-            <View style={styles.media}></View>
+            <ScrollView contentContainerStyle={{alignItems: "center", flex: 1}}>
+                <View style={styles.media}>
+                    <ImageCarrousel images={media} width={width * 0.9} />
+                </View>
 
-            <Text style={styles.description}>{description}</Text>
+                <Text style={styles.description}>{description}</Text>
 
-            <Pressable style={styles.button} onPress={() => console.log("input score button pressed")}>
-                <Text>Input Score</Text>
-            </Pressable>
-
+                <Pressable style={styles.button} onPress={() => console.log("input score button pressed")}>
+                    <Text>Input Score</Text>
+                </Pressable>
+            </ScrollView>
         </View>
    )
 }
 
 
 
-
+const {height, width} = Dimensions.get("screen");
 const styles = StyleSheet.create({
     container: {
         backgroundColor: "#D73F09",
         flex: 1,
-    },
-    headerImg: {
-        height: 100,
-        borderColor: "#000",
-        borderWidth: 3,
-        flex: 1,
-    },
-    headerText: {
-        color: '#fff',
-        marginStart: "auto",
-        flex: 1,
-        position: "absolute",
-    },
-    title: {
-        fontSize: 30,
-        marginTop: "auto"
-    },
-    subtitle: {
-        fontSize: 15,
+        justifyContent: "center",
+        alignItems: "center",
     },
     media: {
-        width: "auto",
-        margin: 30,
-        height: 200,
+        flex: 2,
+        width: width * 0.9,
         borderColor: "#000",
         borderWidth: 5,
     },
@@ -72,13 +58,11 @@ const styles = StyleSheet.create({
         margin: 30,
     },
     button: {
+        flex: 1,
         backgroundColor: "#fff",
-        alignSelf: "center",
         padding: 20,
         borderRadius: 10,
-        marginTop: "auto",
         marginBottom: 80
-
-    }
+    },
 
 });
