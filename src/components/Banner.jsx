@@ -1,11 +1,13 @@
 import React from "react";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { StyleSheet, ImageBackground, Text, View } from "react-native";
+import Buttons from "./Buttons";
 
 const Banner = () => {
   return (
     <View style={banner.container}>
       <ImageBackground style={banner.image} source={Fuenmayor}>
+        <Buttons theme="backOrange" />
         <Text style={banner.heading}>Drills</Text>
       </ImageBackground>
     </View>

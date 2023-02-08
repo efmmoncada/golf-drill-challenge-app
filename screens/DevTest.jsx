@@ -1,13 +1,12 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
+import Drills from "./Drills";
 
 
 export default function DevTest() {
 
     return (
-        <View style={styles.container}>
-            <Text>Test Page</Text>
-        </View>
+        <Drills />
     );
 }
 
