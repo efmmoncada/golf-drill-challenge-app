@@ -14,16 +14,13 @@ export default function Drills() {
 
     return (
         <View style={styles.container}>
-            <Banner text="Drills" image={Fuenmayor} style={styles.banner} />
+            <Banner text="Drills" image={Fuenmayor} />
             <DrillList listData={drillData} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    banner: {
-        height: height * 0.25,
-    },
     container: {
         flex: 1,
         backgroundColor: "#D73F09F5",

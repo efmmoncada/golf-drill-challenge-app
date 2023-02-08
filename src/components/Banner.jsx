@@ -1,9 +1,11 @@
 import React from "react";
-import { StyleSheet, ImageBackground, Text, View } from "react-native";
+import { StyleSheet, ImageBackground, Text, View, Dimensions} from "react-native";
 
-const Banner = ({text, image, style}) => {
+const {height, width} = Dimensions.get("window");
+
+const Banner = ({text, image}) => {
   return (
-    <View style={{ width: "100%", ...style} }>
+    <View style={banner.container}>
       <ImageBackground style={banner.image} source={image}>
         <Text style={banner.heading}>{text}</Text>
       </ImageBackground>
@@ -12,9 +14,12 @@ const Banner = ({text, image, style}) => {
 };
 
 const banner = StyleSheet.create({
+    container: {
+        width: "100%",
+        height: height * 0.25,
+    },
     image: {
         flex: 1,
-
     },
     heading: {
         position: "absolute",
