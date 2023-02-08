@@ -13,7 +13,7 @@ const Tabs = createBottomTabNavigator();
 export default function TabsNavigator() {
     return (
         <Tabs.Navigator>
-            <Tabs.Screen name="Dev Test" component={DevTest} />
+            <Tabs.Screen name="Dev Test" component={CreateDrill} />
             <Tabs.Screen name="Profile" component={Profile} />
             <Tabs.Screen name="Settings" component={Settings} />
         </Tabs.Navigator>

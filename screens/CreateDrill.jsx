@@ -18,18 +18,17 @@ export default function CreateDrill() {
 
   return (
     <View style={styles.container}>
-      <Banner image={createDrill} text="Create Drills" themeOne="back"/>
-      <Buttons theme="Cancel"/>
-      <View style={styles.textContainer2}>
+      <Banner image={createDrill} text="Create Drills" themeOne="back" themeTwo="Cancel"/>
+      <View style={styles.textContainer}>
             <Text style={styles.textGrey}>Type</Text>
       </View>
-      <View style={styles.textContainer2}>
+      <View style={styles.textContainer}>
             <Text style={styles.textGrey}>Name</Text>
       </View>
-      <View style={styles.textContainer2}>
+      <View style={styles.textContainer}>
             <Text style={styles.textGrey}>Duration</Text>
       </View>
-      <View style={styles.textContainer3}>
+      <View style={styles.textContainer2}>
             <Text style={styles.textGrey}>Description</Text>
       </View>
       <Text style={styles.normalText}>Upload Media</Text>
@@ -51,17 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
-  textContainer:{
-    width: 360,
-    height: 40,
-    backgroundColor: '#F0E8E8',
-    borderRadius: 10,
-    paddingLeft: 15,
-    paddingTop: 4,
-    marginLeft: 30,
-    marginTop: 140
-    },
-    textContainer2:{
+    textContainer:{
     width: 360,
     height: 40,
     backgroundColor: '#F0E8E8',
@@ -71,7 +60,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginTop: 20
     },
-    textContainer3:{
+    textContainer2:{
         width: 360,
         height: 130,
         backgroundColor: '#F0E8E8',
