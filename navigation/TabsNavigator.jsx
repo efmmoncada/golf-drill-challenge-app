@@ -5,6 +5,7 @@ import Profile from "../screens/Profile";
 import Settings from "../screens/Settings";
 import DevTest from "../screens/DevTest";
 
+import CreateDrill from "../screens/CreateDrill"
 
 
 const Tabs = createBottomTabNavigator();

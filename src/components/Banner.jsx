@@ -1,12 +1,15 @@
 import React from "react";
 import { StyleSheet, ImageBackground, Text, View, Dimensions} from "react-native";
+import Buttons from "./Buttons";
 
 const {height, width} = Dimensions.get("window");
 
-const Banner = ({text, image}) => {
+const Banner = ({text, image, themeOne, themeTwo}) => {
   return (
     <View style={banner.container}>
       <ImageBackground style={banner.image} source={image}>
+        <Buttons theme={themeOne}/>
+        <Buttons theme={themeTwo}/>
         <Text style={banner.heading}>{text}</Text>
       </ImageBackground>
     </View>
@@ -22,6 +25,7 @@ const banner = StyleSheet.create({
         flex: 1,
     },
     heading: {
+        fontFamily: 'Karma',
         position: "absolute",
         bottom: 0,
         fontSize: 36,
