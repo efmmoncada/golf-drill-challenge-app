@@ -6,6 +6,7 @@ import Settings from "../screens/Settings";
 import DevTest from "../screens/DevTest";
 
 import CreateDrill from "../screens/CreateDrill"
+import HomeScreen from "../screens/Home";
 
 
 const Tabs = createBottomTabNavigator();
@@ -13,9 +14,12 @@ const Tabs = createBottomTabNavigator();
 export default function TabsNavigator() {
     return (
         <Tabs.Navigator>
+           <Tabs.Screen name= "Home" component = {HomeScreen}/>
             <Tabs.Screen name="Dev Test" component={DevTest} />
             <Tabs.Screen name="Profile" component={Profile} />
             <Tabs.Screen name="Settings" component={Settings} />
+       
+       
         </Tabs.Navigator>
     )
 }
