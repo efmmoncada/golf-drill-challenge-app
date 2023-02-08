@@ -1,32 +1,28 @@
 import React from "react";
-import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { StyleSheet, ImageBackground, Text, View } from "react-native";
 
-const Banner = () => {
+const Banner = ({text, image, style}) => {
   return (
-    <View style={banner.container}>
-      <ImageBackground style={banner.image} source={Fuenmayor}>
-        <Text style={banner.heading}>Drills</Text>
+    <View style={{ width: "100%", ...style} }>
+      <ImageBackground style={banner.image} source={image}>
+        <Text style={banner.heading}>{text}</Text>
       </ImageBackground>
     </View>
   );
 };
 
 const banner = StyleSheet.create({
-  container: {
-    flex: 2,
-    width: "100%",
-  },
-  image: {
-    flex: 1,
-  },
-  heading: {
-    position: "absolute",
-    bottom: 0,
-    fontSize: 36,
-    color: "#F6F3F3",
-    marginLeft: 20,
-  },
+    image: {
+        flex: 1,
+
+    },
+    heading: {
+        position: "absolute",
+        bottom: 0,
+        fontSize: 36,
+        color: "#F6F3F3",
+        marginLeft: 20,
+    },
 });
 
 export default Banner;
