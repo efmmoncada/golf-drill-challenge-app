@@ -1,16 +1,20 @@
 import React from "react";
-import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
-import { StyleSheet, ImageBackground, Text, View } from "react-native";
+import { StyleSheet, ImageBackground, Text, View, Dimensions} from "react-native";
+import Buttons from "./Buttons";
 
 /**
  *
  * @param {object} props
  * @param {string} props.text
  */
-const Banner = ({ text }) => {
+const {height, width} = Dimensions.get("window");
+
+const Banner = ({text, image, themeOne, themeTwo}) => {
   return (
     <View style={banner.container}>
-      <ImageBackground style={banner.image} source={Fuenmayor}>
+      <ImageBackground style={banner.image} source={image}>
+        <Buttons theme={themeOne}/>
+        <Buttons theme={themeTwo}/>
         <Text style={banner.heading}>{text}</Text>
       </ImageBackground>
     </View>
@@ -18,20 +22,21 @@ const Banner = ({ text }) => {
 };
 
 const banner = StyleSheet.create({
-  container: {
-    flex: 2,
-    width: "100%",
-  },
-  image: {
-    flex: 1,
-  },
-  heading: {
-    position: "absolute",
-    bottom: 0,
-    fontSize: 36,
-    color: "#F6F3F3",
-    marginLeft: 20,
-  },
+    container: {
+        width: "100%",
+        height: height * 0.25,
+    },
+    image: {
+        flex: 1,
+    },
+    heading: {
+        fontFamily: 'Karma',
+        position: "absolute",
+        bottom: 0,
+        fontSize: 36,
+        color: "#F6F3F3",
+        marginLeft: 20,
+    },
 });
 
 export default Banner;

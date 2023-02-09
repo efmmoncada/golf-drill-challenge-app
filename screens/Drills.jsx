@@ -1,9 +1,12 @@
 import { React, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList"
 import TeamData from "../data/teamData.json";
+import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 
+
+const {height, width} = Dimensions.get("window");
 
 export default function Drills() {
 
@@ -11,7 +14,7 @@ export default function Drills() {
 
     return (
         <View style={styles.container}>
-            <Banner />
+            <Banner text="Drills" image={Fuenmayor} />
             <DrillList listData={drillData} />
         </View>
     );
