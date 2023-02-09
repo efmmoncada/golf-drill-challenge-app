@@ -6,20 +6,24 @@ import Buttons from "./Buttons";
  *
  * @param {object} props
  * @param {string} props.text
+ * @param {string} props.image
+ * @param {string} props.themeOne
+ * @param {string} props.themeTwo
+ *
  */
-const {height, width} = Dimensions.get("window");
-
 const Banner = ({text, image, themeOne, themeTwo}) => {
-  return (
-    <View style={banner.container}>
-      <ImageBackground style={banner.image} source={image}>
-        <Buttons theme={themeOne}/>
-        <Buttons theme={themeTwo}/>
-        <Text style={banner.heading}>{text}</Text>
-      </ImageBackground>
-    </View>
-  );
+    return (
+        <View style={banner.container}>
+            <ImageBackground style={banner.image} source={image}>
+                <Buttons theme={themeOne}/>
+                <Buttons theme={themeTwo}/>
+                <Text style={banner.heading}>{text}</Text>
+            </ImageBackground>
+        </View>
+    );
 };
+
+const {height, width} = Dimensions.get("window");
 
 const banner = StyleSheet.create({
     container: {
