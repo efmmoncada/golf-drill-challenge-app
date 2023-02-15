@@ -1,7 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text, ImageBackground, Pressable, Dimensions, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Pressable, Dimensions, ScrollView } from "react-native";
 import Banner from "./Banner";
 import ImageCarrousel from "./ImageCarrousel";
+import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
+
 
 /**
  *
@@ -20,9 +22,9 @@ export default function Drill({ id, name, description, media, headerImg, dueDate
 
     return (
         <View style={styles.container}>
-            <Banner text={name} />
+            <Banner text={name} image={Fuenmayor} />
 
-            <ScrollView contentContainerStyle={{alignItems: "center", flex: 1}}>
+            <ScrollView contentContainerStyle={{alignItems: "center"}}>
                 <View style={styles.media}>
                     <ImageCarrousel images={media} width={width * 0.9} />
                 </View>
@@ -48,10 +50,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     media: {
-        flex: 2,
+        marginTop: 20,
+        height: height * 0.35,
         width: width * 0.9,
-        borderColor: "#000",
-        borderWidth: 5,
     },
     description: {
         textAlign: "center",
