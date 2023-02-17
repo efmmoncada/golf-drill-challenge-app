@@ -1,12 +1,12 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
-import Drills from "./Drills";
+import TeamInfo from "./TeamInfo";
 
 
 export default function DevTest() {
 
     return (
-        <Drills />
+        <TeamInfo />
     );
 }
 

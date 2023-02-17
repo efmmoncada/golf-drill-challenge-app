@@ -4,7 +4,7 @@ import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import TeamData from "../data/teamData.json";
 
-export default function Drills() {
+export default function DrillsCoach() {
   const [drillData, setDrillData] = useState(TeamData.drills);
 
   return (
