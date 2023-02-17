@@ -5,7 +5,7 @@ const ListItem = ({ title, subtext }) => {
   return (
     <TouchableOpacity style={item.itemContainer}>
       <Text style={item.title}>{title}</Text>
-      <Text style={item.subtext}>{`${subtext.substring(0, 20)}...`}</Text>
+      <Text style={item.subtext}>{`${subtext.substring(0, 25)}...`}</Text>
     </TouchableOpacity>
   );
 };

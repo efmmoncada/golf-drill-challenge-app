@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
-import DrillList from "../src/components/DrillList";
+import TeamList from "../src/components/TeamList";
 import TeamData from "../data/teamData.json";
 
 export default function DrillsPlayer() {
@@ -16,14 +16,6 @@ export default function DrillsPlayer() {
     { label: "Players", value: "Players" },
     { label: "Coaches", value: "Coaches" },
   ]);
-
-  const players = playersInfo.map((player) => {
-    return { name: player.name, description: player.email };
-  });
-
-  const coaches = coachesInfo.map((coach) => {
-    return { name: coach.name, description: coach.email };
-  });
 
   return (
     <View style={styles.container}>
@@ -50,9 +42,9 @@ export default function DrillsPlayer() {
           }}
         />
         {value === "Players" ? (
-          <DrillList listData={players} />
+          <TeamList listData={playersInfo} />
         ) : (
-          <DrillList listData={coaches} />
+          <TeamList listData={coachesInfo} />
         )}
       </View>
     </View>
