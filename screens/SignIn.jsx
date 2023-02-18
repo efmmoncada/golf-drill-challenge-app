@@ -5,6 +5,7 @@ import { useState } from 'react';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from 'expo-font';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from '@react-navigation/native';
 
 import Buttons from '../src/components/Buttons'
 
@@ -12,12 +13,20 @@ export default function SignIn() {
   const [loaded] = useFonts({
     Karma: require('../assets/fonts/Karma-Regular.ttf')
   })
-
+  const navigation = useNavigation();
   if(!loaded)
   {
     return null;
   }
-  
+  function navigateToSignUp() {
+  navigation.navigate("SignUp");
+}
+  function navigateToPlayer() {
+  navigation.navigate("Player");
+}
+  function navigateToCoach() {
+  navigation.navigate("Coach");``
+}
 return (
 
 <View style={styles.container}>
@@ -35,17 +44,17 @@ return (
     <View style={styles.buttonContainer}>
     <Text style={styles.buttonFont3}>Log in as</Text>
       <Pressable style = {styles.regButton} onPress={() => {
-        // Code for email button press goes here 
+        navigateToPlayer()
         }}>
       <Text style={styles.buttonFont}>Player</Text>
       </Pressable>
       <Pressable style = {styles.regButton} onPress={() => {
-        // Code for password button press goes here 
+        navigateToCoach()
         }}>
       <Text style={styles.buttonFont}>Coach</Text>
       </Pressable>
       <Pressable onPress={() => {
-        // Code for account button press goes here 
+        navigateToSignUp()
         }}>
       <Text style={styles.buttonFont2}>Create an Account</Text>
       </Pressable>

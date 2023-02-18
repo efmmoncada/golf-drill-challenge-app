@@ -1,22 +1,25 @@
 //import { StatusBar } from 'expo-status-bar';
-import { View, Text, ImageBackground, StyleSheet, Image ,  TouchableOpacity} from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Image , Pressable} from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
-
+import Buttons from '../src/components/Buttons'
+import { useNavigation } from '@react-navigation/native';
 
 //for players home screen
 
-export default function HomeScreen( {navigation}) {
+export default function HomeScreen() {
+  const navigation = useNavigation();
 
-    
-
+  function navigateToDrills() {
+    navigation.navigate("Drills");
+  }
 
 return (
 
 //osu logo
 <SafeAreaView style = {styles.container}> 
-
+<Buttons theme="backHome" style={styles.backHome}/>
 <ImageBackground 
   source={require ('../assets/images/OSU_img_logo.png')}
   style = {styles.OSU_image}>
@@ -33,51 +36,47 @@ return (
 
   
     <View style={styles.button_icons}>
-        <TouchableOpacity
+        <Pressable
           style={styles.buttonStyle}
-          activeOpacity={0.5}>
+          onPress={() => {
+            navigateToDrills()
+            }}> 
           <Image source={require ('../assets/Icons/Practice_Drill_icon.png')}
             style={styles.buttonImageIconStyle} />
           <Text style={styles.buttonTextStyle}>Practice Drill</Text>
+       </Pressable>
 
-  </TouchableOpacity>
 
-
- <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+       <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require( '../assets/Icons/Drill_Progress_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            
           <Text style={styles.buttonTextStyle}>Drill Progress</Text>
-        </TouchableOpacity>
+       </Pressable>
 
  
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+      {/* <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require(  '../assets/Icons/Course_Map_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            
           <Text style={styles.buttonTextStyle}>Course Map</Text>
-        </TouchableOpacity>
+          </Pressable> */}
 
-
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+        <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require(  '../assets/Icons/Leaderboard_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            
           <Text style={styles.buttonTextStyle}>Leaderboard</Text>
-        </TouchableOpacity>
+        </Pressable>
 
   </View>
 
-
-
-
-  
   </ImageBackground>
    </SafeAreaView>
 

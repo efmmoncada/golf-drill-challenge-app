@@ -5,6 +5,7 @@ import { useState } from 'react';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from 'expo-font';
 import * as ImagePicker from 'expo-image-picker';
+import { useNavigation } from '@react-navigation/native';
 
 import Buttons from '../src/components/Buttons'
 
@@ -12,12 +13,14 @@ export default function Player() {
   const [loaded] = useFonts({
     Karma: require('../assets/fonts/Karma-Regular.ttf')
   })
-
+  const navigation = useNavigation();
   if(!loaded)
   {
     return null;
   }
-  
+  function navigateToHome() {
+    navigation.navigate("Home");
+  }
 return (
 
 <View style={styles.container}>
@@ -28,7 +31,7 @@ return (
     <Text style={styles.titleFont}>Welcome</Text>
   </View>
   <View style={styles.selectContainer}>
-    <View style={styles.imageco}>
+    <View style={styles.imagepl}>
       <Image source={require('../assets/images/player.png')} 
         resizeMode='contain' 
         style={{width: 150, height: 150}} 
@@ -53,7 +56,7 @@ return (
       <Text style={styles.buttonFont2}>Forgot your password?</Text>
       </Pressable>
       <Pressable style = {styles.loginButton} onPress={() => {
-        // Code for password button press goes here 
+        navigateToHome()
         }}>
       <Text style={styles.buttonFont3}>Login</Text>
       </Pressable>

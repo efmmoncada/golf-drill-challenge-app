@@ -1,20 +1,37 @@
 import { StyleSheet, View, Pressable, Text } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Ionicons } from '@expo/vector-icons';
-
+import { useNavigation } from '@react-navigation/native';
 export default function Buttons({theme})
 {
+  const navigation = useNavigation();
   // if button is "back", then output a back button.
   // position: on the top left corner of the screen.
   if(theme === "back")
   {
     return(
         <View style>
-          <Pressable style={styles.backButtonContainer} onPress={()=> alert("You pressed the back button")}>
+          <Pressable style={styles.backButtonContainer} onPress={()=> navigation.goBack()}>
               <FontAwesome
               name="arrow-left"
               size={30}
               color="#D73F09"
+              style= {styles.buttonIcon}/>
+          </Pressable>
+        </View>
+      )
+  }
+
+  //Home Screen Button
+  if(theme === "backHome")
+  {
+    return(
+        <View style>
+          <Pressable style={styles.backButtonContainer} onPress={()=> navigation.goBack()}>
+              <FontAwesome
+              name="arrow-left"
+              size={30}
+              color="black"
               style= {styles.buttonIcon}/>
           </Pressable>
         </View>
@@ -42,7 +59,7 @@ export default function Buttons({theme})
   {
     return(
       <View style>
-         <Pressable style={styles.orangeContainer} onPress={()=> alert("You pressed the back button")}>
+         <Pressable style={styles.orangeContainer} onPress={()=>navigation.goBack() }>
               <FontAwesome
               name="arrow-left"
               size={30}

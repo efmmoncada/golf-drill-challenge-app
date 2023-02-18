@@ -13,6 +13,7 @@ export default function Drills() {
     const [drillData, setDrillData] = useState(TeamData.drills);
 
     return (
+         
         <View style={styles.container}>
             <Banner text="Drills" image={Fuenmayor} />
             <DrillList listData={drillData} />
