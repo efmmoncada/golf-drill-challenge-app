@@ -1,33 +1,25 @@
 //import { StatusBar } from 'expo-status-bar';
-import { View, Text, ImageBackground, StyleSheet, Image ,  TouchableOpacity} from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Image ,  Pressable, TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 
 //for players home screen
 
-export default function HomeScreen( {navigation}) {
-
-    
-
+export default function HomeScreen({navigation}) {
 
 return (
 
 //osu logo
 <SafeAreaView style = {styles.container}> 
  
-
-
 <View>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image source={require ('../../assets/Icons/BackArrow_icon.png')}
+  <Pressable>
+          <Image source={require ('../assets/Icons/BackArrow_icon.png')}
             style={styles.back_button} />
-        
-          
-
-
-  </TouchableOpacity>
+  </Pressable>
 </View>
 
 
@@ -41,7 +33,7 @@ return (
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}>
-          <Image source={require ('../../assets/Icons/Notification_icon.png')}
+          <Image source={require ('../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle} />
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
           <Text style={styles.buttonTextStyle_day}>Feb 17, 2022</Text>
@@ -52,7 +44,7 @@ return (
 
  <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
-            source={require( '../../assets/Icons/Notification_icon.png')}
+            source={require( '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            
@@ -63,7 +55,7 @@ return (
  
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
-            source={require(  '../../assets/Icons/Notification_icon.png')}
+            source={require(  '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            
@@ -74,7 +66,7 @@ return (
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
-            source={require(  '../../assets/Icons/Notification_icon.png')}
+            source={require(  '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
            

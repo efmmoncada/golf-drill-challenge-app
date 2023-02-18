@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { View, StyleSheet, Dimensions } from "react-native";
+import { View, StyleSheet, Dimensions, Pressable, Image, SafeAreaView} from "react-native";
 import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList"
 import TeamData from "../data/teamData.json";
@@ -10,14 +10,15 @@ const {height, width} = Dimensions.get("window");
 
 export default function Drills() {
 
+
     const [drillData, setDrillData] = useState(TeamData.drills);
 
     return (
          
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Banner text="Drills" image={Fuenmayor} />
             <DrillList listData={drillData} />
-        </View>
+        </SafeAreaView>
     );
 }
 
