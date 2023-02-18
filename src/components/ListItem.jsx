@@ -1,12 +1,17 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, StyleSheet, Text, Pressable } from "react-native";
 
 const ListItem = ({ title, subtext }) => {
   return (
-    <TouchableOpacity style={item.itemContainer}>
+    <Pressable
+      style={item.itemContainer}
+      onPress={() => {
+        //   // Code for email button press goes here
+      }}
+    >
       <Text style={item.title}>{title}</Text>
       <Text style={item.subtext}>{`${subtext.substring(0, 25)}...`}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

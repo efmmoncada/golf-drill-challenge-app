@@ -8,7 +8,7 @@ import TeamInfo from "./TeamInfo";
 export default function DevTest() {
 
     return (
-       <TeamInfo/>
+       <DrillsPlayer/>
     );
 }
 
