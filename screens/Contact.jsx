@@ -36,7 +36,7 @@ export default function Contact() {
           </View>
           <Text style={styles.subtitleWhite}>Phone Number</Text>
           <View style={styles.textContainer}>
-            <Text style={styles.textGrey}>{teamData.players[9].phone}</Text>
+            <Text style={styles.textGrey}>123-456-7890</Text>
           </View>
         </View>
       <StatusBar style="auto" />
