@@ -24,15 +24,16 @@ return (
 
 
 
-<View> 
+<View>
 <Text style={styles.ScreenTitle}>Notifcation</Text>
 </View>
-     
-  
+
+
     <View style={styles.button_icons}>
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}>
+          <Image source={require ('../assets/Icons/Notification_icon.png')}
           <Image source={require ('../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle} />
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
@@ -45,20 +46,22 @@ return (
  <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require( '../assets/Icons/Notification_icon.png')}
+            source={require( '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
           <Text style={styles.buttonTextStyle_day}>Nov 2, 2022</Text>
         </TouchableOpacity>
 
- 
+
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require(  '../assets/Icons/Notification_icon.png')}
+            source={require(  '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
           <Text style={styles.buttonTextStyle_day}>Dec 5, 2022</Text>
         </TouchableOpacity>
@@ -67,9 +70,10 @@ return (
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require(  '../assets/Icons/Notification_icon.png')}
+            source={require(  '../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
           <Text style={styles.buttonTextStyle_day}>Jan 10, 2022</Text>
         </TouchableOpacity>
@@ -79,12 +83,12 @@ return (
 
 
 
-  
- 
+
+
    </SafeAreaView>
 
 );
-} 
+}
 
 
 
@@ -142,7 +146,7 @@ buttonStyle: {
     margin: 15,
     width: 300,
     marginLeft: -100,
-     
+
 },
 
 buttonImageIconStyle: {
@@ -163,7 +167,7 @@ buttonTextStyle: {
 buttonTextStyle_day: {
     marginTop: 40,
     marginLeft: -90,
-    
+
 
 
 

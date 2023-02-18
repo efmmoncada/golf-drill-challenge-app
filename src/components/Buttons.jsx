@@ -126,8 +126,8 @@ export default function Buttons({theme})
 }
 
 const styles = StyleSheet.create({
-  // position the back button on the left top corner.
-    backButtonContainer:{
+    // position the back button on the left top corner.
+    backButtonContainer: {
         backgroundColor: "white",
         padding: 4,
         width: 40,
@@ -138,24 +138,24 @@ const styles = StyleSheet.create({
         marginLeft: 10
     },
     // makes sure the icon is placed in the middle.
-    buttonIcon:{
+    buttonIcon: {
         marginLeft: 2
     },
     // places the button on the top right corner of the screen.
-    generalButton:{
+    generalButton: {
         marginTop: -79,
         marginLeft: 260
     },
-    topLeftPosition:{
-      backgroundColor: "#D73F09",
-      padding: 4,
-      width: 40,
-      height: 40,
-      borderRadius: 30,
-      marginLeft: 350,
-      marginTop: -39
+    topLeftPosition: {
+        backgroundColor: "#D73F09",
+        padding: 4,
+        width: 40,
+        height: 40,
+        borderRadius: 30,
+        marginLeft: 350,
+        marginTop: -39
     },
-    orangeContainer:{
+    orangeContainer: {
         backgroundColor: "#D73F09",
         padding: 4,
         width: 40,
@@ -165,46 +165,52 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 25
     },
-    whiteContainer:{
-      backgroundColor: "white",
-      padding: 4,
-      width: 75,
-      height: 75,
-      borderRadius: 5,
-      flexDirection: 'row',
-      marginTop: 0,
-      marginLeft: 35
-  },
-    adjustment:{
-      marginLeft: 4
+    whiteContainer: {
+        backgroundColor: "white",
+        padding: 4,
+        width: 75,
+        height: 75,
+        borderRadius: 5,
+        flexDirection: 'row',
+        marginTop: 0,
+        marginLeft: 35
     },
-    adjustmentWhiteContainer:{
-      marginTop: 10,
-      marginLeft: 12
+    adjustment: {
+        marginLeft: 4
     },
-    blackMiddleContainer:{
-      alignItems: 'center',
-      backgroundColor: "black",
-      padding: 6,
-      marginLeft: 175,
-      marginTop: 20,
-      width: 80,
-      borderRadius: 4,
+    adjustmentWhiteContainer: {
+        marginTop: 10,
+        marginLeft: 12
     },
-    whiteText:{
-      color: 'white',
-      fontSize: 20,
-      fontFamily: 'Karma'
+    blackMiddleContainer: {
+        alignItems: 'center',
+        backgroundColor: "black",
+        padding: 6,
+        marginLeft: 175,
+        marginTop: 20,
+        width: 80,
+        borderRadius: 4,
     },
-    cornerText:{
-      color: '#F6F3F3',
-      fontSize: 23,
-      fontFamily: 'Karma'
+    whiteText: {
+        color: 'white',
+        fontSize: 20,
+        fontFamily: 'Karma'
     },
-    topLeftNeutral:{
-      marginTop: -30,
-      padding: 4,
-      width: 65,
-      marginLeft: 350
+    cornerText: {
+        color: '#F6F3F3',
+        fontSize: 23,
+        fontFamily: 'Karma'
+    },
+    topLeftNeutral: {
+        marginTop: -30,
+        padding: 4,
+        width: 65,
+        marginLeft: 350
+    },
+    topRight: {
+        marginTop: -60,
+        padding: 4,
+        width: 65,
+        marginLeft: 330
     }
 })

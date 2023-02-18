@@ -1,17 +1,12 @@
 import React from "react";
-import { TouchableOpacity, StyleSheet, Text, Pressable } from "react-native";
+import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
-const ListItem = ({ title, subtext }) => {
+const DrillItem = ({ title, subtext }) => {
   return (
-    <Pressable
-      style={item.itemContainer}
-      onPress={() => {
-        //   // Code for email button press goes here
-      }}
-    >
+    <TouchableOpacity style={item.itemContainer}>
       <Text style={item.title}>{title}</Text>
-      <Text style={item.subtext}>{`${subtext.substring(0, 25)}...`}</Text>
-    </Pressable>
+      <Text style={item.subtext}>{subtext}</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -35,4 +30,4 @@ const item = StyleSheet.create({
   },
 });
 
-export default ListItem;
+export default DrillItem;
