@@ -4,6 +4,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import TeamList from "../src/components/TeamList";
 import TeamData from "../data/teamData.json";
+import TeamInfo from "../assets/teamInfo.jpg";
 
 export default function DrillsPlayer() {
   const [playersInfo, setPlayersInfo] = useState(TeamData.players);
@@ -19,7 +20,7 @@ export default function DrillsPlayer() {
 
   return (
     <View style={styles.container}>
-      <Banner />
+      <Banner text="Team Info" image={TeamInfo} themeOne="back"/>
 
       <View style={styles.drills}>
         <Text style={styles.header}>{value}</Text>

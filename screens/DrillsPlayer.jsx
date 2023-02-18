@@ -4,6 +4,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import TeamData from "../data/teamData.json";
+import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 
 export default function DrillsPlayer() {
   const [assignedIds, setAssignedIds] = useState(
@@ -23,7 +24,7 @@ export default function DrillsPlayer() {
 
   return (
     <View style={styles.container}>
-      <Banner />
+      <Banner text="Drills" image={Fuenmayor} themeOne="back" />
 
       <View style={styles.drills}>
         <Text style={styles.header}>{value}</Text>
@@ -48,7 +49,7 @@ export default function DrillsPlayer() {
         {value === "Assigned" ? (
           <DrillList listData={assignedDrills} />
         ) : (
-          <DrillList listData={assignedDrills} />
+          <DrillList listData={drillData} />
         )}
       </View>
     </View>
