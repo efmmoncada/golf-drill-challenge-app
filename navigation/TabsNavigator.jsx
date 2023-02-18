@@ -10,6 +10,7 @@ import HomeScreen from "../screens/Home";
 import createDrillTest from "../screens/CreateDrill";
 import Notification from "../screens/Notification";
 import { NavigationContainer } from "@react-navigation/native";
+import CreateDrill from "../screens/CreateDrill";
 
 //Screen names
 const homeName = "Home2";
@@ -55,6 +56,8 @@ export default function TabsNavigator() {
       <Tabs.Screen name="Notification" component={Notification} />
 
       <Tabs.Screen name="Settings" component={Settings} />
+      <Tabs.Screen name="Create" component={CreateDrill} />
+      <Tabs.Screen name="Dev" component={DevTest} />
     </Tabs.Navigator>
   );
 }

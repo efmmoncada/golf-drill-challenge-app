@@ -9,7 +9,7 @@ import createDrill from "../assets/createDrill.jpg";
 
 const {width, height} = Dimensions.get('window')
 
-export default function CreateDrillTest() {
+export default function CreateDrill() {
   const [text, onChange] = useState('');
   const [selected, setSelected] = useState("")
   const [loaded] = useFonts({
@@ -22,11 +22,11 @@ export default function CreateDrillTest() {
   ]
 
   if(!loaded)
-  { 
+  {
     return null;
   }
 
-  // loading data for type dropdown menu. 
+  // loading data for type dropdown menu.
 
   return (
     <View style={styles.container}>
@@ -37,7 +37,7 @@ export default function CreateDrillTest() {
         save="value"
         search={false}
         fontFamily='Karma'
-        boxStyles={{ width: width * 0.85, 
+        boxStyles={{ width: width * 0.85,
         height: height * 0.04,
         backgroundColor: '#F0E8E8',
         borderRadius: 10,
@@ -51,7 +51,7 @@ export default function CreateDrillTest() {
         borderColor: '#F0E8E8'
         }}
         dropdownStyles={{
-          width: width * 0.85, 
+          width: width * 0.85,
         height: height * 0.10,
         backgroundColor: '#e6e9ed',
         borderRadius: 10,
@@ -64,22 +64,22 @@ export default function CreateDrillTest() {
         borderColor: '#e6e9ed'
         }}
         label="Type"/>
-      <TextInput 
+      <TextInput
         style={styles.textContainer}
         onChange={onChange}
         placeholder="Name"
         value={text}
       />
-      <TextInput 
+      <TextInput
         style={styles.textContainer}
         onChange={onChange}
         placeholder="Duration"
         value={text}
       />
-      <TextInput 
+      <TextInput
         style={styles.textContainer2}
         onChange={onChange}
-        multiline 
+        multiline
         placeholder="Description"
         value={text}
       />
