@@ -13,8 +13,8 @@ export default function HomeScreen({navigation}) {
 return (
 
 //osu logo
-<SafeAreaView style = {styles.container}> 
- 
+<SafeAreaView style = {styles.container}>
+
 <View>
   <Pressable>
           <Image source={require ('../assets/Icons/BackArrow_icon.png')}
@@ -33,7 +33,6 @@ return (
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}>
-          <Image source={require ('../assets/Icons/Notification_icon.png')}
           <Image source={require ('../assets/Icons/Notification_icon.png')}
             style={styles.buttonImageIconStyle} />
           <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>

@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
-import ListItem from "./ListItem";
+import DrillItem from "./DrillItem";
 
 const TeamList = ({ listData }) => {
   return (

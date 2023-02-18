@@ -1,11 +1,7 @@
 import React from "react";
-<<<<<<< Updated upstream
-import { FlatList, StyleSheet, View, Text } from "react-native";
-import ListItem from "./ListItem";
-=======
 import { FlatList, StyleSheet, View } from "react-native";
 import DrillItem from "./DrillItem";
->>>>>>> Stashed changes
+
 
 const DrillList = ({ listData }) => {
   return (

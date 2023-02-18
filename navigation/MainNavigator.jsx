@@ -9,6 +9,8 @@ import  Player from '../screens/Player'
 import Coach from '../screens/Coach'
 import Home from '../screens/Home'
 import Drills  from '../screens/Drills'
+import PlayerProgress from '../screens/PlayerProgress';
+import Leaderboard from '../screens/Leaderboard';
 
 const AppStack = createStackNavigator();
 export default function Navigator(){
@@ -22,6 +24,8 @@ export default function Navigator(){
     <AppStack.Screen name="Coach" component={Coach} />
     <AppStack.Screen name="Home" component={TabsNavigator} />
     <AppStack.Screen name="Drills" component={Drills} />
+    <AppStack.Screen name="PlayerProgress" component={PlayerProgress} />
+    <AppStack.Screen name="Leaderboard" component={Leaderboard} />
     </AppStack.Navigator>
 
     </NavigationContainer>

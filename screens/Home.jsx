@@ -14,64 +14,76 @@ export default function HomeScreen() {
   function navigateToDrills() {
     navigation.navigate("Drills");
   }
+  function navigateToProgress() {
+    navigation.navigate("PlayerProgress");
+  }
+  function navigateToLeader() {
+    navigation.navigate("Leaderboard");
+  }
 
 return (
 
 //osu logo
-<SafeAreaView style = {styles.container}> 
+<SafeAreaView style = {styles.container}>
 <Buttons theme="backHome" style={styles.backHome}/>
-<ImageBackground 
+<ImageBackground
   source={require ('../assets/images/OSU_img_logo.png')}
   style = {styles.OSU_image}>
-  
 
-   
+
+
   <View>
-    <Image 
+    <Image
      source={require ('../assets/images/OSU_logo.png')}
       style = {styles.OSU_logo}
     />
     </View>
 
 
-  
+
     <View style={styles.button_icons}>
         <Pressable
           style={styles.buttonStyle}
           onPress={() => {
             navigateToDrills()
-            }}> 
+            }}>
           <Image source={require ('../assets/Icons/Practice_Drill_icon.png')}
             style={styles.buttonImageIconStyle} />
           <Text style={styles.buttonTextStyle}>Practice Drill</Text>
        </Pressable>
 
 
-       <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
+       <Pressable style={styles.buttonStyle}
+       onPress={() => {
+        navigateToProgress()
+        }}>
           <Image
             source={require( '../assets/Icons/Drill_Progress_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>Drill Progress</Text>
        </Pressable>
 
- 
+
       {/* <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require(  '../assets/Icons/Course_Map_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>Course Map</Text>
           </Pressable> */}
 
-        <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
+        <Pressable style={styles.buttonStyle}
+        onPress={() => {
+            navigateToLeader()
+            }}>
           <Image
             source={require(  '../assets/Icons/Leaderboard_icon.png')}
             style={styles.buttonImageIconStyle}
           />
-           
+
           <Text style={styles.buttonTextStyle}>Leaderboard</Text>
         </Pressable>
 
@@ -81,7 +93,7 @@ return (
    </SafeAreaView>
 
 );
-} 
+}
 
 
 
@@ -109,7 +121,7 @@ OSU_logo: {
   marginLeft: -4,
 
 
-}, 
+},
 
 //the group of buttons arrangment
 button_icons: {
@@ -131,7 +143,7 @@ buttonStyle: {
     margin: 15,
     width: 300,
     marginLeft: -100,
-     
+
 },
 
 buttonImageIconStyle: {
