@@ -2,7 +2,6 @@ import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 import DrillItem from "./DrillItem";
 
-
 const DrillList = ({ listData }) => {
   return (
     <>
@@ -16,9 +15,5 @@ const DrillList = ({ listData }) => {
     </>
   );
 };
-
-const drills = StyleSheet.create({
-
-});
 
 export default DrillList;

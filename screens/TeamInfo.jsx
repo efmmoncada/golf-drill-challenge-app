@@ -20,7 +20,7 @@ export default function DrillsPlayer() {
 
   return (
     <View style={styles.container}>
-      <Banner text="Team Info" image={TeamInfo} themeOne="back"/>
+      <Banner text="Team Info" image={TeamInfo} themeOne="back" />
 
       <View style={styles.drills}>
         <Text style={styles.header}>{value}</Text>

@@ -21,30 +21,38 @@ const notifcationName = "Notification";
 
 const Tabs = createBottomTabNavigator();
 
+const iconMap = {
+  [homeName]: {
+    focused: "home",
+    default: "home-outline",
+  },
+  [notifcationName]: {
+    focused: "notifications",
+    default: "notifications-outline",
+  },
+  [profileName]: {
+    focused: "person",
+    default: "person-circle-outline",
+  },
+  [settingsName]: {
+    focused: "settings",
+    default: "settings-outline",
+  },
+};
+
 export default function TabsNavigator() {
   return (
     <Tabs.Navigator
       initialRouteName={homeName} // correct spelling
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
-          let rn = route.name;
-          if (rn === homeName) {
-            iconName = focused ? "home" : "home-outline";
-          } else if (rn === notifcationName) {
-            iconName = focused ? "notifications" : "notifications-outline";
-          } else if (rn === profileName) {
-            iconName = focused ? "person" : "person-circle-outline";
-          } else if (rn === settingsName) {
-            iconName = focused ? "settings" : "settings-outline";
-          }
-
-          //  <ion-icon name="settings-outline"></ion-icon>
+          const iconName =
+            iconMap[route.name]?.[focused ? "focused" : "default"] ||
+            "bug-outline";
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
     >
-      <Tabs.Screen name="Profile" component={Profile} />
 
       <Tabs.Screen
         name={homeName}
@@ -53,10 +61,11 @@ export default function TabsNavigator() {
           headerShown: false,
         }}
       />
+      <Tabs.Screen name={profileName} component={Profile} />
 
-      <Tabs.Screen name="Notification" component={Notification} />
+      <Tabs.Screen name={notifcationName} component={Notification} />
 
-      <Tabs.Screen name="Settings" component={Settings} />
+      <Tabs.Screen name={settingsName} component={Settings} />
       <Tabs.Screen name="Create" component={CreateDrill} />
       <Tabs.Screen name="Contact" component={Contact} />
       <Tabs.Screen name="Dev" component={DevTest} />
