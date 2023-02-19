@@ -53,7 +53,6 @@ export default function TabsNavigator() {
         },
       })}
     >
-
       <Tabs.Screen
         name={homeName}
         component={HomeScreen}
