@@ -8,47 +8,71 @@ import {
   TextInput,
   SafeAreaView,
 } from "react-native";
-import { useState } from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useQuery } from "@tanstack/react-query";
+import { db } from "../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+
 import { useFonts } from "expo-font";
-import * as ImagePicker from "expo-image-picker";
 
 import Buttons from "../src/components/Buttons";
 
 const bennyProfilePic = require("../assets/images/bennyprofpic.png");
 
-export default function Profile() {
+/**
+ *
+ * @param {object} props
+ * @param {string} props.userID
+ */
+export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
   });
 
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["userData", userID],
+    queryFn: async () => {
+      const data = await getDoc(doc(db, "players", userID));
+      if (!data.exists()) throw new Error("Could not fetch player data");
+      return data.data();
+    },
+  });
+
+  if (isLoading) return <Text>Player Data is Loading...</Text>;
+
+  if (isError)
+    return (
+      <Text>Error occured while fetching player data: {error.message}</Text>
+    );
+
+  const { firstName, lastName, email, assignedDrills } = data;
+
   return (
-    loaded && (
-      <View style={styles.container}>
-        <View style={styles.profileContainer}>
-          <Buttons theme="backOrange" style={styles.backButton} />
-          <Buttons theme="editButton" />
-          <View style={styles.pictureContainer}>
-            <Image source={bennyProfilePic} style={styles.profileImage} />
-            <Text style={styles.title}>Benny Beaver</Text>
-            <Text style={styles.subtitle}>Player</Text>
-          </View>
+    <View style={styles.container}>
+      <View style={styles.profileContainer}>
+        <Buttons theme="backOrange" style={styles.backButton} />
+        <Buttons theme="editButton" />
+        <View style={styles.pictureContainer}>
+          <Image source={bennyProfilePic} style={styles.profileImage} />
+          <Text style={styles.title}>
+            {firstName} {lastName}
+          </Text>
+          <Text style={styles.subtitle}>Player</Text>
         </View>
-        <View style={styles.mainContainer}>
-          <Text style={styles.subtitleWhite}>Email</Text>
-          <View style={styles.textContainer}>
-            <Text style={styles.textGrey}>bennythebeaver@oregonstate.edu</Text>
-          </View>
-          <Pressable
-            style={styles.whiteButton}
-            onPress={() => alert("You pressed the reset password button")}
-          >
-            <Text style={styles.subtitleGrey}>Reset your password</Text>
-          </Pressable>
-        </View>
-        <StatusBar style="auto" />
       </View>
-    )
+      <View style={styles.mainContainer}>
+        <Text style={styles.subtitleWhite}>Email</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.textGrey}>{email}</Text>
+        </View>
+        <Pressable
+          style={styles.whiteButton}
+          onPress={() => alert("You pressed the reset password button")}
+        >
+          <Text style={styles.subtitleGrey}>Reset your password</Text>
+        </Pressable>
+      </View>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
