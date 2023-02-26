@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
+<<<<<<< Updated upstream
 import { useNavigation } from "@react-navigation/native";
 
 //for players home screen
@@ -36,6 +37,61 @@ export default function HomeScreen({ navigation }) {
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
             source={require("../assets/Icons/Notification_icon.png")}
+=======
+
+ 
+
+
+//for players home screen
+
+export default function HomeScreen( {navigation}) {
+
+    
+
+
+return (
+
+//osu logo
+<SafeAreaView style = {styles.container}> 
+ 
+
+ 
+
+<View>
+        <TouchableOpacity activeOpacity={0.5}>
+          <Image source={require ('../assets/Icons/BackArrow_icon.png')}
+            style={styles.back_button} />
+        
+          
+
+
+  </TouchableOpacity>
+</View>
+
+
+
+<View> 
+<Text style={styles.ScreenTitle}>Notifcation</Text>
+</View>
+     
+  
+    <View style={styles.button_icons}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}>
+          <Image source={require ('../assets/Icons/Notification_icon.png')}
+            style={styles.buttonImageIconStyle} />
+          <Text style={styles.buttonTextStyle}>A new Drill has been assigned</Text>
+          <Text style={styles.buttonTextStyle_day}>Feb 17, 2022</Text>
+
+
+  </TouchableOpacity>
+
+
+ <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+          <Image
+            source={require( '../assets/Icons/Notification_icon.png')}
+>>>>>>> Stashed changes
             style={styles.buttonImageIconStyle}
           />
           <Text style={styles.buttonTextStyle}>
@@ -58,7 +114,11 @@ export default function HomeScreen({ navigation }) {
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
+<<<<<<< Updated upstream
             source={require("../assets/Icons/Notification_icon.png")}
+=======
+            source={require(  '../assets/Icons/Notification_icon.png')}
+>>>>>>> Stashed changes
             style={styles.buttonImageIconStyle}
           />
 
@@ -70,7 +130,11 @@ export default function HomeScreen({ navigation }) {
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
           <Image
+<<<<<<< Updated upstream
             source={require("../assets/Icons/Notification_icon.png")}
+=======
+            source={require(  '../assets/Icons/Notification_icon.png')}
+>>>>>>> Stashed changes
             style={styles.buttonImageIconStyle}
           />
 
@@ -79,10 +143,23 @@ export default function HomeScreen({ navigation }) {
           </Text>
           <Text style={styles.buttonTextStyle_day}>Jan 10, 2022</Text>
         </TouchableOpacity>
+<<<<<<< Updated upstream
       </View>
     </SafeAreaView>
   );
 }
+=======
+
+  </View>
+
+
+   </SafeAreaView>
+
+);
+} 
+
+
+>>>>>>> Stashed changes
 
 const styles = StyleSheet.create({
   container: {

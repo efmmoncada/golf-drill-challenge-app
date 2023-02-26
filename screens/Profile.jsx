@@ -7,6 +7,7 @@ import {
   Image,
   TextInput,
   SafeAreaView,
+  TouchableOpacity
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -24,7 +25,19 @@ export default function Profile() {
 
   return (
     loaded && (
+      
+      
+      
       <View style={styles.container}>
+        <Text style={styles.title}> </Text>
+      <View>
+
+
+     
+
+</View>
+
+
         <View style={styles.profileContainer}>
           <Buttons theme="backOrange" style={styles.backButton} />
           <Buttons theme="editButton" />
@@ -45,6 +58,9 @@ export default function Profile() {
           >
             <Text style={styles.subtitleGrey}>Reset your password</Text>
           </Pressable>
+       
+         
+
         </View>
         <StatusBar style="auto" />
       </View>
@@ -57,6 +73,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#D73F09",
   },
+  
+
   profileContainer: {
     paddingTop: 50,
     backgroundColor: "#F0E8E8",

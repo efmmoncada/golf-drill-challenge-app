@@ -5,6 +5,7 @@ import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import TeamData from "../data/teamData.json";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
+import Headers from "../src/components/Headers";
 
 export default function DrillsPlayer() {
   const [assignedIds, setAssignedIds] = useState(
@@ -24,6 +25,7 @@ export default function DrillsPlayer() {
 
   return (
     <View style={styles.container}>
+        
       <Banner text="Drills" image={Fuenmayor} themeOne="back" />
 
       <View style={styles.drills}>
