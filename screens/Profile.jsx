@@ -5,13 +5,14 @@ import {
   Text,
   View,
   Image,
-  TextInput,
-  SafeAreaView,
+  Dimensions
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import * as ImagePicker from "expo-image-picker";
+
+const { width, height } = Dimensions.get("window");
 
 import Buttons from "../src/components/Buttons";
 
@@ -58,13 +59,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#D73F09",
   },
   profileContainer: {
-    paddingTop: 50,
+    paddingTop: height * 0.06,
     backgroundColor: "#F0E8E8",
-    height: 300,
+    height: height * 0.31,
   },
   normalText: {
     color: "#767170",
-    marginLeft: 34,
+    marginLeft: width * 0.01,
     marginBottom: 12,
     fontSize: 25,
     fontFamily: "Karma",
@@ -87,8 +88,8 @@ const styles = StyleSheet.create({
     fontFamily: "Karma",
   },
   textContainer: {
-    width: 360,
-    height: 35,
+    width: width * 0.83,
+    height: height * 0.04,
     backgroundColor: "#F0E8E8",
     borderRadius: 10,
     paddingLeft: 15,
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
   },
   profileImage: {
     borderRadius: 60,
-    width: 125,
-    height: 125,
+    width: width * 0.28,
+    height: height * 0.13,
   },
   pictureContainer: {
     flex: 1,
@@ -112,19 +113,21 @@ const styles = StyleSheet.create({
     paddingRight: 1,
   },
   mainContainer: {
-    paddingLeft: 30,
-    paddingTop: 20,
-    paddingBottom: 40,
-    paddingRight: 30,
+    paddingLeft: width * 0.07,
+    paddingTop: height * 0.02,
+    paddingBottom: height * 0.04,
+    paddingRight: width * 0.07,
   },
   whiteButton: {
-    width: 370,
+    width: width * 0.8,
+    marginLeft: width * 0.02,
     backgroundColor: "#F0E8E8",
     alignItems: "center",
     height: 40,
     borderRadius: 10,
-    paddingTop: 7,
-    marginTop: 460,
+    marginTop: height * 0.43,
+    marginBottom: height * 0.2,
+    paddingTop: height * 0.008
   },
   subtitleGrey: {
     color: "#767170",

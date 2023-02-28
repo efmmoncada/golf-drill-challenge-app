@@ -8,6 +8,7 @@ import {
   Image,
   Pressable,
   SafeAreaView,
+  Dimensions
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -16,6 +17,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 
 import Buttons from "../src/components/Buttons";
+const { width, height } = Dimensions.get("window");
 
 export default function Player() {
   const [loaded] = useFonts({
@@ -40,7 +42,7 @@ export default function Player() {
             <Image
               source={require("../assets/images/player.png")}
               resizeMode="contain"
-              style={{ width: 150, height: 150 }}
+              style={{ width: width * 0.4, height: height * 0.16 }}
             />
           </View>
         </View>
@@ -87,13 +89,13 @@ export default function Player() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: height * 0.07,
     backgroundColor: "#F0E8E8",
   },
   titleContainer: {
-    paddingTop: 100,
+    paddingTop: height * 0.093,
     backgroundColor: "#F0E8E8",
-    height: 170,
+    height: height * 0.155,
     alignItems: "center",
   },
   titleFont: {
@@ -103,10 +105,10 @@ const styles = StyleSheet.create({
   },
   selectContainer: {
     flexDirection: "row",
-    paddingLeft: 40,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 40,
+    paddingLeft: width * 0.07,
+    paddingTop: height * 0.01,
+    paddingBottom: height * 0.01,
+    paddingRight: width * 0.07,
     alignItems: "center",
   },
   imagepl: {
@@ -117,34 +119,34 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flexDirection: "row",
-    marginLeft: 100,
-    marginRight: 80,
+    marginLeft: width * 0.3,
+    marginRight: width * 0.3,
     alignItems: "center",
   },
   buttonContainer: {
-    paddingLeft: 30,
-    paddingTop: 60,
-    paddingBottom: 40,
-    paddingRight: 30,
+    paddingLeft: width * 0.07,
+    paddingTop: height * 0.04,
+    paddingBottom: height * 0.05,
+    paddingRight: width * 0.07,
   },
   regButton: {
-    width: 370,
+    width: width * 0.85,
     backgroundColor: "#E9E2E2",
     alignItems: "left",
-    height: 50,
+    height: height * 0.05,
     borderRadius: 12,
     paddingTop: 13,
     marginTop: 10,
   },
   loginButton: {
-    marginLeft: 80,
-    width: 200,
+    marginLeft: width * 0.19,
+    width: width * 0.48,
     backgroundColor: "#D73F09",
     alignItems: "center",
-    height: 60,
+    height: height * 0.06,
     borderRadius: 16,
     paddingTop: 10,
-    marginTop: 80,
+    marginTop: height * 0.1,
   },
   buttonFont: {
     marginLeft: 20,

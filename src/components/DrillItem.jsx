@@ -23,10 +23,12 @@ const item = StyleSheet.create({
   title: {
     fontSize: 24,
     color: "#767170",
+    fontFamily: "Karma"
   },
   subtext: {
-    fontSize: 14,
+    fontSize: 16,
     color: "#767170",
+    fontFamily: "Karma"
   },
 });
 

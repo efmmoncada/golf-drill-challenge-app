@@ -2,6 +2,13 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+
+
+/**
+ *
+ * @param {string} props.theme
+ * 
+ */
 export default function Buttons({ theme }) {
   const navigation = useNavigation();
   // if button is "back", then output a back button.

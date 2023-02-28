@@ -19,7 +19,7 @@ export default function Drills() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Banner text="Drills" image={Fuenmayor} />
+      <Banner text="Drills" image={Fuenmayor} themeOne="back"/>
       <DrillList listData={drillData} />
     </SafeAreaView>
   );

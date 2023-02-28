@@ -6,12 +6,15 @@ import {
   StyleSheet,
   Image,
   Pressable,
+  Dimensions
 } from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
 import Buttons from "../src/components/Buttons";
 import { useNavigation } from "@react-navigation/native";
+import Icons from "../src/components/Icons"
+const { width, height } = Dimensions.get("window");
 
 //for players home screen
 
@@ -36,13 +39,7 @@ export default function HomeScreen() {
         source={require("../assets/images/OSU_img_logo.png")}
         style={styles.OSU_image}
       >
-        <View>
-          <Image
-            source={require("../assets/images/OSU_logo.png")}
-            style={styles.OSU_logo}
-          />
-        </View>
-
+        <Icons theme="OSUlogo"/>
         <View style={styles.button_icons}>
           <Pressable
             style={styles.buttonStyle}
@@ -50,10 +47,7 @@ export default function HomeScreen() {
               navigateToDrills();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Practice_Drill_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+            <Icons theme="practiceDrill"/>
             <Text style={styles.buttonTextStyle}>Practice Drill</Text>
           </Pressable>
 
@@ -63,22 +57,9 @@ export default function HomeScreen() {
               navigateToProgress();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Drill_Progress_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
-
+            <Icons theme="drillProgress"/>
             <Text style={styles.buttonTextStyle}>Drill Progress</Text>
           </Pressable>
-
-          {/* <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require(  '../assets/Icons/Course_Map_icon.png')}
-            style={styles.buttonImageIconStyle}
-          />
-
-          <Text style={styles.buttonTextStyle}>Course Map</Text>
-          </Pressable> */}
 
           <Pressable
             style={styles.buttonStyle}
@@ -86,11 +67,7 @@ export default function HomeScreen() {
               navigateToLeader();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Leaderboard_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
-
+            <Icons theme="leaderboard"/>
             <Text style={styles.buttonTextStyle}>Leaderboard</Text>
           </Pressable>
         </View>
@@ -104,30 +81,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#DB5525",
+    backgroundColor: "#D73F09",
   },
   OSU_image: {
     flex: 1,
-    width: 160,
-    height: 160,
+    width: (width * 0.4),
+    height: (height * 0.19),
     marginTop: 13,
     marginLeft: 25,
     marginRight: 25,
-  },
-
-  OSU_logo: {
-    width: 183,
-    height: 183,
-    marginTop: 93,
-    marginLeft: -4,
   },
 
   //the group of buttons arrangment
   button_icons: {
     flex: 1,
     margin: 0,
-    marginTop: -60,
-    padding: 30,
+    marginTop: -(height * 0.05),
+    padding: width * 0.07,
   },
 
   buttonStyle: {
@@ -136,23 +106,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 0.5,
     borderColor: "#fff",
-    height: 65,
+    height: height * 0.07,
     borderRadius: 10,
-    margin: 15,
-    width: 300,
-    marginLeft: -100,
-  },
-
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
-    resizeMode: "stretch",
+    margin: width * 0.02,
+    width: (width * 0.70),
+    marginLeft: -(width * 0.23),
   },
   buttonTextStyle: {
-    color: "black",
+    color: "#767170",
     marginBottom: 4,
-    marginLeft: 10,
+    marginLeft: (width * 0.05),
+    marginTop: (height * 0.01),
+    fontFamily: "Karma",
+    fontSize: 22,
   },
 });

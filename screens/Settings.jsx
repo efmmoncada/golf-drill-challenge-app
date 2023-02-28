@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Pressable, Text, View } from "react-native";
+import { StyleSheet, Pressable, Text, View, Dimensions} from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { useNavigation } from "@react-navigation/native";
 
 import Buttons from "../src/components/Buttons";
+const { width, height } = Dimensions.get("window");
 
 export default function Settings() {
   const [loaded] = useFonts({
@@ -58,16 +59,16 @@ const styles = StyleSheet.create({
   },
   normalText: {
     color: "#F6F3F3",
-    marginLeft: 34,
+    marginLeft: (width * 0.08),
     marginBottom: 12,
     fontSize: 25,
     fontFamily: "Karma",
   },
   title: {
     color: "#F6F3F3",
-    marginBottom: 30,
-    marginTop: 80,
-    marginLeft: 25,
+    marginBottom: height * 0.03,
+    marginTop: height * 0.1,
+    marginLeft: width * 0.06,
     fontSize: 45,
     fontFamily: "Karma",
   },

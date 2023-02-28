@@ -40,7 +40,7 @@ export default function Drill({
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
         <View style={styles.media}>
-          <ImageCarrousel images={media} width={width * 0.9} />
+          <ImageCarrousel images={media} width={width * 0.8} />
         </View>
 
         <Text style={styles.description}>{description}</Text>
@@ -49,7 +49,7 @@ export default function Drill({
           style={styles.button}
           onPress={() => console.log("input score button pressed")}
         >
-          <Text>Input Score</Text>
+          <Text style={styles.inputText}>Input Score</Text>
         </Pressable>
       </ScrollView>
     </View>
@@ -65,19 +65,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   media: {
-    marginTop: 20,
-    height: height * 0.35,
-    width: width * 0.9,
+    marginTop: height * 0.04,
+    height: height * 0.30,
+    width: width * 0.8,
+    borderRadius: 10,
   },
   description: {
     textAlign: "center",
     margin: 30,
+    fontFamily: "Karma",
+    color: "white",
+    fontSize: 15
   },
   button: {
     flex: 1,
     backgroundColor: "#fff",
     padding: 20,
     borderRadius: 10,
-    marginBottom: 80,
+    marginBottom: height * 0.04,
   },
+  inputText: {
+    fontFamily: "Karma"
+  }
 });

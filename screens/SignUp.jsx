@@ -8,13 +8,16 @@ import {
   Image,
   Pressable,
   SafeAreaView,
+  Dimensions
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import * as ImagePicker from "expo-image-picker";
+import Icons from "../src/components/Icons"
 
 import Buttons from "../src/components/Buttons";
+const { width, height } = Dimensions.get("window");
 
 export default function SignUp() {
   const [loaded] = useFonts({
@@ -32,19 +35,11 @@ export default function SignUp() {
           <Text style={styles.selectFont}>I am a..</Text>
         </View>
         <View style={styles.selectContainer}>
-          <View style={styles.imagepl}>
-            <Image
-              source={require("../assets/images/coach.png")}
-              resizeMode="contain"
-              style={{ width: 90, height: 90 }}
-            />
+        <View style={styles.imageco}>
+            <Icons theme="player"/>
           </View>
-          <View style={styles.imageco}>
-            <Image
-              source={require("../assets/images/player.png")}
-              resizeMode="contain"
-              style={{ width: 90, height: 90 }}
-            />
+          <View style={styles.imagepl}>
+            <Icons theme="coach"/>
           </View>
         </View>
         <View style={styles.textContainer}>
@@ -103,13 +98,13 @@ export default function SignUp() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: height * 0.07,
     backgroundColor: "#F0E8E8",
   },
   titleContainer: {
-    paddingTop: 50,
+    paddingTop: height * 0.05,
     backgroundColor: "#F0E8E8",
-    height: 220,
+    height: height * 0.2,
     alignItems: "center",
   },
   titleFont: {
@@ -120,15 +115,15 @@ const styles = StyleSheet.create({
   selectFont: {
     color: "#D73F09",
     fontSize: 20,
-    paddingTop: 60,
+    paddingTop: height * 0.04,
     fontFamily: "Karma",
   },
   selectContainer: {
     flexDirection: "row",
-    paddingLeft: 40,
-    paddingTop: 10,
-    paddingBottom: 10,
-    paddingRight: 40,
+    paddingLeft: width * 0.09,
+    paddingTop: height * 0.015,
+    paddingBottom: height * 0.015,
+    paddingRight: width * 0.09,
     alignItems: "center",
   },
   imagepl: {
@@ -145,7 +140,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flexDirection: "row",
-    marginLeft: 100,
+    marginLeft: width * 0.25,
     marginRight: 80,
     alignItems: "center",
   },
@@ -157,7 +152,7 @@ const styles = StyleSheet.create({
     position: "relative",
     alignItems: "center",
     justifyContent: "center",
-    paddingRight: 120,
+    paddingRight: width * 0.24,
   },
   coachText: {
     flex: 1,
@@ -175,26 +170,26 @@ const styles = StyleSheet.create({
     paddingRight: 30,
   },
   regButton: {
-    width: 370,
+    width: width * 0.85,
     backgroundColor: "#E9E2E2",
     alignItems: "left",
-    height: 50,
+    height: height * 0.05,
     borderRadius: 12,
     paddingTop: 13,
     marginTop: 10,
   },
   createButton: {
     marginLeft: 50,
-    width: 270,
+    width: width * 0.62,
     backgroundColor: "#D73F09",
     alignItems: "center",
-    height: 50,
+    height: height * 0.05,
     borderRadius: 12,
     paddingTop: 10,
     marginTop: 50,
   },
   buttonFont: {
-    marginLeft: 20,
+    marginLeft: width * 0.04,
     color: "#767170",
     fontSize: 18,
     fontFamily: "Karma",

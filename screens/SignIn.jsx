@@ -8,6 +8,7 @@ import {
   Image,
   Pressable,
   SafeAreaView,
+  Dimensions
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -16,6 +17,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 
 import Buttons from "../src/components/Buttons";
+const { width, height } = Dimensions.get("window");
 
 export default function SignIn() {
   const [loaded] = useFonts({
@@ -41,7 +43,7 @@ export default function SignIn() {
             <Image
               source={require("../assets/images/main.png")}
               resizeMode="contain"
-              style={{ width: 80, height: 80 }}
+              style={{ width: width * 0.2, height: height * 0.09}}
             />
           </View>
         </View>
@@ -83,7 +85,7 @@ export default function SignIn() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: height * 0.05,
     backgroundColor: "#F0E8E8",
   },
   titleContainer: {
@@ -99,10 +101,9 @@ const styles = StyleSheet.create({
   },
   selectContainer: {
     flexDirection: "row",
-    paddingLeft: 40,
-    paddingTop: 200,
-    paddingBottom: 0,
-    paddingRight: 40,
+    paddingLeft: width * 0.09,
+    paddingTop: height * 0.2,
+    paddingRight: width * 0.05,
     alignItems: "center",
   },
   imageco: {
@@ -111,26 +112,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textContainer: {
-    flexDirection: "row",
-    marginLeft: 100,
-    marginRight: 80,
-    alignItems: "center",
-  },
   buttonContainer: {
     alignItems: "center",
     justifyContent: "center",
-    paddingLeft: 24,
-    paddingTop: 10,
-    paddingBottom: 40,
-    paddingRight: 30,
+    paddingLeft: width * 0.1,
+    paddingTop: height * 0.01,
+    paddingBottom: height * 0.3,
+    paddingRight: width * 0.1,
   },
   regButton: {
-    width: 180,
-    backgroundColor: "#F0E8E8",
+    width: width * 0.7,
+    backgroundColor: "#E9E2E2",
     alignItems: "center",
     justifyContent: "center",
-    height: 50,
+    height: height * 0.06,
     borderRadius: 12,
     paddingTop: 8,
     marginTop: 10,
@@ -141,14 +136,14 @@ const styles = StyleSheet.create({
     fontFamily: "Karma",
   },
   buttonFont2: {
-    marginLeft: -140,
+    marginLeft: -width * 0.33,
     paddingTop: 20,
     color: "#767170",
     fontSize: 14,
     fontFamily: "Karma",
   },
   buttonFont3: {
-    marginLeft: -210,
+    marginLeft: -width * 0.49,
     paddingTop: 20,
     color: "#D73F09",
     fontSize: 22,

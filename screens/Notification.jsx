@@ -6,79 +6,58 @@ import {
   StyleSheet,
   Image,
   Pressable,
-  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Buttons from "../src/components/Buttons";
+import Icons from "../src/components/Icons"
+const { width, height } = Dimensions.get("window");
 
 //for players home screen
 
-export default function HomeScreen({ navigation }) {
+export default function Notification({ navigation }) {
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
       <View>
-        <Pressable>
-          <Image
-            source={require("../assets/Icons/BackArrow_icon.png")}
-            style={styles.back_button}
-          />
-        </Pressable>
-      </View>
-
-      <View>
-        <Text style={styles.ScreenTitle}>Notifcation</Text>
+        <Text style={styles.ScreenTitle}>Notifications</Text>
       </View>
 
       <View style={styles.button_icons}>
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require("../assets/Icons/Notification_icon.png")}
-            style={styles.buttonImageIconStyle}
-          />
+        <Pressable style={styles.buttonStyle}>
+          <Icons theme="notification"/>
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
-          <Text style={styles.buttonTextStyle_day}>Feb 17, 2022</Text>
-        </TouchableOpacity>
+          <Text style={styles.text_day}>Feb 17, 2022</Text>
+        </Pressable>
 
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require("../assets/Icons/Notification_icon.png")}
-            style={styles.buttonImageIconStyle}
-          />
-
+        <Pressable style={styles.buttonStyle}>
+          <Icons theme="notification"/>
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
-          <Text style={styles.buttonTextStyle_day}>Nov 2, 2022</Text>
-        </TouchableOpacity>
+          <Text style={styles.text_day}>Nov 2, 2022</Text>
+        </Pressable>
 
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require("../assets/Icons/Notification_icon.png")}
-            style={styles.buttonImageIconStyle}
-          />
-
+        <Pressable style={styles.buttonStyle}>
+        <Icons theme="notification"/>
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
-          <Text style={styles.buttonTextStyle_day}>Dec 5, 2022</Text>
-        </TouchableOpacity>
+          <Text style={styles.text_day}>Dec 5, 2022</Text>
+        </Pressable>
 
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require("../assets/Icons/Notification_icon.png")}
-            style={styles.buttonImageIconStyle}
-          />
-
+        <Pressable style={styles.buttonStyle}>
+        <Icons theme="notification"/>
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
-          <Text style={styles.buttonTextStyle_day}>Jan 10, 2022</Text>
-        </TouchableOpacity>
+          <Text style={styles.text_day}>Jan 10, 2022</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -89,33 +68,30 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#DB5525",
+    backgroundColor: "#D73F09",
   },
 
   back_button: {
-    width: 43,
-    height: 43,
-    marginLeft: -170,
-    marginTop: 30,
-    padding: 30,
+    marginLeft: -(width * 0.75),
+    marginTop: height * 0.01,
   },
 
   ScreenTitle: {
     color: "white",
-    marginBottom: 4,
-    marginRight: 150,
-    marginTop: 75,
+    marginBottom: height * 0.010,
+    marginTop: height * 0.050,
+    marginLeft: -(width * 0.35),
     fontSize: 40,
     fontStyle: "normal",
+    fontFamily: 'Karma',
   },
 
   //the group of buttons arrangment
   button_icons: {
     flex: 1,
     margin: 0,
-    marginTop: 10,
-    padding: 30,
-    marginLeft: 100,
+    marginTop: height * 0.01,
+    marginLeft: width * 0.21
   },
 
   buttonStyle: {
@@ -124,11 +100,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 0.5,
     borderColor: "#fff",
-    height: 65,
+    height: (height * 0.08),
     borderRadius: 10,
     margin: 15,
-    width: 300,
-    marginLeft: -100,
+    width: (width * 0.85),
+    marginLeft: -(width * 0.19),
   },
 
   buttonImageIconStyle: {
@@ -139,13 +115,18 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
   buttonTextStyle: {
-    color: "black",
+    color: "#767170",
     marginBottom: 4,
-    marginLeft: -4,
+    marginLeft: (width * 0.09),
+    marginTop: -(height * 0.015),
+    fontFamily: 'Karma',
+    fontSize: 16
   },
 
-  buttonTextStyle_day: {
-    marginTop: 40,
-    marginLeft: -90,
+  text_day: {
+    marginTop: (height * 0.022),
+    marginLeft: -(width * 0.05),
+    fontFamily: 'Karma',
+    color: '#767170'
   },
 });

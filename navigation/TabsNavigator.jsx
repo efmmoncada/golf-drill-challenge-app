@@ -60,14 +60,38 @@ export default function TabsNavigator() {
           headerShown: false,
         }}
       />
-      <Tabs.Screen name={profileName} component={Profile} />
+      <Tabs.Screen name={profileName} component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
 
-      <Tabs.Screen name={notifcationName} component={Notification} />
+      <Tabs.Screen name={notifcationName} component={Notification} 
+        options={{
+          headerShown: false,
+        }}
+      />
 
-      <Tabs.Screen name={settingsName} component={Settings} />
-      <Tabs.Screen name="Create" component={CreateDrill} />
-      <Tabs.Screen name="Contact" component={Contact} />
-      <Tabs.Screen name="Dev" component={DevTest} />
+      <Tabs.Screen name={settingsName} component={Settings} 
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen name="Create" component={CreateDrill}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen name="Contact" component={Contact}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen name="Dev" component={DevTest}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Tabs.Navigator>
   );
 }
