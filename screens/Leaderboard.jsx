@@ -7,6 +7,8 @@ import BoardList from "../src/components/BoardList";
 import TeamData from "../data/teamData.json";
 import BoardImage from "../assets/leaderboard.png";
 import Buttons from "../src/components/Buttons";
+import Headers from "../src/components/Headers";
+
 
 export default function LeaderBoard() {
   const [boardData, setBoardData] = useState(TeamData.players);
@@ -16,9 +18,18 @@ export default function LeaderBoard() {
 
   return (
     loaded && (
-      <View style={styles.container}>
-        <View style={styles.banner}>
+      
+     <View style={styles.container}>
+      <View>
+       <Headers/>
+     </View>
+     
+        <View style={styles.backButton}>
           <Buttons theme="back" />
+          </View>
+          
+          <View style={styles.banner}>
+
           <Buttons theme="filter" />
           <Banner text="Leaderboard" image={BoardImage} />
         </View>
@@ -37,8 +48,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#D73F09F5",
   },
+
+  backButton: {
+    marginBottom: 0,
+    marginTop: -70,
+    top: 19,
+  },
+
   banner: {
     backgroundColor: "#D73F09F5",
+    top: 20,
+    
   },
   drills: {
     flex: 6,

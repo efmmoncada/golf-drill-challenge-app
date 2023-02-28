@@ -14,6 +14,9 @@ import Buttons from "../src/components/Buttons";
 import Banner from "../src/components/Banner";
 import { useFonts } from "expo-font";
 import createDrill from "../assets/createDrill.jpg";
+import Headers from "../src/components/Headers";
+
+
 
 const { width, height } = Dimensions.get("window");
 
@@ -34,7 +37,11 @@ export default function CreateDrill() {
   return (
     loaded && (
       <View style={styles.container}>
-        <Banner
+       
+   <Headers>   
+   </Headers>
+   
+       <Banner
           image={createDrill}
           text="Create Drills"
           themeOne="back"
@@ -99,7 +106,8 @@ export default function CreateDrill() {
         <Buttons theme="Done" />
         <StatusBar style="auto" />
       </View>
-    )
+    
+   )
   );
 }
 
@@ -107,6 +115,7 @@ const styles = StyleSheet.create({
   banner: {
     marginTop: 0,
     marginLeft: 10,
+    
   },
   container: {
     flex: 1,

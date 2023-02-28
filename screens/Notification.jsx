@@ -28,7 +28,7 @@ export default function Notification({ navigation }) {
 
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification"/>
+          <Icons theme="notification" />
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
@@ -36,7 +36,7 @@ export default function Notification({ navigation }) {
         </Pressable>
 
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification"/>
+          <Icons theme="notification" />
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
@@ -44,7 +44,7 @@ export default function Notification({ navigation }) {
         </Pressable>
 
         <Pressable style={styles.buttonStyle}>
-        <Icons theme="notification"/>
+          <Icons theme="notification" />
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>
@@ -52,7 +52,7 @@ export default function Notification({ navigation }) {
         </Pressable>
 
         <Pressable style={styles.buttonStyle}>
-        <Icons theme="notification"/>
+          <Icons theme="notification" />
           <Text style={styles.buttonTextStyle}>
             A new Drill has been assigned
           </Text>

@@ -5,9 +5,15 @@ import DrillsPlayer from "./DrillsPlayer";
 import TeamInfo from "./TeamInfo";
 import Drill from "../src/components/Drill";
 import * as team from "../data/teamData.json";
+import Headers from "../src/components/Headers";
 
 export default function DevTest() {
-  return <Drill {...team.drills[0]} />;
+  return (
+    <View style={styles.container}>
+      <Headers />
+      <Drill {...team.drills[0]} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

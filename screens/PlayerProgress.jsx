@@ -10,28 +10,33 @@ import {
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
+import { color } from "react-native-reanimated";
+import Buttons from "../src/components/Buttons";
+import Banner from "../src/components/Banner";
+import Headers from "../src/components/Headers";
 
 //for players home screen
 
-export default function HomeScreen({ navigation }) {
+export default function PlayerProgress({ navigation }) {
   return (
     //osu logo
-    <SafeAreaView style={styles.container}>
-      <View>
+    <View style={styles.container}>
+      <Headers/>   
+      
+      <View style={styles.backButton}>
+          <Buttons theme="back" />
+          </View>
+          
         <Image
           source={require("../assets/images/ProgressScreenImg.png")}
           style={styles.page_image}
         />
-      </View>
-
-      {/*
-
+       
+  
 <View>
 <Text style={styles.ScreenTitle}>Benny Beaver’s Drill Progress</Text>
 </View>
-
-
-*/}
+ 
 
       <View>
         <Image
@@ -39,7 +44,7 @@ export default function HomeScreen({ navigation }) {
           style={styles.progress_graphImg}
         />
       </View>
-
+{/** 
       <View>
         <TouchableOpacity activeOpacity={0.5}>
           <Image
@@ -48,7 +53,7 @@ export default function HomeScreen({ navigation }) {
           />
         </TouchableOpacity>
       </View>
-
+  */}
       <View>
         <TouchableOpacity activeOpacity={0.5}>
           <Image
@@ -56,6 +61,17 @@ export default function HomeScreen({ navigation }) {
             style={styles.Menu_button}
           />
         </TouchableOpacity>
+
+      <View> 
+
+      <Text style={styles.ProgressLog}>Progress Log</Text>
+          <Text style={styles.CompletedDrills}>
+            Completed Drills: 
+          </Text>
+
+      </View>
+
+
       </View>
       <View style={styles.button_icons}>
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -79,14 +95,12 @@ export default function HomeScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Text style={styles.buttonTextStyle}>Drill name 4</Text>
-          <Text style={styles.buttonTextStyle_day}>
-            Score: 5 Duration: 2hr. Date: 11/15/22
-          </Text>
+        <TouchableOpacity style={styles.buttonStyle_More} activeOpacity={0.5}>
+          <Text style={styles.buttonTextStyle}>               Show more</Text>
+           
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -95,28 +109,47 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "red",
+    backgroundColor:"#DB5525",
+  },
+ 
+  backButton: {
+    width: 43,
+    height: 43,
+    bottom: 380,
+    right: 170,
+    
+    
   },
 
+  /**  
   back_button: {
     width: 43,
     height: 43,
-    marginLeft: -170,
-    marginTop: -345,
-    padding: 10,
+    bottom: 380,
+    right: 170,
   },
-
+*/
   Menu_button: {
     width: 43,
-    height: 43,
-    marginLeft: 300,
-    marginTop: -345,
-    padding: 10,
+    height: 43,  
+    bottom: 430,
+    left: 170,
+  },
+
+  ProgressLog:{
+     //top: 4,
+    bottom: 80,
+    color: "white",
+
+  },
+
+  CompletedDrills:{
+
+
   },
 
   ScreenTitle: {
     color: "white",
-    // marginBottom: 4,
     marginRight: 50,
     marginTop: -100,
     fontSize: 24,
@@ -140,17 +173,24 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     height: 65,
     borderRadius: 10,
-    margin: 15,
+    margin: 10,
     width: 300,
-    marginLeft: -100,
+    right: 50,
+    top: -120,
   },
 
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
-    resizeMode: "stretch",
+  buttonStyle_More: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderWidth: 0.5,
+    borderColor: "#fff",
+    borderRadius: 10,
+    height: 45,
+    width: 300,
+    bottom: 130,
+    margin: 15,
+    right: 54,
   },
   buttonTextStyle: {
     color: "black",
@@ -159,17 +199,19 @@ const styles = StyleSheet.create({
   },
 
   buttonTextStyle_day: {
-    marginTop: 40,
-    marginLeft: -90,
+    //marginTop: 40,
+    top: 20,
+    right: 90,
   },
 
   page_image: {
     height: 165,
-    width: 430,
-    marginTop: -50,
+    width: 630,
+    bottom: 40,
   },
   progress_graphImg: {
     height: 200,
     width: 450,
+    bottom: 41, 
   },
 });

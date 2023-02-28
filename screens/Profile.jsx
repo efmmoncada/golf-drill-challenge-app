@@ -5,7 +5,7 @@ import {
   Text,
   View,
   Image,
-  Dimensions
+  Dimensions,
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -26,6 +26,7 @@ export default function Profile() {
   return (
     loaded && (
       <View style={styles.container}>
+        <Text style={styles.title}> </Text>
         <View style={styles.profileContainer}>
           <Buttons theme="backOrange" style={styles.backButton} />
           <Buttons theme="editButton" />
@@ -58,6 +59,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#D73F09",
   },
+
+
   profileContainer: {
     paddingTop: height * 0.06,
     backgroundColor: "#F0E8E8",
