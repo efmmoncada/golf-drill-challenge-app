@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { useFonts } from "expo-font";
 
 import Banner from "../src/components/Banner";
@@ -8,6 +8,10 @@ import TeamData from "../data/teamData.json";
 import BoardImage from "../assets/leaderboard.png";
 import Buttons from "../src/components/Buttons";
 import Headers from "../src/components/Headers";
+
+
+const { width, height } = Dimensions.get("window");
+
 
 
 export default function LeaderBoard() {
@@ -28,6 +32,9 @@ export default function LeaderBoard() {
           <Buttons theme="back" />
           </View>
           
+          
+
+
           <View style={styles.banner}>
 
           <Buttons theme="filter" />
@@ -50,15 +57,17 @@ const styles = StyleSheet.create({
   },
 
   backButton: {
-    marginBottom: 0,
-    marginTop: -70,
-    top: 19,
+   position: 'absolute',
+   top: height * 0.03,
+   width: width * 0.85,
+   zIndex: 1,
   },
 
   banner: {
     backgroundColor: "#D73F09F5",
-    top: 20,
-    
+    top: height * 0.02,
+    marginTop: -20,
+     
   },
   drills: {
     flex: 6,
@@ -66,6 +75,8 @@ const styles = StyleSheet.create({
   label: {
     flexDirection: "row",
     alignItems: "center",
+   // width: width
+
   },
   leftText: {
     backgroundColor: "#D73F09F5",

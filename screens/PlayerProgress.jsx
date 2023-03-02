@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Dimensions
 } from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
@@ -14,6 +15,9 @@ import { color } from "react-native-reanimated";
 import Buttons from "../src/components/Buttons";
 import Banner from "../src/components/Banner";
 import Headers from "../src/components/Headers";
+
+
+const { width, height } = Dimensions.get("window");
 
 //for players home screen
 
@@ -113,27 +117,18 @@ const styles = StyleSheet.create({
   },
  
   backButton: {
-    width: 43,
-    height: 43,
-    bottom: 380,
+    width: width * 0.15,
+    height: height * 0.043,
+    bottom: -5,
     right: 170,
-    
-    
+    zIndex: 2,
   },
 
-  /**  
-  back_button: {
-    width: 43,
-    height: 43,
-    bottom: 380,
-    right: 170,
-  },
-*/
   Menu_button: {
     width: 43,
     height: 43,  
-    bottom: 430,
-    left: 170,
+    bottom: 400,
+    left: 195,
   },
 
   ProgressLog:{
@@ -206,8 +201,9 @@ const styles = StyleSheet.create({
 
   page_image: {
     height: 165,
-    width: 630,
+    width:  630,
     bottom: 40,
+    marginTop: -3,
   },
   progress_graphImg: {
     height: 200,
