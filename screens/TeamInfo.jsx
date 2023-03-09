@@ -7,10 +7,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import TeamList from "../src/components/TeamList";
 import TeamInfo from "../assets/teamInfo.jpg";
-// import queryCollection from "../src/components/utils/queryCollection";
 
 export default function DrillsPlayer() {
-  const queryData = [];
   const [teamInfo, setTeamInfo] = useState([]);
 
   // Create drop down values
