@@ -1,25 +1,40 @@
 import { React, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
+import { db } from "../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
 import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import TeamData from "../data/teamData.json";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
+import { useQuery } from "@tanstack/react-query";
 
-export default function DrillsPlayer() {
-  const [assignedIds, setAssignedIds] = useState(
-    TeamData.players[0].assignedDrills
-  );
-  const [drillData, setDrillData] = useState(TeamData.drills);
+export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
+  const [assignedIds, setAssignedIds] = useState([]);
+  const [drillData, setDrillData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("Assigned");
+  const [value, setValue] = useState("assigned");
   const [items, setItems] = useState([
-    { label: "Assigned", value: "Assigned" },
-    { label: "Available", value: "Available" },
+    { label: "Assigned", value: "assigned" },
+    { label: "Available", value: "available" },
   ]);
 
-  const assignedDrills = assignedIds.map((id) => {
-    return drillData.find((drill) => drill.id === id);
+  // NOTE: Need to dynamically set data to state and pass to list to render
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["assigned", id],
+    queryFn: async () => {
+      const assigned = (await getDoc(doc(db, "players", id))).data()
+        .assignedDrills;
+      const refs = await Promise.all(
+        assigned.map((drill) => getDoc(doc(db, drill.path)))
+      );
+      const drillData = refs.map((ref) => {
+        return { id: ref.id, ...ref.data() };
+      });
+      console.log("drillDataNew ===", drillData);
+
+      return drillData;
+    },
   });
 
   return (
