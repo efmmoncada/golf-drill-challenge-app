@@ -6,7 +6,7 @@ import TeamInfo from "./TeamInfo";
 import Drill from "../src/components/Drill";
 
 export default function DevTest() {
-  return <Drill />;
+  return <DrillsPlayer />;
 }
 
 const styles = StyleSheet.create({

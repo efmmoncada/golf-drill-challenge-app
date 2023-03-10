@@ -1,22 +1,50 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { View, StyleSheet, Text } from "react-native";
+import { useQuery } from "@tanstack/react-query";
+import { db } from "../firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import TeamList from "../src/components/TeamList";
-import TeamData from "../data/teamData.json";
 import TeamInfo from "../assets/teamInfo.jpg";
 
 export default function DrillsPlayer() {
-  const [playersInfo, setPlayersInfo] = useState(TeamData.players);
-  const [coachesInfo, setCoachesInfo] = useState(TeamData.coaches);
+  const [teamInfo, setTeamInfo] = useState([]);
 
   // Create drop down values
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("Players");
+  const [value, setValue] = useState("players");
   const [items, setItems] = useState([
-    { label: "Players", value: "Players" },
-    { label: "Coaches", value: "Coaches" },
+    { label: "Players", value: "players" },
+    { label: "Coaches", value: "coaches" },
   ]);
+
+  const queryCollection = async (value) => {
+    const response = await getDocs(collection(db, value));
+
+    const formattedData = [];
+    response.forEach((info) => {
+      formattedData.push({
+        id: info.id,
+        name: `${info.data().firstName}`,
+        email: info.data().email,
+      });
+    });
+    if (!response) throw new Error("Could not fetch team data");
+    setTeamInfo(formattedData);
+    return response;
+  };
+
+  const { isLoading, isError, data, error, refetch } = useQuery({
+    queryKey: ["teamInfo", value],
+    queryFn: () => queryCollection(value),
+  });
+
+  // Set Error values
+
+  useEffect(() => {
+    refetch();
+  }, [value]);
 
   return (
     <View style={styles.container}>
@@ -33,20 +61,10 @@ export default function DrillsPlayer() {
           setValue={setValue}
           setItems={setItems}
           style={{ borderWidth: 0 }}
-          containerStyle={{
-            width: "30%",
-            marginLeft: 25,
-            marginTop: 15,
-          }}
-          textStyle={{
-            color: "#767170",
-          }}
+          containerStyle={styles.dropDownContainer}
+          textStyle={{ color: "#767170" }}
         />
-        {value === "Players" ? (
-          <TeamList listData={playersInfo} />
-        ) : (
-          <TeamList listData={coachesInfo} />
-        )}
+        <TeamList listData={teamInfo} />
       </View>
     </View>
   );
@@ -65,5 +83,10 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: "center",
     color: "#F6F3F3",
+  },
+  dropDownContainer: {
+    width: "30%",
+    marginLeft: 25,
+    marginTop: 15,
   },
 });
