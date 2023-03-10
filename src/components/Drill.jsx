@@ -20,7 +20,7 @@ import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
  * @param {string} props.id
  *
  */
-export default function Drill({ id = "BTCRzmKJWOuPMMUdIz8K" }) {
+export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["drill", id],
     queryFn: async () => {
@@ -30,22 +30,26 @@ export default function Drill({ id = "BTCRzmKJWOuPMMUdIz8K" }) {
     },
   });
 
+
   const { height, width } = Dimensions.get("window");
 
   if (isLoading) return <Text>Data is Loading...</Text>;
 
   if (isError) return <Text>{error.message}</Text>;
 
+
+  const { name, media, longDesc, type, scoreUnits } = data;
+
   return (
     <View style={styles.container}>
-      <Banner text={data.name} image={Fuenmayor} />
+      <Banner text={name} image={Fuenmayor} />
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
         <View style={styles.media}>
-          <ImageCarrousel images={data.media} width={width * 0.9} />
+          <ImageCarrousel images={media} width={width * 0.9} />
         </View>
 
-        <Text style={styles.description}>{data.longDesc}</Text>
+        <Text style={styles.description}>{longDesc}</Text>
 
         <Pressable
           style={styles.button}

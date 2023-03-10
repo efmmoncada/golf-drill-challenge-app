@@ -14,7 +14,9 @@ import Buttons from "../src/components/Buttons";
 import Banner from "../src/components/Banner";
 import { useFonts } from "expo-font";
 import * as ImagePicker from "expo-image-picker";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { db } from "../firebaseConfig";
+import { addDoc, collection } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import createDrill from "../assets/createDrill.jpg";
 
 const { width, height } = Dimensions.get("window");
@@ -22,9 +24,11 @@ const { width, height } = Dimensions.get("window");
 export default function CreateDrill() {
   const [name, setName] = useState("");
   const [duration, setDuration] = useState("");
-  const [description, setDescription] = useState("");
-  const [selected, setSelected] = useState("");
-  const [uploadedImages, setUploadedImages] = useState([]);
+  const [shortDesc, setShortDesc] = useState("");
+  const [longDesc, setLongDesc] = useState("");
+  const [scoreUnits, setScoreUnits] = useState("");
+  const [type, setType] = useState("18 putt drill");
+  const [uploadedMedia, setUploadedMedia] = useState([]);
 
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
@@ -33,43 +37,71 @@ export default function CreateDrill() {
   const validateSubmit = (
     name,
     duration,
-    description,
-    selected,
+    shortDesc,
+    longDesc,
+    scoreUnits,
+    type,
     uploadedImages
   ) => {
     return (
-      !!name && !!duration && !!description && !!selected && uploadedImages.length > 0
+      !!name &&
+      !!duration &&
+      !!shortDesc &&
+      !!longDesc &&
+      !!scoreUnits &&
+      !!type &&
+      uploadedImages.length > 0
     );
   };
 
   const handleSubmit = async () => {
     if (
-      !validateSubmit(name, duration, description, selected, uploadedImages)
+      !validateSubmit(
+        name,
+        duration,
+        shortDesc,
+        longDesc,
+        scoreUnits,
+        type,
+        uploadedMedia
+      )
     ) {
       alert("Please fill out all the required fields in order to submit!");
       return;
     }
 
+    const resolvedMediaLinks = [];
+
     // process images
-    for (const imageInfo of uploadedImages) {
+    for (const imageInfo of uploadedMedia) {
       const response = await fetch(imageInfo.uri);
       const blob = await response.blob();
 
       const storage = getStorage();
       const storageRef = ref(storage, imageInfo.uri.split("/").pop());
       const uploadResInfo = await uploadBytes(storageRef, blob);
+      const resolvedURL = await getDownloadURL(storageRef);
+      resolvedMediaLinks.push(resolvedURL);
       console.log("uploaded successfully --", uploadResInfo);
     }
 
     alert("Upload was successful!");
-    [setName, setDescription, setDuration].forEach(fn => fn(""));
-    setUploadedImages([]);
+    console.log(resolvedMediaLinks);
+    [setName, setLongDesc, setDuration].forEach((fn) => fn(""));
+    setUploadedMedia([]);
 
-    // TODO: generate resource url from image uplaod
-    // TODO: compose state into drill object and write to firestore
+    const newDrill = {
+      name,
+      duration,
+      scoreUnits: "",
+      shortDesc: "",
+      longDesc: longDesc,
+      type: type,
+      media: resolvedMediaLinks,
+    };
+    await addDoc(collection(db, "drills"), newDrill);
 
     // TODO: handle errors, and routing on success + confirmation for user.
-
   };
 
   const pickImage = async () => {
@@ -81,7 +113,7 @@ export default function CreateDrill() {
     });
 
     if (!result.canceled) {
-      setUploadedImages((existingUploadedMedia) => [
+      setUploadedMedia((existingUploadedMedia) => [
         ...existingUploadedMedia,
         ...result.assets,
       ]);
@@ -107,7 +139,7 @@ export default function CreateDrill() {
         />
         <ScrollView>
           <SelectList
-            setSelected={(val) => setSelected(val)}
+            setSelected={(val) => setType(val)}
             data={data}
             save="value"
             search={false}
@@ -154,13 +186,26 @@ export default function CreateDrill() {
             value={duration}
           />
           <TextInput
+            style={styles.textContainer}
+            onChangeText={(val) => setShortDesc(val)}
+            placeholder="Short Description"
+            value={shortDesc}
+          />
+          <TextInput
             style={styles.textContainer2}
-            onChangeText={(val) => setDescription(val)}
+            onChangeText={(val) => setLongDesc(val)}
             multiline
             placeholder="Description"
-            value={description}
+            value={longDesc}
+          />
+          <TextInput
+            style={styles.textContainer}
+            onChangeText={(val) => setScoreUnits(val)}
+            placeholder="Score Units"
+            value={scoreUnits}
           />
           <Text style={styles.normalText}>Upload Media</Text>
+          {/* // TODO: add thumbnail preview for uploaded images */}
           <Buttons theme="addMedia" onPress={pickImage} />
           <Buttons theme="Done" onPress={handleSubmit} />
         </ScrollView>
