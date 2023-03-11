@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
   Button,
+  TextInput,
   StyleSheet,
   View,
   Image,
   Pressable,
   SafeAreaView,
+  KeyboardAvoidingView,
 } from "react-native";
-import { useState } from "react";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
-
 import Buttons from "../src/components/Buttons";
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+const auth = getAuth();
 
 export default function Player() {
   const [loaded] = useFonts({
@@ -23,12 +24,29 @@ export default function Player() {
   });
   const navigation = useNavigation();
 
-  function navigateToHome() {
-    navigation.navigate("Home");
+  const [email, setEmail] = useState("");
+  const emailRef = useRef(null);
+  const [password, setPassword] = useState("");
+  const [validationMessage, setValidationMessage] = useState ('');
+  const passwordRef = useRef(null);
+
+  async function login(){
+    if(email === '' || password === ''){
+      setValidationMessage('Required field missing');
+      return;
+    }
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      navigation.navigate('Home');
+    } catch (error){
+      setValidationMessage(error.message);
+    }
   }
+
+ 
   return (
     loaded && (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="position">
         <View style={styles.backButton}>
           <Buttons theme="backOrange" style={styles.backButton} />
         </View>
@@ -49,18 +67,33 @@ export default function Player() {
           <Pressable
             style={styles.regButton}
             onPress={() => {
-              // Code for email button press goes here
+              emailRef.current.focus();
             }}
           >
-            <Text style={styles.buttonFont}>Email</Text>
+            <TextInput
+              ref={emailRef}
+              style={styles.buttonFont}
+              onChangeText={setEmail}
+              value={email}
+              placeholder="Email"
+              placeholderTextColor="#767170"
+            />
           </Pressable>
           <Pressable
             style={styles.regButton}
             onPress={() => {
-              // Code for password button press goes here
+              passwordRef.current.focus();
             }}
           >
-            <Text style={styles.buttonFont}>Password</Text>
+            <TextInput
+              ref={passwordRef}
+              style={styles.buttonFont}
+              onChangeText={setPassword}
+              value={password}
+              placeholder="Password"
+              placeholderTextColor="#767170"
+              secureTextEntry={true}
+            />
           </Pressable>
           <Pressable
             onPress={() => {
@@ -69,21 +102,16 @@ export default function Player() {
           >
             <Text style={styles.buttonFont2}>Forgot your password?</Text>
           </Pressable>
-          <Pressable
-            style={styles.loginButton}
-            onPress={() => {
-              navigateToHome();
-            }}
-          >
+          <Text style={{marginTop: 10, color: 'red'}}>{validationMessage}</Text>
+          <Pressable style={styles.loginButton} onPress={login}>
             <Text style={styles.buttonFont3}>Login</Text>
           </Pressable>
         </View>
         <StatusBar style="auto" />
-      </View>
+      </KeyboardAvoidingView>
     )
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

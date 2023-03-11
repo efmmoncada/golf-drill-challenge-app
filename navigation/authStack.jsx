@@ -17,7 +17,8 @@ export default function Navigator(){
             <AuthStack.Screen name="SignUp" component={SignUp} />
             <AuthStack.Screen name="Player" component={Player} />
             <AuthStack.Screen name="Coach" component={Coach} />
-
+            <AuthStack.Screen name="Home" component={TabsNavigator} />
+            <AuthStack.Screen name="Coaches_HomeScreen" component={TabsNavigator} />
         </AuthStack.Navigator>
     </NavigationContainer>
     )
