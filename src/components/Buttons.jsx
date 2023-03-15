@@ -2,7 +2,7 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-export default function Buttons({ theme }) {
+export default function Buttons({ theme, onPress }) {
   const navigation = useNavigation();
   // if button is "back", then output a back button.
   // position: on the top left corner of the screen.
@@ -103,7 +103,7 @@ export default function Buttons({ theme }) {
       <View style>
         <Pressable
           style={styles.whiteContainer}
-          onPress={() => alert("You pressed the add media button")}
+          onPress={onPress}
         >
           <Ionicons
             name="images-outline"
@@ -122,7 +122,7 @@ export default function Buttons({ theme }) {
       <View style>
         <Pressable
           style={styles.blackMiddleContainer}
-          onPress={() => alert("You pressed Done.")}
+          onPress={onPress}
         >
           <Text style={styles.whiteText}>Done</Text>
         </Pressable>

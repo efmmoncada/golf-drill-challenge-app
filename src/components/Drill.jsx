@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,6 +7,9 @@ import {
   Dimensions,
   ScrollView,
 } from "react-native";
+import { doc, getDoc } from "firebase/firestore";
+import { useQuery } from "@tanstack/react-query";
+import { db } from "../../firebaseConfig";
 import Banner from "./Banner";
 import ImageCarrousel from "./ImageCarrousel";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
@@ -14,25 +17,28 @@ import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 /**
  *
  * @param {object} props
- * @param {number} props.id
- * @param {string} props.name
- * @param {string} props.description
- * @param {string[]} props.media
- * @param {string} props.headerImg
- * @param {Date} props.dueDate
- * @param {string} props.type
+ * @param {string} props.id
  *
  */
-export default function Drill({
-  id,
-  name,
-  description,
-  media,
-  headerImg,
-  dueDate,
-  type,
-}) {
+export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["drill", id],
+    queryFn: async () => {
+      const data = await getDoc(doc(db, "drills", id));
+      if (!data.exists()) throw new Error("Could not fetch data");
+      return data.data();
+    },
+  });
+
+
   const { height, width } = Dimensions.get("window");
+
+  if (isLoading) return <Text>Data is Loading...</Text>;
+
+  if (isError) return <Text>{error.message}</Text>;
+
+
+  const { name, media, longDesc, type, scoreUnits } = data;
 
   return (
     <View style={styles.container}>
@@ -43,7 +49,7 @@ export default function Drill({
           <ImageCarrousel images={media} width={width * 0.9} />
         </View>
 
-        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.description}>{longDesc}</Text>
 
         <Pressable
           style={styles.button}
