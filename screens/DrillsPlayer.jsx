@@ -1,16 +1,21 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { db } from "../firebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
-import TeamData from "../data/teamData.json";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 import { useQuery } from "@tanstack/react-query";
 
 export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
-  const [assignedIds, setAssignedIds] = useState([]);
   const [drillData, setDrillData] = useState([]);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("assigned");
@@ -19,23 +24,46 @@ export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
     { label: "Available", value: "available" },
   ]);
 
-  // NOTE: Need to dynamically set data to state and pass to list to render
-  const { isLoading, isError, data, error } = useQuery({
-    queryKey: ["assigned", id],
-    queryFn: async () => {
-      const assigned = (await getDoc(doc(db, "players", id))).data()
-        .assignedDrills;
-      const refs = await Promise.all(
-        assigned.map((drill) => getDoc(doc(db, drill.path)))
-      );
-      const drillData = refs.map((ref) => {
-        return { id: ref.id, ...ref.data() };
-      });
-      console.log("drillDataNew ===", drillData);
+  const getAssigned = async () => {
+    const assigned = (await getDoc(doc(db, "players", id))).data()
+      .assignedDrills;
+    const refs = await Promise.all(
+      assigned.map((drill) => getDoc(doc(db, drill.path)))
+    );
+    const drillData = refs.map((ref) => {
+      return { id: ref.id, ...ref.data() };
+    });
+    setDrillData(drillData);
+    return drillData;
+  };
 
-      return drillData;
-    },
+  const getCompleted = async () => {
+    const playerRef = doc(db, "players", id);
+    const q = query(
+      collection(db, "player-drills"),
+      where("player", "==", playerRef)
+    );
+    const refs = [];
+    (await getDocs(q)).forEach((item) => refs.push(item.data().drill));
+    const drillDocs = await Promise.all(
+      refs.map((drill) => getDoc(doc(db, drill.path)))
+    );
+    const drillData = drillDocs.map((ref) => {
+      return { id: ref.id, ...ref.data() };
+    });
+    setDrillData(drillData);
+    return data;
+  };
+
+  // NOTE: Need to dynamically set data to state and pass to list to render
+  const { isLoading, isError, data, error, refetch } = useQuery({
+    queryKey: ["assigned", id, value],
+    queryFn: value == "assigned" ? () => getAssigned() : () => getCompleted(),
   });
+
+  useEffect(() => {
+    refetch();
+  }, [value]);
 
   return (
     <View style={styles.container}>
@@ -61,11 +89,7 @@ export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
             color: "#767170",
           }}
         />
-        {value === "Assigned" ? (
-          <DrillList listData={assignedDrills} />
-        ) : (
-          <DrillList listData={drillData} />
-        )}
+        <DrillList listData={drillData} />
       </View>
     </View>
   );
