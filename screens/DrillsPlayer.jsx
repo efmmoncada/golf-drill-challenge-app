@@ -15,7 +15,7 @@ import DrillList from "../src/components/DrillList";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 import { useQuery } from "@tanstack/react-query";
 
-export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
+export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
   const [drillData, setDrillData] = useState([]);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("assigned");
@@ -52,10 +52,9 @@ export default function DrillsPlayer({ id = "7lWe1aJgQ7O8ptsEVRrC" }) {
       return { id: ref.id, ...ref.data() };
     });
     setDrillData(drillData);
-    return data;
+    return drillData;
   };
 
-  // NOTE: Need to dynamically set data to state and pass to list to render
   const { isLoading, isError, data, error, refetch } = useQuery({
     queryKey: ["assigned", id, value],
     queryFn: value == "assigned" ? () => getAssigned() : () => getCompleted(),

@@ -1,19 +1,49 @@
-//import { StatusBar } from 'expo-status-bar';
 import {
   View,
   Text,
-  ImageBackground,
   StyleSheet,
   Image,
   TouchableOpacity,
+  useState,
 } from "react-native";
+import { db } from "../firebaseConfig";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { SafeAreaView } from "react-native";
-//import assets from "./assets/images";
-import { StatusBar } from "react-native";
-
-//for players home screen
 
 export default function HomeScreen({ navigation }) {
+  const [drillData, setDrillData] = useState([]);
+  const id = "P9dkd0kpWFDmYbuY8sCR";
+
+  const getCompleted = async () => {
+    const playerRef = doc(db, "players", id);
+    const q = query(
+      collection(db, "player-drills"),
+      where("player", "==", playerRef)
+    );
+    const refs = [];
+    (await getDocs(q)).forEach((item) => refs.push(item.data().drill)); // can store other information here
+    const drillDocs = await Promise.all(
+      refs.map((drill) => getDoc(doc(db, drill.path)))
+    );
+    const drillData = drillDocs.map((ref) => {
+      return { id: ref.id, ...ref.data() };
+    });
+    setDrillData(drillData);
+    return drillData;
+  };
+
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["drills", id, value],
+    queryFn: value == "drills" ? () => getAssigned() : () => getCompleted(),
+  });
+
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
