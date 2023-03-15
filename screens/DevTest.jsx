@@ -5,7 +5,6 @@ import DrillsPlayer from "./DrillsPlayer";
 import PlayerProgress from "./PlayerProgress";
 import TeamInfo from "./TeamInfo";
 import Drill from "../src/components/Drill";
-import * as team from "../data/teamData.json";
 
 export default function DevTest() {
   return <PlayerProgress />;
