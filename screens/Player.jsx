@@ -38,7 +38,7 @@ export default function Player() {
     const [token, setToken] = useState("");
     const [userInfo, setUserInfo] = useState(null);
     const [request, response, promptAsync] = Google.useAuthRequest({
-        expoClientId: "267068594844-q9jev6n0grebjunbb2864mhea5jnn2hu.apps.googleusercontent.com",
+        expoClientId: Constants.manifest.extra.EXPO_CLIENT_ID,
         androidClientId: Constants.manifest.extra.ANDROID_CLIENT_ID,
         iosClientId: Constants.manifest.extra.IOS_CLIENT_ID
     });
