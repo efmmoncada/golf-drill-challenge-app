@@ -1,10 +1,11 @@
+import { useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   Image,
   TouchableOpacity,
-  useState,
+  SafeAreaView
 } from "react-native";
 import { db } from "../firebaseConfig";
 import {
@@ -15,11 +16,12 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { SafeAreaView } from "react-native";
+import { useQuery } from "@tanstack/react-query";
 
 export default function HomeScreen({ navigation }) {
   const [drillData, setDrillData] = useState([]);
   const id = "P9dkd0kpWFDmYbuY8sCR";
+  const value = '';
 
   const getCompleted = async () => {
     const playerRef = doc(db, "players", id);

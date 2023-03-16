@@ -87,14 +87,15 @@ export default function CreateDrill() {
 
     alert("Upload was successful!");
     console.log(resolvedMediaLinks);
-    [setName, setLongDesc, setDuration].forEach((fn) => fn(""));
+    [setName, setDuration, setShortDesc, setLongDesc, setScoreUnits].forEach((fn) => fn(""));
     setUploadedMedia([]);
+    setType("18 putt drill")
 
     const newDrill = {
       name,
       duration,
-      scoreUnits: "",
-      shortDesc: "",
+      scoreUnits: scoreUnits,
+      shortDesc: shortDesc,
       longDesc: longDesc,
       type: type,
       media: resolvedMediaLinks,
