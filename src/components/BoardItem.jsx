@@ -1,5 +1,8 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { widthPercentageToDP } from "react-native-responsive-screen";
+import { moderateScale } from "./scaling_utilities";
+
 
 const BoardItem = ({ index, name, score }) => {
   return (
@@ -14,29 +17,33 @@ const BoardItem = ({ index, name, score }) => {
 const item = StyleSheet.create({
   itemContainer: {
     flex: 1,
-    borderRadius: 10,
+    borderRadius: moderateScale(10),
     backgroundColor: "#F6F3F3",
-    padding: 15,
-    marginVertical: 10,
-    marginHorizontal: 25,
+    padding: moderateScale(15),
+    marginVertical: moderateScale(10),
+    marginHorizontal:moderateScale( 25),
     color: "#767170",
     flexDirection: "row",
     alignItems: "flex-start",
   },
   index: {
-    fontSize: 24,
+    fontSize:moderateScale( 24),
     color: "#767170",
   },
   name: {
     marginLeft: "2%",
-    fontSize: 24,
+    fontSize: moderateScale(23),
     color: "#767170",
   },
   score: {
+    flex: 1,
     marginLeft: "10%",
-    fontSize: 24,
+    fontSize: moderateScale(20),
     color: "#006A8E",
-  },
+  textAlign: "right",
+  width: moderateScale(20), // set a fixed width
+
+   },
 });
 
 export default BoardItem;
