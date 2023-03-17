@@ -2,7 +2,7 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
+import { moderateScale } from "./scaling_utilities";
 
 /**
  *
@@ -131,7 +131,7 @@ export default function Buttons({ theme }) {
           style={styles.blackMiddleContainer}
           onPress={() => alert("You pressed Done.")}
         >
-          <Text style={styles.whiteText}>Done</Text>
+          <Text allowFontScaling={false} style={styles.whiteText}>Done</Text>
         </Pressable>
       </View>
     );
@@ -145,7 +145,7 @@ export default function Buttons({ theme }) {
           style={styles.topLeftNeutral}
           onPress={() => alert("You pressed Cancel.")}
         >
-          <Text style={styles.whiteText}>Cancel</Text>
+          <Text allowFontScaling={false} style={styles.whiteText}>Cancel</Text>
         </Pressable>
       </View>
     );
@@ -156,13 +156,14 @@ const styles = StyleSheet.create({
   // position the back button on the left top corner.
   backButtonContainer: {
     backgroundColor: "white",
-    padding: 4,
-    width: 40,
-    height: 40,
+    padding: moderateScale(4),
+    width: moderateScale(40,0.2),
+    height: moderateScale(40,0.2),
     borderRadius: 20,
     flexDirection: "row",
-    marginTop: 10,
-    marginLeft: 10,
+    marginTop: moderateScale(15),
+    marginLeft: moderateScale(25),
+    top: moderateScale(8)
   },
   // makes sure the icon is placed in the middle.
   buttonIcon: {
@@ -175,69 +176,69 @@ const styles = StyleSheet.create({
   },
   topLeftPosition: {
     backgroundColor: "#D73F09",
-    padding: 4,
-    width: 40,
-    height: 40,
+    padding: moderateScale(4),
+    width: moderateScale(40,0.2),
+    height: moderateScale(40, 0.2),
     borderRadius: 30,
-    marginLeft: 350,
-    marginTop: -39,
+    marginLeft: moderateScale(350,1.05),
+    marginTop: -moderateScale(39),
   },
   orangeContainer: {
     backgroundColor: "#D73F09",
-    padding: 4,
-    width: 40,
-    height: 40,
+    padding: moderateScale(4),
+    width: moderateScale(40,0.2),
+    height: moderateScale(40,0.2),
     borderRadius: 30,
     flexDirection: "row",
-    marginTop: 10,
-    marginLeft: 25,
+    marginTop: moderateScale(10),
+    marginLeft: moderateScale(30),
   },
   whiteContainer: {
     backgroundColor: "white",
-    padding: 4,
-    width: 75,
-    height: 75,
+    padding: moderateScale(4),
+    width: moderateScale(75),
+    height: moderateScale(75),
     borderRadius: 5,
     flexDirection: "row",
     marginTop: 0,
-    marginLeft: 35,
+    marginLeft: moderateScale(35),
   },
   adjustment: {
     marginLeft: 4,
   },
   adjustmentWhiteContainer: {
-    marginTop: 10,
-    marginLeft: 12,
+    marginTop: moderateScale(10),
+    marginLeft: moderateScale(12),
   },
   blackMiddleContainer: {
     alignItems: "center",
     backgroundColor: "black",
-    padding: 6,
-    marginLeft: 175,
-    marginTop: 20,
-    width: 80,
+    padding: moderateScale(6),
+    marginLeft: moderateScale(175),
+    marginTop: moderateScale(20),
+    width: moderateScale(80,0.2),
     borderRadius: 4,
   },
   whiteText: {
     color: "white",
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontFamily: "Karma",
   },
   cornerText: {
     color: "#F6F3F3",
-    fontSize: 23,
+    fontSize: moderateScale(23),
     fontFamily: "Karma",
   },
   topLeftNeutral: {
-    marginTop: -30,
-    padding: 4,
-    width: 65,
-    marginLeft: 350,
+    marginTop: -moderateScale(30),
+    padding: moderateScale(4),
+    width: moderateScale(80),
+    marginLeft: moderateScale(350),
   },
   topRight: {
     marginTop: -60,
-    padding: 4,
-    width: 65,
-    marginLeft: 330,
+    padding: moderateScale(4),
+    width: moderateScale(65),
+    marginLeft: moderateScale(330),
   },
 });
