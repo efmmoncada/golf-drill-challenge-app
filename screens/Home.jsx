@@ -12,6 +12,8 @@ import { SafeAreaView } from "react-native";
 import { StatusBar } from "react-native";
 import Buttons from "../src/components/Buttons";
 import { useNavigation } from "@react-navigation/native";
+import Icons from "../src/components/Icons";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 //for players home screen
 
@@ -36,12 +38,7 @@ export default function HomeScreen() {
         source={require("../assets/images/OSU_img_logo.png")}
         style={styles.OSU_image}
       >
-        <View>
-          <Image
-            source={require("../assets/images/OSU_logo.png")}
-            style={styles.OSU_logo}
-          />
-        </View>
+      <Icons theme="OSUlogo" />
 
         <View style={styles.button_icons}>
           <Pressable
@@ -50,11 +47,8 @@ export default function HomeScreen() {
               navigateToDrills();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Practice_Drill_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
-            <Text style={styles.buttonTextStyle}>Practice Drill</Text>
+            <Icons theme="practiceDrill" />
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Practice Drill</Text>
           </Pressable>
 
           <Pressable
@@ -63,22 +57,10 @@ export default function HomeScreen() {
               navigateToProgress();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Drill_Progress_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+            <Icons theme="drillProgress" />
 
-            <Text style={styles.buttonTextStyle}>Drill Progress</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Drill Progress</Text>
           </Pressable>
-
-          {/* <Pressable style={styles.buttonStyle} activeOpacity={0.5}>
-          <Image
-            source={require(  '../assets/Icons/Course_Map_icon.png')}
-            style={styles.buttonImageIconStyle}
-          />
-
-          <Text style={styles.buttonTextStyle}>Course Map</Text>
-          </Pressable> */}
 
           <Pressable
             style={styles.buttonStyle}
@@ -86,12 +68,9 @@ export default function HomeScreen() {
               navigateToLeader();
             }}
           >
-            <Image
-              source={require("../assets/Icons/Leaderboard_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+            <Icons theme="leaderboard" />
 
-            <Text style={styles.buttonTextStyle}>Leaderboard</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Leaderboard</Text>
           </Pressable>
         </View>
       </ImageBackground>
@@ -104,30 +83,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#DB5525",
+    backgroundColor: "#D73F09",
   },
   OSU_image: {
     flex: 1,
-    width: 160,
-    height: 160,
-    marginTop: 13,
-    marginLeft: 25,
-    marginRight: 25,
-  },
-
-  OSU_logo: {
-    width: 183,
-    height: 183,
-    marginTop: 93,
-    marginLeft: -4,
+    width: moderateScale(160),
+    height: moderateScale(150),
+    marginTop: moderateScale(20),
+    marginLeft: moderateScale(25),
+    marginRight: moderateScale(25),
   },
 
   //the group of buttons arrangment
   button_icons: {
     flex: 1,
     margin: 0,
-    marginTop: -60,
-    padding: 30,
+    marginTop: -moderateScale(24),
+    padding: moderateScale(33),
   },
 
   buttonStyle: {
@@ -136,23 +108,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 0.5,
     borderColor: "#fff",
-    height: 65,
+    height: moderateScale(65),
     borderRadius: 10,
-    margin: 15,
-    width: 300,
-    marginLeft: -100,
-  },
-
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
-    resizeMode: "stretch",
+    margin: moderateScale(10),
+    width: moderateScale(288),
+    marginLeft: -moderateScale(90),
   },
   buttonTextStyle: {
-    color: "black",
+    color: "#767170",
     marginBottom: 4,
-    marginLeft: 10,
+    marginLeft: moderateScale(12),
+    marginTop: moderateScale(8),
+    fontFamily: "Karma",
+    fontSize: moderateScale(20)
   },
 });

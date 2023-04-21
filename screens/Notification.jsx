@@ -14,7 +14,7 @@ import { StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 //for players home screen
-
+// TODO: Start merging here next time
 export default function HomeScreen({ navigation }) {
   return (
     //osu logo

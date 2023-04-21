@@ -11,6 +11,7 @@ import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import TeamData from "../data/teamData.json";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 const { height, width } = Dimensions.get("window");
 
@@ -20,12 +21,18 @@ export default function Drills() {
   return (
     <SafeAreaView style={styles.container}>
       <Banner text="Drills" image={Fuenmayor} />
-      <DrillList listData={drillData} />
+      <View style={styles.containerMargin} >
+        <DrillList listData={drillData} />
+
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  containerMargin: {
+    marginTop: moderateScale(15),
+  },
   container: {
     flex: 1,
     backgroundColor: "#D73F09F5",

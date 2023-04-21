@@ -7,6 +7,8 @@ import BoardList from "../src/components/BoardList";
 import TeamData from "../data/teamData.json";
 import BoardImage from "../assets/leaderboard.png";
 import Buttons from "../src/components/Buttons";
+import { moderateScale } from "../src/components/scaling_utilities";
+import Headers from "../src/components/Headers";
 
 export default function LeaderBoard() {
   const [boardData, setBoardData] = useState(TeamData.players);
@@ -15,16 +17,21 @@ export default function LeaderBoard() {
   });
 
   return (
-    loaded && (
+     (
       <View style={styles.container}>
+
+      <View>
+        <Headers />
+      </View>
+
+
+
         <View style={styles.banner}>
-          <Buttons theme="back" />
-          <Buttons theme="filter" />
-          <Banner text="Leaderboard" image={BoardImage} />
+          <Banner text="Leaderboard" themeOne="back" themeTwo="filter" image={BoardImage} />
         </View>
         <View style={styles.label}>
-          <Text style={styles.leftText}>Name</Text>
-          <Text style={styles.rightText}>Score</Text>
+          <Text allowFontScaling={false} style={styles.leftText}>Name</Text>
+          <Text allowFontScaling={false} style={styles.rightText}>Score</Text>
         </View>
         <BoardList listData={boardData} />
       </View>
@@ -37,8 +44,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#D73F09F5",
   },
+
   banner: {
     backgroundColor: "#D73F09F5",
+    top: moderateScale(0.02),
+    marginTop: moderateScale(-20),
   },
   drills: {
     flex: 6,
@@ -50,17 +60,17 @@ const styles = StyleSheet.create({
   leftText: {
     backgroundColor: "#D73F09F5",
     color: "white",
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontFamily: "Karma",
-    marginTop: 20,
-    marginLeft: 50,
+    marginTop: moderateScale(20),
+    marginLeft: moderateScale(50),
   },
   rightText: {
     backgroundColor: "#D73F09F5",
     color: "white",
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontFamily: "Karma",
-    marginTop: 20,
-    marginLeft: 225,
+    marginTop: moderateScale(20),
+    marginLeft: moderateScale(230),
   },
 });

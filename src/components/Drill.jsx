@@ -13,6 +13,7 @@ import { db } from "../../firebaseConfig";
 import Banner from "./Banner";
 import ImageCarrousel from "./ImageCarrousel";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
+import { moderateScale } from "./scaling_utilities";
 
 /**
  *
@@ -46,23 +47,22 @@ export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
         <View style={styles.media}>
-          <ImageCarrousel images={media} width={width * 0.9} />
+          <ImageCarrousel images={media} width={moderateScale(330)} />
         </View>
 
-        <Text style={styles.description}>{longDesc}</Text>
+        <Text allowFontScaling={false} style={styles.description}>{longDesc}</Text>
 
         <Pressable
           style={styles.button}
           onPress={() => console.log("input score button pressed")}
         >
-          <Text>Input Score</Text>
+          <Text allowFontScaling={false} style={styles.inputText}>Input Score</Text>
         </Pressable>
       </ScrollView>
     </View>
   );
 }
 
-const { height, width } = Dimensions.get("screen");
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#D73F09",
@@ -71,19 +71,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   media: {
-    marginTop: 20,
-    height: height * 0.35,
-    width: width * 0.9,
+    marginTop: moderateScale(40),
+    height: moderateScale(250),
+    width: moderateScale(330),
+    borderRadius: 10,
   },
   description: {
     textAlign: "center",
-    margin: 30,
+    margin: moderateScale(30),
+    fontFamily: "Karma",
+    color: "white",
+    fontSize: moderateScale(15)
   },
   button: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 20,
+    padding: moderateScale(20),
     borderRadius: 10,
-    marginBottom: 80,
+    marginBottom: moderateScale(40),
   },
+  inputText: {
+    fontFamily: "Karma"
+  }
 });

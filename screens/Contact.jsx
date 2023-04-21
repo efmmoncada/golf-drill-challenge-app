@@ -12,7 +12,7 @@ import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import teamData from "../data/teamData.json";
-import * as ImagePicker from "expo-image-picker";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 import Buttons from "../src/components/Buttons";
 
@@ -32,18 +32,18 @@ export default function Contact() {
             style={styles.profileImage}
           />
           <View style={styles.pictureContainer}>
-            <Text style={styles.title}>{teamData.players[9].name}</Text>
-            <Text style={styles.subtitle}>Player</Text>
+            <Text allowFontScaling={false} style={styles.title}>{teamData.players[9].name}</Text>
+            <Text allowFontScaling={false} style={styles.subtitle}>Player</Text>
           </View>
         </View>
         <View style={styles.mainContainer}>
-          <Text style={styles.subtitleWhite}>Email Address</Text>
+          <Text allowFontScaling={false} style={styles.subtitleWhite}>Email Address</Text>
           <View style={styles.textContainer2}>
-            <Text styles={styles.textGrey}>{teamData.players[9].email}</Text>
+            <Text allowFontScaling={false} styles={styles.textGrey}>{teamData.players[9].email}</Text>
           </View>
-          <Text style={styles.subtitleWhite}>Phone Number</Text>
+          <Text allowFontScaling={false} style={styles.subtitleWhite}>Phone Number</Text>
           <View style={styles.textContainer}>
-            <Text style={styles.textGrey}>123-456-7890</Text>
+            <Text allowFontScaling={false} style={styles.textGrey}>123-456-7890</Text>
           </View>
         </View>
         <StatusBar style="auto" />
@@ -58,54 +58,55 @@ const styles = StyleSheet.create({
     backgroundColor: "#D73F09",
   },
   profileContainer: {
-    paddingTop: 50,
+    paddingTop: moderateScale(50),
     backgroundColor: "#F0E8E8",
-    height: 300,
+    height: moderateScale(320, 0.3),
   },
   normalText: {
     color: "#767170",
-    marginLeft: 34,
-    marginBottom: 12,
+    marginLeft: moderateScale(34),
+    marginBottom: moderateScale(20),
     fontSize: 25,
     fontFamily: "Karma",
   },
   title: {
     color: "#767170",
-    fontSize: 30,
-    paddingTop: 10,
+    fontSize: moderateScale(30),
+    paddingTop: moderateScale(10),
     fontFamily: "Karma",
   },
   subtitle: {
     color: "#767170",
-    fontSize: 20,
-    paddingBottom: 8,
+    fontSize: moderateScale(20),
+    paddingBottom: moderateScale(8),
     fontFamily: "Karma",
   },
   subtitleWhite: {
-    paddingTop: 30,
+    paddingTop: moderateScale(15),
     color: "white",
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontFamily: "Karma",
   },
   textContainer: {
-    width: 360,
-    height: 45,
+    width: moderateScale(360, 0.9),
+    height: moderateScale(45),
     backgroundColor: "#F0E8E8",
     borderRadius: 10,
-    paddingLeft: 15,
-    paddingTop: 9,
+    paddingLeft: moderateScale(15),
+    paddingTop: moderateScale(9),
   },
   textContainer2: {
-    width: 360,
-    height: 45,
+    width: moderateScale(360, 0.9),
+    height: moderateScale(45),
     backgroundColor: "#F0E8E8",
     borderRadius: 10,
-    paddingLeft: 15,
-    paddingTop: 13,
+    paddingLeft: moderateScale(15),
+    paddingTop: moderateScale(13),
   },
   textGrey: {
     color: "black",
-    fontSize: 20,
+    fontSize: moderateScale(18),
+    color: "#767170",
     fontFamily: "Karma",
   },
   profileImage: {
@@ -113,9 +114,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
     borderRadius: 60,
-    marginBottom: 10,
-    width: 115,
-    height: 115,
+    marginBottom: moderateScale(10),
+    width: moderateScale(115),
+    height: moderateScale(115),
   },
   pictureContainer: {
     flex: 1,
@@ -125,23 +126,23 @@ const styles = StyleSheet.create({
     paddingRight: 1,
   },
   mainContainer: {
-    paddingLeft: 30,
-    paddingTop: 20,
-    paddingBottom: 40,
-    paddingRight: 30,
+    paddingLeft: moderateScale(30),
+    paddingTop: moderateScale(20),
+    paddingBottom: moderateScale(40),
+    paddingRight: moderateScale(30),
   },
   whiteButton: {
-    width: 360,
+    width: moderateScale(360, 0.9),
     backgroundColor: "#F0E8E8",
     alignItems: "center",
-    height: 40,
+    height: moderateScale(40),
     borderRadius: 10,
     paddingTop: 7,
-    marginTop: 460,
+    marginTop: moderateScale(460),
   },
   subtitleGrey: {
     color: "#767170",
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontFamily: "Karma",
   },
 });

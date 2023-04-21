@@ -1,11 +1,12 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { moderateScale } from "./scaling_utilities"
 
 const DrillItem = ({ title, subtext }) => {
   return (
     <TouchableOpacity style={item.itemContainer}>
-      <Text style={item.title}>{title}</Text>
-      <Text style={item.subtext}>{subtext}</Text>
+      <Text allowFontScaling={false} style={item.title}>{title}</Text>
+      <Text allowFontScaling={false} style={item.subtext}>{subtext}</Text>
     </TouchableOpacity>
   );
 };
@@ -15,18 +16,20 @@ const item = StyleSheet.create({
     flex: 1,
     borderRadius: 10,
     backgroundColor: "#F6F3F3",
-    padding: 15,
-    marginVertical: 10,
-    marginHorizontal: 25,
+    padding: moderateScale(15),
+    marginVertical: moderateScale(10),
+    marginHorizontal: moderateScale(25),
     color: "#767170",
   },
   title: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     color: "#767170",
+    fontFamily: "Karma"
   },
   subtext: {
-    fontSize: 14,
+    fontSize: moderateScale(16),
     color: "#767170",
+    fontFamily: "Karma"
   },
 });
 

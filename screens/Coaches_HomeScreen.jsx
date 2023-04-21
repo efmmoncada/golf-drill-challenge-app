@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { SafeAreaView } from "react-native";
+import { moderateScale } from "../src/components/scaling_utilities";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
 
@@ -32,7 +33,7 @@ export default function Coaches_HomeScreen({ navigation }) {
               source={require("../assets/Icons/Practice_Drill_icon.png")}
               style={styles.buttonImageIconStyle}
             />
-            <Text style={styles.buttonTextStyle}>Drills</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Drills</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -41,7 +42,7 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text style={styles.buttonTextStyle}>Team Progress</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Team Progress</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -50,7 +51,7 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text style={styles.buttonTextStyle}>Team Info</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Team Info</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -59,7 +60,7 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text style={styles.buttonTextStyle}>Leaderboard</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Leaderboard</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -72,15 +73,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "red",
+    backgroundColor: "#D73F09",
   },
   OSU_image: {
     flex: 1,
-    width: 160,
-    height: 160,
-    marginTop: 13,
-    marginLeft: 25,
-    marginRight: 25,
+    width: moderateScale(160),
+    height: moderateScale(150),
+    marginTop: moderateScale(20),
+    marginLeft: moderateScale(25),
+    marginRight: moderateScale(25),
   },
 
   OSU_logo: {
@@ -94,8 +95,8 @@ const styles = StyleSheet.create({
   button_icons: {
     flex: 1,
     margin: 0,
-    marginTop: -60,
-    padding: 30,
+    marginTop: -moderateScale(24),
+    padding: moderateScale(33),
   },
 
   buttonStyle: {
@@ -104,11 +105,11 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 0.5,
     borderColor: "#fff",
-    height: 65,
+    height: moderateScale(65),
     borderRadius: 10,
-    margin: 15,
-    width: 300,
-    marginLeft: -100,
+    margin: moderateScale(10),
+    width: moderateScale(288),
+    marginLeft: -moderateScale(90),
   },
 
   buttonImageIconStyle: {
@@ -119,8 +120,11 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
   },
   buttonTextStyle: {
-    color: "black",
+    color: "#767170",
     marginBottom: 4,
-    marginLeft: 10,
+    marginLeft: moderateScale(12),
+    marginTop: moderateScale(8),
+    fontFamily: "Karma",
+    fontSize: moderateScale(20),
   },
 });

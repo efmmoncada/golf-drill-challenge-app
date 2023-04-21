@@ -14,6 +14,7 @@ import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 import { useQuery } from "@tanstack/react-query";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
   const [drillData, setDrillData] = useState([]);
@@ -69,7 +70,7 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
       <Banner text="Drills" image={Fuenmayor} themeOne="back" />
 
       <View style={styles.drills}>
-        <Text style={styles.header}>{value}</Text>
+        <Text allowFontScaling={false} style={styles.header}>{value}</Text>
         <DropDownPicker
           open={open}
           placeholder={value}
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   header: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     textAlign: "center",
     color: "#F6F3F3",
   },

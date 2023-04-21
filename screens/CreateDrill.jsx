@@ -18,6 +18,7 @@ import { db } from "../firebaseConfig";
 import { addDoc, collection } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import createDrill from "../assets/createDrill.jpg";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 const { width, height } = Dimensions.get("window");
 
@@ -87,9 +88,11 @@ export default function CreateDrill() {
 
     alert("Upload was successful!");
     console.log(resolvedMediaLinks);
-    [setName, setDuration, setShortDesc, setLongDesc, setScoreUnits].forEach((fn) => fn(""));
+    [setName, setDuration, setShortDesc, setLongDesc, setScoreUnits].forEach(
+      (fn) => fn("")
+    );
     setUploadedMedia([]);
-    setType("18 putt drill")
+    setType("18 putt drill");
 
     const newDrill = {
       name,
@@ -146,26 +149,26 @@ export default function CreateDrill() {
             search={false}
             fontFamily="Karma"
             boxStyles={{
-              width: width * 0.85,
-              height: height * 0.04,
+              width: moderateScale(350),
+              height: moderateScale(45),
               backgroundColor: "#F0E8E8",
-              borderRadius: 10,
-              paddingLeft: width * 0.025,
-              paddingRight: width * 0.025,
-              paddingTop: height * 0.01,
-              marginLeft: 30,
-              marginTop: 20,
+              borderRadius: moderateScale(10),
+              paddingLeft: moderateScale(20.95),
+              paddingRight: moderateScale(10),
+              paddingTop: moderateScale(10),
+              marginLeft: moderateScale(30),
+              marginTop: moderateScale(-1),
               fontFamily: "Karma",
-              fontSize: 20,
+              fontSize: moderateScale(20),
               borderColor: "#F0E8E8",
             }}
             dropdownStyles={{
-              width: width * 0.85,
-              height: height * 0.1,
+              width: moderateScale(350),
+              height: moderateScale(90),
               backgroundColor: "#e6e9ed",
-              borderRadius: 10,
-              paddingLeft: width * 0.025,
-              paddingRight: width * 0.025,
+              borderRadius: moderateScale(10),
+              paddingLeft: moderateScale(0.15),
+              paddingRight: moderateScale(10),
               marginLeft: 30,
               marginTop: 5,
               fontFamily: "Karma",
@@ -205,7 +208,7 @@ export default function CreateDrill() {
             placeholder="Score Units"
             value={scoreUnits}
           />
-          <Text style={styles.normalText}>Upload Media</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>Upload Media</Text>
           {/* // TODO: add thumbnail preview for uploaded images */}
           <Buttons theme="addMedia" onPress={pickImage} />
           <Buttons theme="Done" onPress={handleSubmit} />
@@ -218,8 +221,9 @@ export default function CreateDrill() {
 
 const styles = StyleSheet.create({
   banner: {
-    marginTop: 0,
-    marginLeft: 10,
+    marginLeft: moderateScale(10),
+    width: moderateScale(430),
+    right: moderateScale(10),
   },
   container: {
     flex: 1,
@@ -228,57 +232,57 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   textContainer: {
-    width: width * 0.85,
-    height: height * 0.04,
+    width: moderateScale(350),
+    height: moderateScale(45),
     backgroundColor: "#F0E8E8",
-    borderRadius: 10,
-    paddingLeft: 15,
-    paddingTop: 4,
-    marginLeft: 30,
-    marginTop: 20,
+    borderRadius: moderateScale(10),
+    paddingLeft: moderateScale(15),
+    paddingTop: moderateScale(4),
+    marginLeft: moderateScale(30),
+    marginTop: moderateScale(15),
     fontFamily: "Karma",
-    fontSize: 18,
+    fontSize: moderateScale(20),
   },
   textContainer2: {
-    width: width * 0.85,
-    height: height * 0.15,
+    width: moderateScale(350),
+    height: moderateScale(125),
     backgroundColor: "#F0E8E8",
     borderRadius: 10,
-    paddingLeft: width * 0.025,
-    paddingRight: width * 0.025,
-    paddingTop: height * 0.01,
-    marginLeft: 30,
-    marginTop: 20,
+    paddingLeft: moderateScale(15),
+    paddingRight: moderateScale(1),
+    paddingTop: moderateScale(4),
+    marginLeft: moderateScale(30),
+    marginTop: moderateScale(20),
     fontFamily: "Karma",
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
   textGrey: {
     color: "#767170",
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontFamily: "Karma",
-    paddingTop: 3,
+    paddingTop: moderateScale(3),
   },
   normalText: {
     color: "#F6F3F3",
-    marginLeft: 34,
-    marginBottom: 12,
-    marginTop: 10,
-    fontSize: 20,
+    marginLeft: moderateScale(34),
+    marginBottom: moderateScale(10),
+    marginTop: moderateScale(10),
+    fontSize: moderateScale(20),
     fontFamily: "Karma",
   },
   cornerText: {
     color: "#F6F3F3",
-    marginLeft: 340,
-    marginTop: 20,
-    fontSize: 23,
+    marginLeft: moderateScale(340),
+    marginTop: moderateScale(20),
+    fontSize: moderateScale(23),
     fontFamily: "Karma",
   },
   title: {
     color: "#F6F3F3",
-    marginBottom: 30,
-    marginTop: 80,
-    marginLeft: 25,
-    fontSize: 45,
+    marginBottom: moderateScale(30),
+    marginTop: moderateScale(80),
+    marginLeft: moderateScale(25),
+    fontSize: moderateScale(45),
     fontFamily: "Karma",
   },
 });

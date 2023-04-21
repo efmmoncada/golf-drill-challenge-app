@@ -5,9 +5,11 @@ import DrillsPlayer from "./DrillsPlayer";
 import PlayerProgress from "./PlayerProgress";
 import TeamInfo from "./TeamInfo";
 import Drill from "../src/components/Drill";
+import LeaderBoard from "./Leaderboard";
 
 export default function DevTest() {
-  return <DrillsPlayer />
+  // return <DrillsPlayer />
+  return <LeaderBoard />
 }
 
 const styles = StyleSheet.create({
