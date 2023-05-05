@@ -21,7 +21,7 @@ import * as Google from "expo-auth-session/providers/google";
 import Constants from "expo-constants";
 import { moderateScale } from "../src/components/scaling_utilities";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const auth = getAuth();
 
@@ -94,7 +94,9 @@ export default function Coach() {
           <Buttons theme="backOrange" style={styles.backButton} />
         </View>
         <View style={styles.titleContainer}>
-          <Text allowFontScaling={false} style={styles.titleFont}>Welcome</Text>
+          <Text allowFontScaling={false} style={styles.titleFont}>
+            Welcome
+          </Text>
         </View>
         <View style={styles.selectContainer}>
           <View style={styles.imageco}>
@@ -143,18 +145,27 @@ export default function Coach() {
               // Code for account button press goes here
             }}
           >
-            <Text allowFontScaling={false} style={styles.buttonFont2}>Forgot your password?</Text>
+            <Text allowFontScaling={false} style={styles.buttonFont2}>
+              Forgot your password?
+            </Text>
           </Pressable>
-          <Text allowFontScaling={false} style={{ marginTop: 10, color: "red" }}>
+          <Text
+            allowFontScaling={false}
+            style={{ marginTop: 10, color: "red" }}
+          >
             {validationMessage}
           </Text>
           <Pressable style={styles.loginButton} onPress={login}>
-            <Text allowFontScaling={false} style={styles.buttonFont3}>Login</Text>
+            <Text allowFontScaling={false} style={styles.buttonFont3}>
+              Login
+            </Text>
           </Pressable>
           <View style={styles.outerDividerView}>
             <View style={styles.innerDividerView} />
             <View>
-              <Text allowFontScaling={false} style={styles.dividerText}>Or</Text>
+              <Text allowFontScaling={false} style={styles.dividerText}>
+                Or
+              </Text>
             </View>
             <View style={styles.innerDividerView} />
           </View>

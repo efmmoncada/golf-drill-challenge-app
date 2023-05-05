@@ -31,13 +31,11 @@ export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
     },
   });
 
-
   const { height, width } = Dimensions.get("window");
 
   if (isLoading) return <Text>Data is Loading...</Text>;
 
   if (isError) return <Text>{error.message}</Text>;
-
 
   const { name, media, longDesc, type, scoreUnits } = data;
 
@@ -50,13 +48,17 @@ export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
           <ImageCarrousel images={media} width={moderateScale(330)} />
         </View>
 
-        <Text allowFontScaling={false} style={styles.description}>{longDesc}</Text>
+        <Text allowFontScaling={false} style={styles.description}>
+          {longDesc}
+        </Text>
 
         <Pressable
           style={styles.button}
           onPress={() => console.log("input score button pressed")}
         >
-          <Text allowFontScaling={false} style={styles.inputText}>Input Score</Text>
+          <Text allowFontScaling={false} style={styles.inputText}>
+            Input Score
+          </Text>
         </Pressable>
       </ScrollView>
     </View>
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     margin: moderateScale(30),
     fontFamily: "Karma",
     color: "white",
-    fontSize: moderateScale(15)
+    fontSize: moderateScale(15),
   },
   button: {
     flex: 1,
@@ -91,6 +93,6 @@ const styles = StyleSheet.create({
     marginBottom: moderateScale(40),
   },
   inputText: {
-    fontFamily: "Karma"
-  }
+    fontFamily: "Karma",
+  },
 });

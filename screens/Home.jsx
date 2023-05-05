@@ -33,12 +33,12 @@ export default function HomeScreen() {
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
-      <Buttons theme="backHome" style={styles.backHome} />
+      {/* <Buttons theme="backHome" style={styles.backHome} /> */}
       <ImageBackground
         source={require("../assets/images/OSU_img_logo.png")}
         style={styles.OSU_image}
       >
-      <Icons theme="OSUlogo" />
+        <Icons theme="OSUlogo" />
 
         <View style={styles.button_icons}>
           <Pressable
@@ -48,7 +48,9 @@ export default function HomeScreen() {
             }}
           >
             <Icons theme="practiceDrill" />
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Practice Drill</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Practice Drill
+            </Text>
           </Pressable>
 
           <Pressable
@@ -59,7 +61,9 @@ export default function HomeScreen() {
           >
             <Icons theme="drillProgress" />
 
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Drill Progress</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Drill Progress
+            </Text>
           </Pressable>
 
           <Pressable
@@ -70,7 +74,9 @@ export default function HomeScreen() {
           >
             <Icons theme="leaderboard" />
 
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Leaderboard</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Leaderboard
+            </Text>
           </Pressable>
         </View>
       </ImageBackground>
@@ -120,6 +126,6 @@ const styles = StyleSheet.create({
     marginLeft: moderateScale(12),
     marginTop: moderateScale(8),
     fontFamily: "Karma",
-    fontSize: moderateScale(20)
+    fontSize: moderateScale(20),
   },
 });

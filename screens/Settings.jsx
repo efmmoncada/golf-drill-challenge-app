@@ -3,6 +3,7 @@ import { StyleSheet, Pressable, Text, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { useNavigation } from "@react-navigation/native";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 import Buttons from "../src/components/Buttons";
 
@@ -21,27 +22,43 @@ export default function Settings() {
     loaded && (
       <View style={styles.container}>
         <Buttons theme="close" />
-        <Text style={styles.title}>Settings</Text>
+        <Text allowFontScaling={false} style={styles.title}>
+          Settings
+        </Text>
         <Pressable onPress={() => alert("You pressed General.")}>
-          <Text style={styles.normalText}>General</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            General
+          </Text>
         </Pressable>
         <Pressable>
-          <Text style={styles.normalText}>Account Info</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            Account Info
+          </Text>
         </Pressable>
         <Pressable>
-          <Text style={styles.normalText}>Notifications</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            Notifications
+          </Text>
         </Pressable>
         <Pressable>
-          <Text style={styles.normalText}>History & privacy</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            History & privacy
+          </Text>
         </Pressable>
         <Pressable>
-          <Text style={styles.normalText}>Updates</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            Updates
+          </Text>
         </Pressable>
         <Pressable>
-          <Text style={styles.normalText}>About</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            About
+          </Text>
         </Pressable>
         <Pressable onPress={() => navigateToSignIn()}>
-          <Text style={styles.normalText}>Log Out</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            Log Out
+          </Text>
         </Pressable>
         <StatusBar style="auto" />
       </View>
@@ -58,17 +75,17 @@ const styles = StyleSheet.create({
   },
   normalText: {
     color: "#F6F3F3",
-    marginLeft: 34,
-    marginBottom: 12,
-    fontSize: 25,
+    marginLeft: moderateScale(36),
+    marginBottom: moderateScale(10),
+    fontSize: moderateScale(27),
     fontFamily: "Karma",
   },
   title: {
     color: "#F6F3F3",
-    marginBottom: 30,
-    marginTop: 80,
-    marginLeft: 25,
-    fontSize: 45,
+    marginBottom: moderateScale(35),
+    marginTop: moderateScale(90),
+    marginLeft: moderateScale(27),
+    fontSize: moderateScale(45),
     fontFamily: "Karma",
   },
 });

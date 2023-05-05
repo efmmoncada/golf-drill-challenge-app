@@ -4,7 +4,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { moderateScale } from "./scaling_utilities";
 
-
 export default function Buttons({ theme, onPress }) {
   const navigation = useNavigation();
   // if button is "back", then output a back button.
@@ -104,10 +103,7 @@ export default function Buttons({ theme, onPress }) {
   if (theme == "addMedia") {
     return (
       <View style>
-        <Pressable
-          style={styles.whiteContainer}
-          onPress={onPress}
-        >
+        <Pressable style={styles.whiteContainer} onPress={onPress}>
           <Ionicons
             name="images-outline"
             size={40}
@@ -123,11 +119,10 @@ export default function Buttons({ theme, onPress }) {
   if (theme == "Done") {
     return (
       <View style>
-        <Pressable
-          style={styles.blackMiddleContainer}
-          onPress={onPress}
-        >
-          <Text allowFontScaling={false} style={styles.whiteText}>Done</Text>
+        <Pressable style={styles.blackMiddleContainer} onPress={onPress}>
+          <Text allowFontScaling={false} style={styles.whiteText}>
+            Done
+          </Text>
         </Pressable>
       </View>
     );
@@ -141,7 +136,9 @@ export default function Buttons({ theme, onPress }) {
           style={styles.topLeftNeutral}
           onPress={() => alert("You pressed Cancel.")}
         >
-          <Text allowFontScaling={false} style={styles.whiteText}>Cancel</Text>
+          <Text allowFontScaling={false} style={styles.whiteText}>
+            Cancel
+          </Text>
         </Pressable>
       </View>
     );
@@ -153,13 +150,13 @@ const styles = StyleSheet.create({
   backButtonContainer: {
     backgroundColor: "white",
     padding: moderateScale(4),
-    width: moderateScale(40,0.2),
-    height: moderateScale(40,0.2),
+    width: moderateScale(40, 0.2),
+    height: moderateScale(40, 0.2),
     borderRadius: 20,
     flexDirection: "row",
     marginTop: moderateScale(15),
     marginLeft: moderateScale(25),
-    top: moderateScale(8)
+    top: moderateScale(8),
   },
   // makes sure the icon is placed in the middle.
   buttonIcon: {
@@ -173,17 +170,17 @@ const styles = StyleSheet.create({
   topLeftPosition: {
     backgroundColor: "#D73F09",
     padding: moderateScale(4),
-    width: moderateScale(40,0.2),
+    width: moderateScale(40, 0.2),
     height: moderateScale(40, 0.2),
     borderRadius: 30,
-    marginLeft: moderateScale(350,1.05),
+    marginLeft: moderateScale(350, 1.05),
     marginTop: -moderateScale(39),
   },
   orangeContainer: {
     backgroundColor: "#D73F09",
     padding: moderateScale(4),
-    width: moderateScale(40,0.2),
-    height: moderateScale(40,0.2),
+    width: moderateScale(40, 0.2),
+    height: moderateScale(40, 0.2),
     borderRadius: 30,
     flexDirection: "row",
     marginTop: moderateScale(10),
@@ -212,7 +209,7 @@ const styles = StyleSheet.create({
     padding: moderateScale(6),
     marginLeft: moderateScale(175),
     marginTop: moderateScale(20),
-    width: moderateScale(80,0.2),
+    width: moderateScale(80, 0.2),
     borderRadius: 4,
   },
   whiteText: {

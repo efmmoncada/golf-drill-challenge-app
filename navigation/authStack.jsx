@@ -9,17 +9,17 @@ import TabsNavigator from "./TabsNavigator";
 
 const AuthStack = createStackNavigator();
 
-export default function Navigator(){
-    return(
+export default function Navigator() {
+  return (
     <NavigationContainer>
-        <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-            <AuthStack.Screen name="SignIn" component={SignIn} />
-            <AuthStack.Screen name="SignUp" component={SignUp} />
-            <AuthStack.Screen name="Player" component={Player} />
-            <AuthStack.Screen name="Coach" component={Coach} />
-            <AuthStack.Screen name="Home" component={TabsNavigator} />
-            <AuthStack.Screen name="Coaches_HomeScreen" component={TabsNavigator} />
-        </AuthStack.Navigator>
+      <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+        <AuthStack.Screen name="SignIn" component={SignIn} />
+        <AuthStack.Screen name="SignUp" component={SignUp} />
+        <AuthStack.Screen name="Player" component={Player} />
+        <AuthStack.Screen name="Coach" component={Coach} />
+        <AuthStack.Screen name="Home" component={TabsNavigator} />
+        <AuthStack.Screen name="Coaches_HomeScreen" component={TabsNavigator} />
+      </AuthStack.Navigator>
     </NavigationContainer>
-    )
+  );
 }

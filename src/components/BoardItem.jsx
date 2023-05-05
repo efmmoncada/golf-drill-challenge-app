@@ -19,13 +19,13 @@ const item = StyleSheet.create({
     backgroundColor: "#F6F3F3",
     padding: moderateScale(15),
     marginVertical: moderateScale(10),
-    marginHorizontal:moderateScale( 25),
+    marginHorizontal: moderateScale(25),
     color: "#767170",
     flexDirection: "row",
     alignItems: "flex-start",
   },
   index: {
-    fontSize:moderateScale( 24),
+    fontSize: moderateScale(24),
     color: "#767170",
   },
   name: {
@@ -38,10 +38,9 @@ const item = StyleSheet.create({
     marginLeft: "10%",
     fontSize: moderateScale(20),
     color: "#006A8E",
-  textAlign: "right",
-  width: moderateScale(20), // set a fixed width
-
-   },
+    textAlign: "right",
+    width: moderateScale(20), // set a fixed width
+  },
 });
 
 export default BoardItem;

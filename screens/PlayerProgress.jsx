@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
 } from "react-native";
 import { db } from "../firebaseConfig";
 import {
@@ -17,11 +17,12 @@ import {
   where,
 } from "firebase/firestore";
 import { useQuery } from "@tanstack/react-query";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 export default function HomeScreen({ navigation }) {
   const [drillData, setDrillData] = useState([]);
   const id = "P9dkd0kpWFDmYbuY8sCR";
-  const value = '';
+  const value = "";
 
   const getCompleted = async () => {
     const playerRef = doc(db, "players", id);
@@ -56,15 +57,6 @@ export default function HomeScreen({ navigation }) {
         />
       </View>
 
-      {/*
-
-<View>
-<Text style={styles.ScreenTitle}>Benny Beaver’s Drill Progress</Text>
-</View>
-
-
-*/}
-
       <View>
         <Image
           source={require("../assets/images/progressGraph.png")}
@@ -91,29 +83,37 @@ export default function HomeScreen({ navigation }) {
       </View>
       <View style={styles.button_icons}>
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Text style={styles.buttonTextStyle}>Drill name 1</Text>
-          <Text style={styles.buttonTextStyle_day}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+            Drill name 1
+          </Text>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle_day}>
             Score: 2 Duration: 1hr. Date: 11/15/22
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Text style={styles.buttonTextStyle}>Drill name 2</Text>
-          <Text style={styles.buttonTextStyle_day}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+            Drill name 2
+          </Text>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle_day}>
             Score: 5 Duration: 2hr. Date: 11/15/22
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Text style={styles.buttonTextStyle}>Drill name 3</Text>
-          <Text style={styles.buttonTextStyle_day}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+            Drill name 3
+          </Text>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle_day}>
             Score: 5 Duration: 2hr. Date: 11/15/22
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-          <Text style={styles.buttonTextStyle}>Drill name 4</Text>
-          <Text style={styles.buttonTextStyle_day}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+            Drill name 4
+          </Text>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle_day}>
             Score: 5 Duration: 2hr. Date: 11/15/22
           </Text>
         </TouchableOpacity>
@@ -127,25 +127,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "red",
+    backgroundColor: "#DB5525",
   },
 
-  back_button: {
-    width: 43,
-    height: 43,
-    marginLeft: -170,
-    marginTop: -345,
-    padding: 10,
+  backButton: {
+    width: moderateScale(0.15),
+    height: moderateScale(0.043),
+    bottom: moderateScale(33),
+    right: moderateScale(200),
+    zIndex: 2,
   },
-
   Menu_button: {
-    width: 43,
-    height: 43,
-    marginLeft: 300,
-    marginTop: -345,
-    padding: 10,
+    width: moderateScale(43),
+    height: moderateScale(43),
+    bottom: moderateScale(395),
+    left: moderateScale(245),
   },
 
+  // TODO: adapt to responsive
   ScreenTitle: {
     color: "white",
     // marginBottom: 4,
@@ -158,10 +157,9 @@ const styles = StyleSheet.create({
   //the group of buttons arrangment
   button_icons: {
     flex: 1,
-    margin: 0,
-    marginTop: 80,
-    padding: 10,
-    marginLeft: 100,
+    marginTop: moderateScale(60),
+    padding: moderateScale(10),
+    marginLeft: moderateScale(110),
   },
 
   buttonStyle: {
@@ -170,11 +168,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderWidth: 0.5,
     borderColor: "#fff",
-    height: 65,
+    height: moderateScale(65),
     borderRadius: 10,
-    margin: 15,
-    width: 300,
-    marginLeft: -100,
+    margin: moderateScale(10),
+    width: moderateScale(300),
+    right: moderateScale(50),
+    top: moderateScale(-140),
   },
 
   buttonImageIconStyle: {
@@ -186,22 +185,31 @@ const styles = StyleSheet.create({
   },
   buttonTextStyle: {
     color: "black",
-    marginBottom: 4,
-    marginLeft: 50,
+    marginBottom: moderateScale(20),
+    marginLeft: moderateScale(35),
+    left: -moderateScale(10),
+    fontFamily: "Karma",
+    color: "#767170",
   },
 
   buttonTextStyle_day: {
-    marginTop: 40,
-    marginLeft: -90,
+    //marginTop: 40,
+    top: moderateScale(10),
+    right: moderateScale(90),
+    left: -moderateScale(86),
+    fontFamily: "Karma",
+    color: "#767170",
   },
 
   page_image: {
-    height: 165,
-    width: 430,
-    marginTop: -50,
+    height: moderateScale(165),
+    width: moderateScale(450),
+    bottom: moderateScale(40),
+    marginTop: moderateScale(-3),
   },
   progress_graphImg: {
-    height: 200,
-    width: 450,
+    height: moderateScale(200),
+    width: moderateScale(450),
+    bottom: moderateScale(41),
   },
 });

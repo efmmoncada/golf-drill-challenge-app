@@ -6,7 +6,9 @@ const BoardList = ({ listData }) => {
   return (
     <View style={scores.listContainer}>
       <FlatList
-        data={listData}
+        data={listData.sort(
+          (a, b) => a.completedDrills[0].score - b.completedDrills[0].score
+        )}
         renderItem={({ item }) => (
           <BoardItem
             index={item.id}

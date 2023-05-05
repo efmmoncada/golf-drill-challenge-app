@@ -17,25 +17,29 @@ export default function LeaderBoard() {
   });
 
   return (
-     (
-      <View style={styles.container}>
-
-      <View>
+    <View style={styles.container}>
+      {/* <View>
         <Headers />
+      </View> */}
+
+      <View style={styles.banner}>
+        <Banner
+          text="Leaderboard"
+          themeOne="back"
+          themeTwo="filter"
+          image={BoardImage}
+        />
       </View>
-
-
-
-        <View style={styles.banner}>
-          <Banner text="Leaderboard" themeOne="back" themeTwo="filter" image={BoardImage} />
-        </View>
-        <View style={styles.label}>
-          <Text allowFontScaling={false} style={styles.leftText}>Name</Text>
-          <Text allowFontScaling={false} style={styles.rightText}>Score</Text>
-        </View>
-        <BoardList listData={boardData} />
+      <View style={styles.label}>
+        <Text allowFontScaling={false} style={styles.leftText}>
+          Name
+        </Text>
+        <Text allowFontScaling={false} style={styles.rightText}>
+          Score
+        </Text>
       </View>
-    )
+      <BoardList listData={boardData} />
+    </View>
   );
 }
 

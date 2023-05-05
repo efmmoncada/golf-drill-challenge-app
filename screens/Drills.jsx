@@ -21,9 +21,8 @@ export default function Drills() {
   return (
     <SafeAreaView style={styles.container}>
       <Banner text="Drills" image={Fuenmayor} />
-      <View style={styles.containerMargin} >
+      <View style={styles.containerMargin}>
         <DrillList listData={drillData} />
-
       </View>
     </SafeAreaView>
   );

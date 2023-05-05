@@ -7,15 +7,16 @@ import {
   View,
   Image,
   Pressable,
-  SafeAreaView,
+  Dimensions,
 } from "react-native";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
+import { moderateScale } from "../src/components/scaling_utilities";
 
-import Buttons from "../src/components/Buttons";
+const { width, height } = Dimensions.get("window");
 
 export default function SignIn() {
   const [loaded] = useFonts({
@@ -83,7 +84,7 @@ export default function SignIn() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
+    paddingTop: height * 0.05,
     backgroundColor: "#F0E8E8",
   },
   titleContainer: {
@@ -99,10 +100,9 @@ const styles = StyleSheet.create({
   },
   selectContainer: {
     flexDirection: "row",
-    paddingLeft: 40,
-    paddingTop: 200,
-    paddingBottom: 0,
-    paddingRight: 40,
+    paddingLeft: moderateScale(30),
+    paddingTop: moderateScale(180),
+    paddingRight: moderateScale(15),
     alignItems: "center",
   },
   imageco: {
@@ -111,47 +111,41 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textContainer: {
-    flexDirection: "row",
-    marginLeft: 100,
-    marginRight: 80,
-    alignItems: "center",
-  },
   buttonContainer: {
     alignItems: "center",
     justifyContent: "center",
-    paddingLeft: 24,
-    paddingTop: 10,
-    paddingBottom: 40,
-    paddingRight: 30,
+    paddingLeft: moderateScale(40),
+    paddingTop: moderateScale(10),
+    paddingBottom: moderateScale(20),
+    paddingRight: moderateScale(30),
   },
   regButton: {
-    width: 180,
-    backgroundColor: "#F0E8E8",
+    width: moderateScale(300),
+    backgroundColor: "#E9E2E2",
     alignItems: "center",
     justifyContent: "center",
-    height: 50,
+    height: moderateScale(60),
     borderRadius: 12,
-    paddingTop: 8,
-    marginTop: 10,
+    paddingTop: moderateScale(5),
+    marginTop: moderateScale(10),
   },
   buttonFont: {
     color: "#D73F09",
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontFamily: "Karma",
   },
   buttonFont2: {
-    marginLeft: -140,
-    paddingTop: 20,
+    marginLeft: -moderateScale(145),
+    paddingTop: moderateScale(15),
     color: "#767170",
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontFamily: "Karma",
   },
   buttonFont3: {
-    marginLeft: -210,
-    paddingTop: 20,
+    marginLeft: -moderateScale(200),
+    paddingTop: moderateScale(30),
     color: "#D73F09",
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontFamily: "Karma",
   },
 });

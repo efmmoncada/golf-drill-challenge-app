@@ -32,18 +32,30 @@ export default function Contact() {
             style={styles.profileImage}
           />
           <View style={styles.pictureContainer}>
-            <Text allowFontScaling={false} style={styles.title}>{teamData.players[9].name}</Text>
-            <Text allowFontScaling={false} style={styles.subtitle}>Player</Text>
+            <Text allowFontScaling={false} style={styles.title}>
+              {teamData.players[9].name}
+            </Text>
+            <Text allowFontScaling={false} style={styles.subtitle}>
+              Player
+            </Text>
           </View>
         </View>
         <View style={styles.mainContainer}>
-          <Text allowFontScaling={false} style={styles.subtitleWhite}>Email Address</Text>
+          <Text allowFontScaling={false} style={styles.subtitleWhite}>
+            Email Address
+          </Text>
           <View style={styles.textContainer2}>
-            <Text allowFontScaling={false} styles={styles.textGrey}>{teamData.players[9].email}</Text>
+            <Text allowFontScaling={false} styles={styles.textGrey}>
+              {teamData.players[9].email}
+            </Text>
           </View>
-          <Text allowFontScaling={false} style={styles.subtitleWhite}>Phone Number</Text>
+          <Text allowFontScaling={false} style={styles.subtitleWhite}>
+            Phone Number
+          </Text>
           <View style={styles.textContainer}>
-            <Text allowFontScaling={false} style={styles.textGrey}>123-456-7890</Text>
+            <Text allowFontScaling={false} style={styles.textGrey}>
+              123-456-7890
+            </Text>
           </View>
         </View>
         <StatusBar style="auto" />

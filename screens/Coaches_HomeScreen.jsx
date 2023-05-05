@@ -33,7 +33,9 @@ export default function Coaches_HomeScreen({ navigation }) {
               source={require("../assets/Icons/Practice_Drill_icon.png")}
               style={styles.buttonImageIconStyle}
             />
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Drills</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Drills
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -42,7 +44,9 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Team Progress</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Team Progress
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -51,7 +55,9 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Team Info</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Team Info
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
@@ -60,7 +66,9 @@ export default function Coaches_HomeScreen({ navigation }) {
               style={styles.buttonImageIconStyle}
             />
 
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>Leaderboard</Text>
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              Leaderboard
+            </Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>

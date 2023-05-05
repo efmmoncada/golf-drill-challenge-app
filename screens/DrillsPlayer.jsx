@@ -70,7 +70,9 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
       <Banner text="Drills" image={Fuenmayor} themeOne="back" />
 
       <View style={styles.drills}>
-        <Text allowFontScaling={false} style={styles.header}>{value}</Text>
+        <Text allowFontScaling={false} style={styles.header}>
+          {value}
+        </Text>
         <DropDownPicker
           open={open}
           placeholder={value}

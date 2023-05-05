@@ -1,4 +1,5 @@
 import { StyleSheet, View, Image, Dimensions } from "react-native";
+import { moderateScale } from "./scaling_utilities";
 const { width, height } = Dimensions.get("window");
 
 /**
@@ -106,5 +107,15 @@ const styles = StyleSheet.create({
     height: 35,
     width: 35,
     resizeMode: "stretch",
+  },
+
+  buttonImageIconStyle2: {
+    padding: 10,
+    margin: 30,
+    height: 35,
+    width: 35,
+    resizeMode: "stretch",
+    left: -moderateScale(10),
+    top: -moderateScale(16),
   },
 });

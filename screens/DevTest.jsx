@@ -9,7 +9,7 @@ import LeaderBoard from "./Leaderboard";
 
 export default function DevTest() {
   // return <DrillsPlayer />
-  return <LeaderBoard />
+  return <LeaderBoard />;
 }
 
 const styles = StyleSheet.create({

@@ -208,7 +208,9 @@ export default function CreateDrill() {
             placeholder="Score Units"
             value={scoreUnits}
           />
-          <Text allowFontScaling={false} style={styles.normalText}>Upload Media</Text>
+          <Text allowFontScaling={false} style={styles.normalText}>
+            Upload Media
+          </Text>
           {/* // TODO: add thumbnail preview for uploaded images */}
           <Buttons theme="addMedia" onPress={pickImage} />
           <Buttons theme="Done" onPress={handleSubmit} />
