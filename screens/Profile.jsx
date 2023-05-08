@@ -1,8 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Pressable, Text, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Pressable,
+  Text,
+  View,
+  Image,
+  Dimensions,
+} from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import { db } from "../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
+import { moderateScale } from "../src/components/scaling_utilities";
 
 import { useFonts } from "expo-font";
 
@@ -75,6 +83,8 @@ export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
     </View>
   );
 }
+
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
