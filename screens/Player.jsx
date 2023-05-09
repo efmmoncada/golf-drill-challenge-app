@@ -240,23 +240,23 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(10),
   },
   loginButton: {
-    marginLeft: moderateScale(80),
+    marginLeft: moderateScale(85),
     width: moderateScale(200),
     backgroundColor: "#D73F09",
     alignItems: "center",
     height: moderateScale(55),
     borderRadius: 16,
     paddingTop: moderateScale(8),
-    marginTop: moderateScale(120),
+    marginTop: moderateScale(45),
   },
   googleButton: {
     alignItems: "center",
-    marginLeft: 5,
-    marginTop: 10,
+    marginLeft: moderateScale(5),
+    marginTop: moderateScale(10),
   },
   outerDividerView: {
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: moderateScale(20),
     alignItems: "center",
   },
   innerDividerView: {
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#767170",
   },
   dividerText: {
-    width: 50,
+    width: moderateScale(50),
     textAlign: "center",
     fontFamily: "Karma",
     fontSize: 18,

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: moderateScale(160),
     height: moderateScale(150),
-    marginTop: moderateScale(20),
+    marginTop: moderateScale(80),
     marginLeft: moderateScale(25),
     marginRight: moderateScale(25),
   },

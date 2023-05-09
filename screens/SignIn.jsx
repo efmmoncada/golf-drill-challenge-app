@@ -90,12 +90,12 @@ const styles = StyleSheet.create({
   titleContainer: {
     paddingTop: 10,
     backgroundColor: "#F0E8E8",
-    height: 170,
+    height: moderateScale(170),
     alignItems: "center",
   },
   titleFont: {
     color: "#D73F09",
-    fontSize: 40,
+    fontSize: moderateScale(40),
     fontFamily: "Karma",
   },
   selectContainer: {

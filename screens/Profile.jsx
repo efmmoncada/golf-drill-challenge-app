@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: moderateScale(45),
     borderRadius: 10,
-    marginTop: moderateScale(350, 1.7),
+    marginTop: moderateScale(290, 1.7),
     marginBottom: moderateScale(30),
     paddingTop: moderateScale(0),
   },

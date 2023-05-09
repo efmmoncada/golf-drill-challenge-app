@@ -24,9 +24,6 @@ const buttonWidth = screenWidth * 0.87; //90%
 export default function Notification({ navigation }) {
   return (
     <View style={styles.container}>
-      <View style={styles.backButton}>
-        <Buttons theme="back" />
-      </View>
       <View>
         <Text allowFontScaling={false} style={styles.ScreenTitle}>
           Notifications
@@ -34,60 +31,51 @@ export default function Notification({ navigation }) {
       </View>
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification" />
-          <View style={styles.textContainer}>
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+          <Icons theme="notification"/>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
             <Text allowFontScaling={false} style={styles.text_day}>
-              {" "}
               Feb 17, 2022
             </Text>
-          </View>
         </Pressable>
       </View>
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
           <Icons theme="notification" />
-          <View style={styles.textContainer}>
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
             <Text allowFontScaling={false} style={styles.text_day}>
               {" "}
               Feb 17, 2022
             </Text>
-          </View>
         </Pressable>
       </View>
 
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
           <Icons theme="notification" />
-          <View style={styles.textContainer}>
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
             <Text allowFontScaling={false} style={styles.text_day}>
               {" "}
               Feb 17, 2022
             </Text>
-          </View>
         </Pressable>
       </View>
 
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
           <Icons theme="notification" />
-          <View style={styles.textContainer}>
-            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
             <Text allowFontScaling={false} style={styles.text_day}>
               {" "}
               Feb 17, 2022
             </Text>
-          </View>
         </Pressable>
       </View>
     </View>
@@ -101,30 +89,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
-  backButton: {
-    position: "absolute",
-    top: moderateScale(45),
-    //width: scaleFactor * 12,
-    left: moderateScale(10),
-    zIndex: 1,
-  },
-
   ScreenTitle: {
     color: "white",
     fontSize: moderateScale(40),
     fontStyle: "normal",
     fontFamily: "Karma",
     right: moderateScale(60, 1.2),
+    marginTop: -moderateScale(100)
   },
 
   button_icons: {
     width: moderateScale(350, 0.03), //this is % because size was off for iphone 12 min this fixed it.
     height: moderateScale(100),
     marginRight: moderateScale(15, 14),
-  },
-  textContainer: {
-    flexDirection: "column",
   },
   buttonStyle: {
     backgroundColor: "white",
@@ -138,14 +115,12 @@ const styles = StyleSheet.create({
     left: moderateScale(180, 0.9),
     fontFamily: "Karma",
     color: "#767170",
-    top: -moderateScale(80, 0.2),
+    marginTop: -moderateScale(65, 0.2),
   },
   text_day: {
     fontSize: moderateScale(13),
-    flexDirection: "row",
     left: moderateScale(280, 0.8),
     fontFamily: "Karma",
-    color: "#767170",
-    top: -moderateScale(80, 0.2),
-  },
+    color: "#767170"
+  }
 });

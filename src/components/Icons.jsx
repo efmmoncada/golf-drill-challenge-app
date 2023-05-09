@@ -12,8 +12,8 @@ export default function Icons({ theme }) {
     return (
       <View style>
         <Image
-          source={require("../../assets/Icons/Notification_icon.png")}
-          style={styles.buttonImageIconStyle}
+          source={require("../../assets/Icons/Notification.png")}
+          style={styles.buttonImageIconStyle2}
         />
       </View>
     );
@@ -32,7 +32,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Practice_Drill_icon.png")}
+          source={require("../../assets/Icons/PracticeDrill_Icon.png")}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -42,7 +42,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Drill_Progress_icon.png")}
+          source={require("../../assets/Icons/DrillProgress_Icon.png")}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -52,7 +52,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Leaderboard_icon.png")}
+          source={require("../../assets/Icons/Leaderboard_Icon.png")}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -85,37 +85,27 @@ export default function Icons({ theme }) {
 }
 
 const styles = StyleSheet.create({
-  // style for bell icon
-  buttonImageIconStyle: {
-    marginLeft: width * 0.03,
-    marginRight: width * 0.16,
-    height: 35,
-    width: 35,
-    resizeMode: "stretch",
-  },
-
   OSU_logo: {
-    width: width * 0.45,
-    height: height * 0.21,
-    marginTop: height * 0.09,
-    marginLeft: -4,
+    width: moderateScale(200),
+    height: moderateScale(190),
+    marginTop: moderateScale(85),
+    marginLeft: -moderateScale(4),
   },
 
   buttonImageIconStyle: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
+    padding: moderateScale(10),
+    margin: moderateScale(30),
+    height: moderateScale(35),
+    width: moderateScale(35),
     resizeMode: "stretch",
   },
 
   buttonImageIconStyle2: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
+    padding: moderateScale(10),
+    margin: moderateScale(30),
+    height: moderateScale(35),
+    width: moderateScale(35),
     resizeMode: "stretch",
-    left: -moderateScale(10),
-    top: -moderateScale(16),
+    marginTop: moderateScale(13)
   },
 });

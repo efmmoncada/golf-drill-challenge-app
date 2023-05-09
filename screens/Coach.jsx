@@ -242,36 +242,32 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(10),
   },
   loginButton: {
-    marginLeft: moderateScale(80),
+    marginLeft: moderateScale(85),
     width: moderateScale(200),
     backgroundColor: "#D73F09",
     alignItems: "center",
     height: moderateScale(55),
     borderRadius: 16,
     paddingTop: moderateScale(8),
-    marginTop: moderateScale(120),
+    marginTop: moderateScale(45),
   },
   googleButton: {
-    // TODO: Adapt to use moderate scaling
     alignItems: "center",
-    marginLeft: 5,
-    marginTop: 10,
+    marginLeft: moderateScale(5),
+    marginTop: moderateScale(10),
   },
   outerDividerView: {
-    // TODO: Adapt to use moderate scaling
     flexDirection: "row",
-    marginTop: 20,
+    marginTop: moderateScale(20),
     alignItems: "center",
   },
   innerDividerView: {
-    // TODO: Adapt to use moderate scaling
     flex: 1,
     height: 1,
     backgroundColor: "#767170",
   },
   dividerText: {
-    // TODO: Adapt to use moderate scaling
-    width: 50,
+    width: moderateScale(50),
     textAlign: "center",
     fontFamily: "Karma",
     fontSize: 18,
