@@ -1,7 +1,15 @@
 import { StyleSheet, View, Image, Dimensions } from "react-native";
-import { CoachIcon, DrillProgressIcon, LeaderboardIcon, NotificationIcon, OSUBlockLetters, OSULogo, PlayerIcon, PracticeDrillIcon } from "../../assets/Icons";
+import {
+  CoachIcon,
+  DrillProgressIcon,
+  LeaderboardIcon,
+  NotificationIcon,
+  OSUBlockLetters,
+  OSUBeaverLogo,
+  PlayerIcon,
+  PracticeDrillIcon,
+} from "../../assets/Icons";
 import { moderateScale } from "./scaling_utilities";
-const { width, height } = Dimensions.get("window");
 
 /**
  *
@@ -9,90 +17,18 @@ const { width, height } = Dimensions.get("window");
  *
  */
 export default function Icons({ theme }) {
-  if (theme === "notification") {
-    return (
-      <View style>
-        <Image
-          source={NotificationIcon}
-          style={styles.buttonImageIconStyle2}
-        />
-      </View>
-    );
-  }
-  if (theme == "BeavImage") {
-    return (
-      <View>
-        <Image
-          source={OSULogo}
-          style={styles.OSU_image}
-        />
-      </View>
-    );
-  }
-  if (theme === "OSUlogo") {
-    return (
-      <View>
-        <Image
-          source={OSUBlockLetters}
-          style={styles.OSU_logo}
-        />
-      </View>
-    );
-  }
-  if (theme === "practiceDrill") {
-    return (
-      <View>
-        <Image
-          source={PracticeDrillIcon}
-          style={styles.buttonImageIconStyle}
-        />
-      </View>
-    );
-  }
-  if (theme === "drillProgress") {
-    return (
-      <View>
-        <Image
-          source={DrillProgressIcon}
-          style={styles.buttonImageIconStyle}
-        />
-      </View>
-    );
-  }
-  if (theme === "leaderboard") {
-    return (
-      <View>
-        <Image
-          source={LeaderboardIcon}
-          style={styles.buttonImageIconStyle}
-        />
-      </View>
-    );
-  }
-  if (theme === "player") {
-    return (
-      <View>
-        <Image
-          source={PlayerIcon}
-          resizeMode="contain"
-          style={{ width: width * 0.3, height: height * 0.1 }}
-        />
-      </View>
-    );
-  }
-  if (theme === "coach") {
-    return (
-      <View>
-        <Image
-          source={CoachIcon}
-          resizeMode="contain"
-          style={{ width: width * 0.3, height: height * 0.1 }}
-        />
-      </View>
-    );
-  }
+  return (
+    <View>
+      <Image
+        source={IconMap[theme].uri}
+        resizeMode="contain"
+        style={IconMap[theme].style}
+      />
+    </View>
+  );
 }
 
+const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   OSU_logo: {
     width: moderateScale(200),
@@ -124,4 +60,45 @@ const styles = StyleSheet.create({
     resizeMode: "stretch",
     marginTop: moderateScale(13),
   },
+  userTypeIcons: {
+    width: width * 0.3,
+    height: height * 0.1,
+  },
 });
+
+export const IconOptions = {
+  Notification: "notification",
+  BeaverLogo: "beaver-logo",
+  OsuBlockLetters: "osu-block-letters",
+  PracticeDrill: "practice-drill",
+  DrillProgress: "drill-progress",
+  Leaderboard: "leaderboard",
+  Player: "player",
+  Coach: "coach",
+};
+
+const IconMap = {
+  [IconOptions.Notification]: {
+    uri: NotificationIcon,
+    style: styles.buttonImageIconStyle2,
+  },
+  [IconOptions.BeaverLogo]: { uri: OSUBeaverLogo, style: styles.OSU_image },
+  [IconOptions.OsuBlockLetters]: {
+    uri: OSUBlockLetters,
+    style: styles.OSU_logo,
+  },
+  [IconOptions.PracticeDrill]: {
+    uri: PracticeDrillIcon,
+    style: styles.buttonImageIconStyle,
+  },
+  [IconOptions.DrillProgress]: {
+    uri: DrillProgressIcon,
+    style: styles.buttonImageIconStyle,
+  },
+  [IconOptions.Leaderboard]: {
+    uri: LeaderboardIcon,
+    style: styles.buttonImageIconStyle,
+  },
+  [IconOptions.Player]: { uri: PlayerIcon, style: styles.userTypeIcons },
+  [IconOptions.Coach]: { uri: CoachIcon, style: styles.userTypeIcons },
+};

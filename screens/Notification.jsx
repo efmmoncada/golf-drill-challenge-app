@@ -8,7 +8,7 @@ import {
   PixelRatio,
 } from "react-native";
 import Buttons from "../src/components/Buttons";
-import Icons from "../src/components/Icons";
+import Icons, { IconOptions } from "../src/components/Icons";
 import React from "react";
 import { moderateScale } from "../src/components/scaling_utilities";
 
@@ -31,7 +31,7 @@ export default function Notification({ navigation }) {
       </View>
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification"/>
+          <Icons theme={IconOptions.Notification} />
           <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
@@ -42,20 +42,7 @@ export default function Notification({ navigation }) {
       </View>
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification" />
-          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
-              A new Drill has been assigned
-            </Text>
-            <Text allowFontScaling={false} style={styles.text_day}>
-              {" "}
-              Feb 17, 2022
-            </Text>
-        </Pressable>
-      </View>
-
-      <View style={styles.button_icons}>
-        <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification" />
+          <Icons theme={IconOptions.Notification} />
           <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>
@@ -68,7 +55,20 @@ export default function Notification({ navigation }) {
 
       <View style={styles.button_icons}>
         <Pressable style={styles.buttonStyle}>
-          <Icons theme="notification" />
+          <Icons theme={IconOptions.Notification} />
+          <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              A new Drill has been assigned
+            </Text>
+            <Text allowFontScaling={false} style={styles.text_day}>
+              {" "}
+              Feb 17, 2022
+            </Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.button_icons}>
+        <Pressable style={styles.buttonStyle}>
+          <Icons theme={IconOptions.Notification} />
           <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               A new Drill has been assigned
             </Text>

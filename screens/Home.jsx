@@ -9,7 +9,7 @@ import {
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
 import { useNavigation } from "@react-navigation/native";
-import Icons from "../src/components/Icons";
+import Icons, { IconOptions } from "../src/components/Icons";
 import { moderateScale } from "../src/components/scaling_utilities";
 import { OSUBeaverLogo } from "../assets/Icons";
 
@@ -35,7 +35,7 @@ export default function HomeScreen() {
         source={OSUBeaverLogo}
         style={styles.OSU_image}
       >
-        <Icons theme="OSUlogo" />
+        <Icons theme={IconOptions.OsuBlockLetters} />
 
         <View style={styles.button_icons}>
           <Pressable
@@ -44,7 +44,7 @@ export default function HomeScreen() {
               navigateToDrills();
             }}
           >
-            <Icons theme="practiceDrill" />
+            <Icons theme={IconOptions.PracticeDrill} />
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Practice Drill
             </Text>
@@ -56,7 +56,7 @@ export default function HomeScreen() {
               navigateToProgress();
             }}
           >
-            <Icons theme="drillProgress" />
+            <Icons theme={IconOptions.DrillProgress} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Drill Progress
@@ -69,7 +69,7 @@ export default function HomeScreen() {
               navigateToLeader();
             }}
           >
-            <Icons theme="leaderboard" />
+            <Icons theme={IconOptions.Leaderboard} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Leaderboard
