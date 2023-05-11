@@ -12,8 +12,19 @@ export default function Icons({ theme }) {
     return (
       <View style>
         <Image
-          source={require("../../assets/Icons/Notification.png")}
+          source={require("../../assets/Icons/Notification_Orange.png")}
           style={styles.buttonImageIconStyle2}
+        />
+      </View>
+    );
+  }
+  if(theme == "BeavImage")
+  {
+    return(
+      <View>
+        <Image
+          source={require("../../assets/images/OSU_img_logo.png")}
+          style={styles.OSU_image}
         />
       </View>
     );
@@ -52,7 +63,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Leaderboard_icon.png")}
+          source={require("../../assets/Icons/Leaderboard_Icon.png")}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -91,7 +102,14 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(85),
     marginLeft: -moderateScale(4),
   },
-
+  OSU_image: {
+    flex: 1,
+    width: moderateScale(250),
+    height: moderateScale(150),
+    marginTop: moderateScale(80),
+    marginLeft: moderateScale(25),
+    marginRight: moderateScale(25),
+  },
   buttonImageIconStyle: {
     padding: moderateScale(10),
     margin: moderateScale(30),

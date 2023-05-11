@@ -62,7 +62,7 @@ export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
         </View>
       </View>
       <View style={styles.mainContainer}>
-        <Text allowFontScaling={false} style={styles.subtitleWhite}>
+        <Text allowFontScaling={false} style={styles.subtitle}>
           Email
         </Text>
         <View style={styles.textContainer}>
@@ -89,12 +89,12 @@ const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6"
   },
 
   profileContainer: {
     paddingTop: moderateScale(20),
-    backgroundColor: "#F0E8E8",
+    backgroundColor: "white",
     height: moderateScale(280),
   },
 
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     fontFamily: "Karma",
   },
   title: {
-    color: "#767170",
+    color: "#DB5525",
     fontSize: moderateScale(26),
     paddingTop: moderateScale(10),
     fontFamily: "Karma",
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   textContainer: {
     width: moderateScale(360),
     height: moderateScale(35),
-    backgroundColor: "#F0E8E8",
+    backgroundColor: "white",
     borderRadius: 10,
     paddingLeft: 15,
     paddingTop: 4,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   },
   whiteButton: {
     width: moderateScale(340),
-    backgroundColor: "#F0E8E8",
+    backgroundColor: "white",
     marginLeft: moderateScale(8, 0.6),
     alignItems: "center",
     justifyContent: "center",

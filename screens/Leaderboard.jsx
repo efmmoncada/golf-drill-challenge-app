@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { useFonts } from "expo-font";
-
 import Banner from "../src/components/Banner";
 import BoardList from "../src/components/BoardList";
 import TeamData from "../data/teamData.json";
@@ -18,6 +17,7 @@ export default function LeaderBoard() {
 
   return (
     <View style={styles.container}>
+      <Headers/>
       {/* <View>
         <Headers />
       </View> */}

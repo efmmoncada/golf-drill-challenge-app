@@ -69,19 +69,19 @@ export default function Settings() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
   normalText: {
-    color: "#F6F3F3",
+    color: "#767170",
     marginLeft: moderateScale(36),
     marginBottom: moderateScale(10),
     fontSize: moderateScale(27),
     fontFamily: "Karma",
   },
   title: {
-    color: "#F6F3F3",
+    color: "#D73F09",
     marginBottom: moderateScale(35),
     marginTop: moderateScale(90),
     marginLeft: moderateScale(27),
