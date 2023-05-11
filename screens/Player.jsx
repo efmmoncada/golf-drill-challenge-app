@@ -19,6 +19,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import Constants from "expo-constants";
 import { moderateScale } from "../src/components/scaling_utilities";
+import { PlayerIcon } from "../assets/Icons";
 const { width, height } = Dimensions.get("window");
 
 const auth = getAuth();
@@ -99,7 +100,7 @@ export default function Player() {
         <View style={styles.selectContainer}>
           <View style={styles.imagepl}>
             <Image
-              source={require("../assets/images/player.png")}
+              source={PlayerIcon}
               resizeMode="contain"
               style={{ width: 150, height: 150 }}
             />

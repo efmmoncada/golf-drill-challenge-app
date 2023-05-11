@@ -20,6 +20,7 @@ import Buttons from "../src/components/Buttons";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import { moderateScale } from "../src/components/scaling_utilities";
+import { CoachIcon, PlayerIcon } from "../assets/Icons";
 
 const auth = getAuth();
 
@@ -107,7 +108,7 @@ export default function SignUp() {
             ]}
           >
             <Image
-              source={require("../assets/images/player.png")}
+              source={PlayerIcon}
               resizeMode="contain"
               style={styles.imagepl}
             />
@@ -122,7 +123,7 @@ export default function SignUp() {
               ]}
             >
               <Image
-                source={require("../assets/images/coach.png")}
+                source={CoachIcon}
                 resizeMode="contain"
                 style={styles.imageco}
               />

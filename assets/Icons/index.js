@@ -5,6 +5,8 @@ import DrillProgressIcon from "./DrillProgress_Icon.png";
 import LeaderboardIcon from "./Leaderboard_icon.png";
 import OSUBeaverLogo from "./OSU_beaver.png";
 import OSUBlockLetters from "./OSU_block_letters.png";
+import PlayerIcon from "./player.png";
+import CoachIcon from "./coach.png";
 
 export {
   BackArrowIcon,
@@ -14,4 +16,6 @@ export {
   LeaderboardIcon,
   OSUBeaverLogo,
   OSUBlockLetters,
+  PlayerIcon,
+  CoachIcon,
 };

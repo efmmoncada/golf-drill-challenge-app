@@ -20,6 +20,7 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import Constants from "expo-constants";
 import { moderateScale } from "../src/components/scaling_utilities";
+import { CoachIcon } from "../assets/Icons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -101,7 +102,7 @@ export default function Coach() {
         <View style={styles.selectContainer}>
           <View style={styles.imageco}>
             <Image
-              source={require("../assets/images/coach.png")}
+              source={CoachIcon}
               resizeMode="contain"
               style={{ width: width * 0.4, height: height * 0.16 }}
             />

@@ -1,5 +1,5 @@
 import { StyleSheet, View, Image, Dimensions } from "react-native";
-import { DrillProgressIcon, LeaderboardIcon, NotificationIcon, OSUBlockLetters, OSULogo, PracticeDrillIcon } from "../../assets/Icons";
+import { CoachIcon, DrillProgressIcon, LeaderboardIcon, NotificationIcon, OSUBlockLetters, OSULogo, PlayerIcon, PracticeDrillIcon } from "../../assets/Icons";
 import { moderateScale } from "./scaling_utilities";
 const { width, height } = Dimensions.get("window");
 
@@ -73,7 +73,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/images/player.png")}
+          source={PlayerIcon}
           resizeMode="contain"
           style={{ width: width * 0.3, height: height * 0.1 }}
         />
@@ -84,7 +84,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/images/coach.png")}
+          source={CoachIcon}
           resizeMode="contain"
           style={{ width: width * 0.3, height: height * 0.1 }}
         />
