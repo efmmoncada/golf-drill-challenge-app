@@ -85,12 +85,12 @@ export default function Notification({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1, //take up the whole screen
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
     alignItems: "center",
     justifyContent: "center",
   },
   ScreenTitle: {
-    color: "white",
+    color: "#D73F09",
     fontSize: moderateScale(40),
     fontStyle: "normal",
     fontFamily: "Karma",

@@ -35,7 +35,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       {/* <Buttons theme="backHome" style={styles.backHome} /> */}
       <ImageBackground
-        source={require("../assets/images/OSU_img_logo.png")}
+        source={require("../assets/images/OSU_img_logo_1.png")}
         style={styles.OSU_image}
       >
         <Icons theme="OSUlogo" />
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
   },
   OSU_image: {
     flex: 1,

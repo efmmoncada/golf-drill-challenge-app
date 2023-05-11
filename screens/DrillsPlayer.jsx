@@ -15,6 +15,7 @@ import DrillList from "../src/components/DrillList";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 import { useQuery } from "@tanstack/react-query";
 import { moderateScale } from "../src/components/scaling_utilities";
+import Headers from "../src/components/Headers"
 
 export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
   const [drillData, setDrillData] = useState([]);
@@ -67,6 +68,7 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
 
   return (
     <View style={styles.container}>
+      <Headers/>
       <Banner text="Drills" image={Fuenmayor} themeOne="back" />
 
       <View style={styles.drills}>

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text, Image } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -143,6 +143,25 @@ export default function Buttons({ theme, onPress }) {
       </View>
     );
   }
+
+  if(theme == "filter")
+  {
+    return (
+      <View style>
+        <Pressable
+          style={styles.topLeftNeutral}
+          onPress={() => alert("You pressed Filter.")}
+        >
+          <Ionicons
+            name="options-outline"
+            size={40}
+            color="white"
+            style={styles.topAdjustment}
+          />
+        </Pressable>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -157,6 +176,9 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(15),
     marginLeft: moderateScale(25),
     top: moderateScale(8),
+  },
+  topAdjustment:{
+    marginTop: moderateScale(-6)
   },
   // makes sure the icon is placed in the middle.
   buttonIcon: {
