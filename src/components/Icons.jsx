@@ -1,4 +1,5 @@
 import { StyleSheet, View, Image, Dimensions } from "react-native";
+import { DrillProgressIcon, LeaderboardIcon, NotificationIcon, OSUBlockLetters, OSULogo, PracticeDrillIcon } from "../../assets/Icons";
 import { moderateScale } from "./scaling_utilities";
 const { width, height } = Dimensions.get("window");
 
@@ -12,18 +13,17 @@ export default function Icons({ theme }) {
     return (
       <View style>
         <Image
-          source={require("../../assets/Icons/Notification_Orange.png")}
+          source={NotificationIcon}
           style={styles.buttonImageIconStyle2}
         />
       </View>
     );
   }
-  if(theme == "BeavImage")
-  {
-    return(
+  if (theme == "BeavImage") {
+    return (
       <View>
         <Image
-          source={require("../../assets/images/OSU_img_logo.png")}
+          source={OSULogo}
           style={styles.OSU_image}
         />
       </View>
@@ -33,7 +33,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/images/OSU_logo.png")}
+          source={OSUBlockLetters}
           style={styles.OSU_logo}
         />
       </View>
@@ -43,7 +43,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/PracticeDrill_Icon.png")}
+          source={PracticeDrillIcon}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -53,7 +53,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/DrillProgress_Icon.png")}
+          source={DrillProgressIcon}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -63,7 +63,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Leaderboard_Icon.png")}
+          source={LeaderboardIcon}
           style={styles.buttonImageIconStyle}
         />
       </View>
@@ -90,8 +90,6 @@ export default function Icons({ theme }) {
         />
       </View>
     );
-  }
-  {
   }
 }
 
@@ -124,6 +122,6 @@ const styles = StyleSheet.create({
     height: moderateScale(35),
     width: moderateScale(35),
     resizeMode: "stretch",
-    marginTop: moderateScale(13)
+    marginTop: moderateScale(13),
   },
 });

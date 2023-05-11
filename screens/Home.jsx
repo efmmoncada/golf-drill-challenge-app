@@ -4,16 +4,14 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
-  Image,
   Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native";
 //import assets from "./assets/images";
-import { StatusBar } from "react-native";
-import Buttons from "../src/components/Buttons";
 import { useNavigation } from "@react-navigation/native";
 import Icons from "../src/components/Icons";
 import { moderateScale } from "../src/components/scaling_utilities";
+import { OSUBeaverLogo } from "../assets/Icons";
 
 //for players home screen
 
@@ -33,9 +31,8 @@ export default function HomeScreen() {
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
-      {/* <Buttons theme="backHome" style={styles.backHome} /> */}
       <ImageBackground
-        source={require("../assets/images/OSU_img_logo_1.png")}
+        source={OSUBeaverLogo}
         style={styles.OSU_image}
       >
         <Icons theme="OSUlogo" />
