@@ -63,7 +63,7 @@ export default function Icons({ theme }) {
     return (
       <View>
         <Image
-          source={require("../../assets/Icons/Leaderboard_icon.png")}
+          source={require("../../assets/Icons/Leaderboard_Icon.png")}
           style={styles.buttonImageIconStyle}
         />
       </View>
