@@ -9,7 +9,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import HomeScreen from "../screens/Home";
 import createDrillTest from "../screens/CreateDrill";
 import Notification from "../screens/Notification";
-import { NavigationContainer } from "@react-navigation/native";
+import Coaches_Homescreen from "../screens/Coaches_HomeScreen";
 import CreateDrill from "../screens/CreateDrill";
 import Contact from "../screens/Contact";
 import LeaderBoard from "../screens/Leaderboard";
@@ -62,18 +62,23 @@ export default function TabsNavigator() {
           headerShown: false,
         }}
       />
-      <Tabs.Screen name={profileName} component={Profile}/>
+      <Tabs.Screen name={profileName} component={Profile} />
 
-      <Tabs.Screen name={" "} component={Notification} 
+      <Tabs.Screen
+        name={notifcationName}
+        component={Notification}
         options={{
           headerShown: false,
         }}
       />
 
-      <Tabs.Screen name={settingsName} component={Settings} 
-      options={{
-        headerShown: false,
-      }}/>
+      <Tabs.Screen
+        name={settingsName}
+        component={Settings}
+        options={{
+          headerShown: false,
+        }}
+      />
       {/* <Tabs.Screen name="Create" component={CreateDrill} /> */}
       {/* <Tabs.Screen name="Contact" component={Contact} /> */}
       {/* <Tabs.Screen name="Dev" component={DevTest} /> */}
