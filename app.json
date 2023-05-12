@@ -2,6 +2,7 @@
   "expo": {
     "name": "golf-drill-challenge-app",
     "slug": "golf-drill-challenge-app",
+    "jsEngine": "hermes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
