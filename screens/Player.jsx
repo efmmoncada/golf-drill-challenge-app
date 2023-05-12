@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   Text,
@@ -20,6 +20,7 @@ import * as Google from "expo-auth-session/providers/google";
 import Constants from "expo-constants";
 import { moderateScale } from "../src/components/scaling_utilities";
 import { PlayerIcon } from "../assets/Icons";
+import AuthContext from "../context/AuthContext";
 const { width, height } = Dimensions.get("window");
 
 const auth = getAuth();
@@ -27,6 +28,7 @@ const auth = getAuth();
 WebBrowser.maybeCompleteAuthSession();
 
 export default function Player() {
+  const [user, setUser] = useContext(AuthContext);
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
   });
@@ -78,7 +80,7 @@ export default function Player() {
       );
 
       const user = await response.json();
-      //setUserInfo(user);
+      setUser(user);
       console.log("User = ", user);
     } catch (error) {
       setValidationMessage(error.message);

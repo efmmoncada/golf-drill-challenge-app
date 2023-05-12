@@ -6,8 +6,11 @@ import { moderateScale } from "../src/components/scaling_utilities";
 import Buttons from "../src/components/Buttons";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 export default function Settings() {
+  const [_, setUser] = useContext(AuthContext);
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
   });
@@ -49,7 +52,10 @@ export default function Settings() {
             About
           </Text>
         </Pressable>
-        <Pressable onPress={() => signOut(auth)}>
+        <Pressable onPress={() => {
+            signOut(auth);
+            setUser(null);
+          }}>
           <Text allowFontScaling={false} style={styles.normalText}>
             Log Out
           </Text>
