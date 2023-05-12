@@ -6,70 +6,57 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import { SafeAreaView } from "react-native";
 import { moderateScale } from "../src/components/scaling_utilities";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
+import { DrillProgressIcon, LeaderboardIcon, OSUBeaverLogo, OSUBlockLetters, PracticeDrillIcon, TeamInfoIcon } from "../assets/Icons";
+import Icons, { IconOptions } from "../src/components/Icons";
 
 export default function Coaches_HomeScreen({ navigation }) {
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
       <ImageBackground
-        source={require("../assets/images/OSU_img_logo.png")}
+        source={OSUBeaverLogo}
         style={styles.OSU_image}
       >
-        <View>
-          <Image
-            source={require("../assets/images/OSU_logo.png")}
-            style={styles.OSU_logo}
-          />
-        </View>
+
+      <Icons theme={IconOptions.OsuBlockLetters} />
 
         <View style={styles.button_icons}>
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-            <Image
-              source={require("../assets/Icons/Practice_Drill_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+          <Pressable style={styles.buttonStyle}>
+            <Icons theme={IconOptions.PracticeDrill} />
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Drills
             </Text>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-            <Image
-              source={require("../assets/Icons/Drill_Progress_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+          <Pressable style={styles.buttonStyle}>
+            <Icons theme={IconOptions.DrillProgress} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Team Progress
             </Text>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-            <Image
-              source={require("../assets/Icons/Team_info_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+          <Pressable style={styles.buttonStyle}>
+            <Icons theme={IconOptions.TeamInfoIcon} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Team Info
             </Text>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
-            <Image
-              source={require("../assets/Icons/Leaderboard_icon.png")}
-              style={styles.buttonImageIconStyle}
-            />
+          <Pressable style={styles.buttonStyle}>
+            <Icons theme={IconOptions.Leaderboard} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Leaderboard
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -81,22 +68,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
   },
   OSU_image: {
     flex: 1,
     width: moderateScale(160),
     height: moderateScale(150),
-    marginTop: moderateScale(20),
+    marginTop: moderateScale(80),
     marginLeft: moderateScale(25),
     marginRight: moderateScale(25),
-  },
-
-  OSU_logo: {
-    width: 183,
-    height: 183,
-    marginTop: 93,
-    marginLeft: -4,
   },
 
   //the group of buttons arrangment
@@ -118,14 +98,6 @@ const styles = StyleSheet.create({
     margin: moderateScale(10),
     width: moderateScale(288),
     marginLeft: -moderateScale(90),
-  },
-
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 30,
-    height: 35,
-    width: 35,
-    resizeMode: "stretch",
   },
   buttonTextStyle: {
     color: "#767170",

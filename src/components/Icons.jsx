@@ -8,6 +8,7 @@ import {
   OSUBeaverLogo,
   PlayerIcon,
   PracticeDrillIcon,
+  TeamInfoIcon,
 } from "../../assets/Icons";
 import { moderateScale } from "./scaling_utilities";
 
@@ -73,6 +74,7 @@ export const IconOptions = {
   PracticeDrill: "practice-drill",
   DrillProgress: "drill-progress",
   Leaderboard: "leaderboard",
+  TeamInfoIcon: "team-info",
   Player: "player",
   Coach: "coach",
 };
@@ -97,6 +99,10 @@ const IconMap = {
   },
   [IconOptions.Leaderboard]: {
     uri: LeaderboardIcon,
+    style: styles.buttonImageIconStyle,
+  },
+  [IconOptions.TeamInfoIcon]: {
+    uri: TeamInfoIcon,
     style: styles.buttonImageIconStyle,
   },
   [IconOptions.Player]: { uri: PlayerIcon, style: styles.userTypeIcons },

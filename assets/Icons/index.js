@@ -7,6 +7,7 @@ import OSUBeaverLogo from "./OSU_beaver.png";
 import OSUBlockLetters from "./OSU_block_letters.png";
 import PlayerIcon from "./player.png";
 import CoachIcon from "./coach.png";
+import TeamInfoIcon from "./Team_info_icon.png";
 
 export {
   BackArrowIcon,
@@ -18,4 +19,5 @@ export {
   OSUBlockLetters,
   PlayerIcon,
   CoachIcon,
+  TeamInfoIcon,
 };
