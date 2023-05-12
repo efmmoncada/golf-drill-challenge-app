@@ -40,4 +40,8 @@ To begin developing:
    Learn more about tunneling [here](https://docs.expo.dev/more/expo-cli/?redirected#tunneling)
 
 ## System Architecture
-todo
+Our app is seperated into 2 main pieces, a client and a backend as a service, consisting of various Google Firebase services.
+
+Below is a diagram showing the overall design of the application:
+
+![system architecture](docs/system_arch.png)
