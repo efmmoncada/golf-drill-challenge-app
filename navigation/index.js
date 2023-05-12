@@ -1,8 +1,13 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { useAuthentication } from "../hook/useAuthentication";
-import AppStack from "./appStack";
+import AppNavigator from "./AppNavigator";
 import AuthStack from "./authStack";
 
 export default function RootNavigation() {
   const { user } = useAuthentication();
-  return user ? <AppStack /> : <AuthStack />;
+  return (
+    <NavigationContainer>
+      {user ? <AppNavigator /> : <AuthStack />}
+    </NavigationContainer>
+  );
 }

@@ -14,6 +14,7 @@ import CreateDrill from "../screens/CreateDrill";
 import Contact from "../screens/Contact";
 import LeaderBoard from "../screens/Leaderboard";
 import Drill from "../src/components/Drill";
+import HomeNavigator from "./HomeNavigator";
 
 //Screen names
 const homeName = "Home2";
@@ -42,7 +43,7 @@ const iconMap = {
   },
 };
 
-export default function TabsNavigator() {
+export default function AppNavigator() {
   return (
     <Tabs.Navigator
       initialRouteName={homeName} // correct spelling
@@ -57,7 +58,7 @@ export default function TabsNavigator() {
     >
       <Tabs.Screen
         name={homeName}
-        component={HomeScreen}
+        component={HomeNavigator}
         options={{
           headerShown: false,
         }}
