@@ -1,19 +1,43 @@
 # golf-drill-challenge-app
 
-## Setting up the dev enviournment
+## About
+This app is designed for the Oregon State University Mens' Golf Team. The app aims at providing a modern approach at managing, sharing, and assigning drills, as well as tracking progress across the team. The app enables coaches to upload drills accompanied with media in advance, and assign them to players. Players can then view drills, with the corresponding directions and media, and upload their scores as they complete drills. Coaches can view player data as a whole, or zone in on an individual players performance.
 
-1. Install dependencies
+## Tooling and Enviournment
 
+Our app client is built using [React Native](https://reactnative.dev) and [Expo](https://expo.dev), and we process data and authentication via [Google Firebase](https://firebase.google.com).
+
+In order to simplify development, some notable libraries we utilize include:
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Axios](https://axios-http.com)
+And some extensions we recommend are:
+- [Prettier](https://prettier.io)
+
+To begin developing:
+1. Clone the repository
+2. Install dependencies
    ```
    npm install
    ```
-
-2. Install the Expo Go app:
-
+3. Install the Expo Go app on a physical device
    - [Download on iOS](https://apps.apple.com/us/app/expo-go/id982107779)
    - [Download on Android](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US&gl=US)
 
-3. Start the development server
+   OR
+
+   Use an emulator such as the [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/), or the [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/).
+
+
+4. Start the development server
    ```
-   npm start
+   npx expo start
    ```
+
+   OR if your WIFI network does not support peer to peer:
+   ```
+   npx expo start --tunnel
+   ```
+   Learn more about tunneling [here](https://docs.expo.dev/more/expo-cli/?redirected#tunneling)
+
+## System Architecture
+todo
