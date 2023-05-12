@@ -59,7 +59,7 @@ export default function Player() {
     }
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigation.navigate("Home");
+      // navigation.navigate("Home");
     } catch (error) {
       setValidationMessage(error.message);
     }
@@ -79,8 +79,7 @@ export default function Player() {
 
       const user = await response.json();
       //setUserInfo(user);
-      console.log("User Email = " + user.email);
-      navigation.navigate("Home");
+      console.log("User = ", user);
     } catch (error) {
       setValidationMessage(error.message);
     }

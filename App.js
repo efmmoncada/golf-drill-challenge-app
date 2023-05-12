@@ -1,25 +1,26 @@
-import { React, useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { React, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "./firebaseConfig";
+import { auth } from "./firebaseConfig"; // ! IMPORTANT, DO NOT REMOVE
 import RootNavigation from "./navigation";
-import TeamData from "./data/teamData.json";
-import * as team from "./data/teamData.json";
+import AuthContext from "./context/AuthContext";
+import { onAuthStateChanged } from "firebase/auth";
 
 const queryClient = new QueryClient();
 
 export default function App() {
-  const [drillData, setDrillData] = useState(TeamData.drills);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => onAuthStateChanged(auth, user => {
+    setUser(user || null);
+  }), []);
+
+  useEffect(() => console.log(user), [user]);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <RootNavigation />
+      <AuthContext.Provider value={[user, setUser]}>
+        <RootNavigation />
+      </AuthContext.Provider>
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#D73F09F5",
-  },
-});

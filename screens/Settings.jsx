@@ -1,22 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Pressable, Text, View } from "react-native";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { useNavigation } from "@react-navigation/native";
 import { moderateScale } from "../src/components/scaling_utilities";
 
 import Buttons from "../src/components/Buttons";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
 export default function Settings() {
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
   });
-  const navigation = useNavigation();
-
-  function navigateToSignIn() {
-    navigation.navigate("SignIn");
-    ``;
-  }
 
   return (
     loaded && (
@@ -55,7 +49,7 @@ export default function Settings() {
             About
           </Text>
         </Pressable>
-        <Pressable onPress={() => navigateToSignIn()}>
+        <Pressable onPress={() => signOut(auth)}>
           <Text allowFontScaling={false} style={styles.normalText}>
             Log Out
           </Text>
