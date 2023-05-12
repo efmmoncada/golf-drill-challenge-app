@@ -3,7 +3,7 @@
 ## About
 This app is designed for the Oregon State University Mens' Golf Team. The app aims at providing a modern approach at managing, sharing, and assigning drills, as well as tracking progress across the team. The app enables coaches to upload drills accompanied with media in advance, and assign them to players. Players can then view drills, with the corresponding directions and media, and upload their scores as they complete drills. Coaches can view player data as a whole, or zone in on an individual players performance.
 
-## Tooling and Enviournment
+## Tooling and Environment
 
 Our app client is built using [React Native](https://reactnative.dev) and [Expo](https://expo.dev), and we process data and authentication via [Google Firebase](https://firebase.google.com).
 
