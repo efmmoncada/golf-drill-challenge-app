@@ -6,9 +6,9 @@ import { collection, getDocs } from "firebase/firestore";
 import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import TeamList from "../src/components/TeamList";
-import TeamInfo from "../assets/teamInfo.jpg";
+import TeamInfoPhoto from "../assets/teamInfo.jpg";
 
-export default function DrillsPlayer() {
+export default function TeamInfo() {
   const [teamInfo, setTeamInfo] = useState([]);
 
   // Create drop down values
@@ -48,7 +48,7 @@ export default function DrillsPlayer() {
 
   return (
     <View style={styles.container}>
-      <Banner text="Team Info" image={TeamInfo} themeOne="back" />
+      <Banner text="Team Info" image={TeamInfoPhoto} themeOne="back" />
 
       <View style={styles.drills}>
         <Text style={styles.header}>{value}</Text>

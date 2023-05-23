@@ -63,7 +63,6 @@ export default function Coach() {
     }
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigation.navigate("Coaches_HomeScreen");
     } catch (error) {
       setValidationMessage(error.message);
     }
@@ -82,9 +81,9 @@ export default function Coach() {
       );
 
       const user = await response.json();
+      user.isCoach = true;
       setUser(user);
       console.log("User Email = " + user.email);
-      navigation.navigate("Home");
     } catch (error) {
       setValidationMessage(error.message);
     }

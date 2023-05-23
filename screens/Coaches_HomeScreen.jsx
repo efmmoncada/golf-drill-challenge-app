@@ -12,29 +12,40 @@ import { SafeAreaView } from "react-native";
 import { moderateScale } from "../src/components/scaling_utilities";
 //import assets from "./assets/images";
 import { StatusBar } from "react-native";
-import { DrillProgressIcon, LeaderboardIcon, OSUBeaverLogo, OSUBlockLetters, PracticeDrillIcon, TeamInfoIcon } from "../assets/Icons";
+import {
+  DrillProgressIcon,
+  LeaderboardIcon,
+  OSUBeaverLogo,
+  OSUBlockLetters,
+  PracticeDrillIcon,
+  TeamInfoIcon,
+} from "../assets/Icons";
 import Icons, { IconOptions } from "../src/components/Icons";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Coaches_HomeScreen({ navigation }) {
+export default function Coaches_HomeScreen() {
+  const navigation = useNavigation();
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={OSUBeaverLogo}
-        style={styles.OSU_image}
-      >
-
-      <Icons theme={IconOptions.OsuBlockLetters} />
+      <ImageBackground source={OSUBeaverLogo} style={styles.OSU_image}>
+        <Icons theme={IconOptions.OsuBlockLetters} />
 
         <View style={styles.button_icons}>
-          <Pressable style={styles.buttonStyle}>
+          <Pressable
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate("Drills")}
+          >
             <Icons theme={IconOptions.PracticeDrill} />
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Drills
             </Text>
           </Pressable>
 
-          <Pressable style={styles.buttonStyle}>
+          <Pressable
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate("PlayerProgress")}
+          >
             <Icons theme={IconOptions.DrillProgress} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
@@ -42,7 +53,10 @@ export default function Coaches_HomeScreen({ navigation }) {
             </Text>
           </Pressable>
 
-          <Pressable style={styles.buttonStyle}>
+          <Pressable
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate("TeamProgress")}
+          >
             <Icons theme={IconOptions.TeamInfoIcon} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
@@ -50,7 +64,10 @@ export default function Coaches_HomeScreen({ navigation }) {
             </Text>
           </Pressable>
 
-          <Pressable style={styles.buttonStyle}>
+          <Pressable
+            style={styles.buttonStyle}
+            onPress={() => navigation.navigate("Leaderboard")}
+          >
             <Icons theme={IconOptions.Leaderboard} />
 
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
