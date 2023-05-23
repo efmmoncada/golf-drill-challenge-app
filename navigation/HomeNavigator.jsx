@@ -8,6 +8,7 @@ import DrillsPlayer from "../screens/DrillsPlayer";
 import AuthContext from "../context/AuthContext";
 import TeamInfo from "../screens/TeamInfo";
 import Drill from "../src/components/Drill";
+import DrillsCoach from "../screens/DrillsCoach";
 
 const AppStack = createStackNavigator();
 export default function HomeNavigator() {
@@ -23,6 +24,7 @@ export default function HomeNavigator() {
         component={Coaches_HomeScreen}
       />
       <AppStack.Screen name="Drills" component={DrillsPlayer} />
+      <AppStack.Screen name="DrillsCoach" component={DrillsCoach} />
       <AppStack.Screen name="PlayerProgress" component={PlayerProgress} />
       <AppStack.Screen name="TeamProgress" component={TeamInfo} />
       <AppStack.Screen name="Leaderboard" component={Leaderboard} />

@@ -34,7 +34,7 @@ export default function Coaches_HomeScreen() {
         <View style={styles.button_icons}>
           <Pressable
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate("Drills")}
+            onPress={() => navigation.navigate("DrillsCoach")}
           >
             <Icons theme={IconOptions.PracticeDrill} />
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
