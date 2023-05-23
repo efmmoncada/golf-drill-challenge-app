@@ -45,3 +45,28 @@ Our app is seperated into 2 main pieces, a client and a backend as a service, co
 Below is a diagram showing the overall design of the application:
 
 ![system architecture](docs/system_arch.png)
+
+## Roadmap
+
+Some unrealized features that can be work on include:
+
+   - Notification on drill being assigned to a user.
+   - expanded data viewing and parsing for both coaches and players in individual view.
+   - Random distance generation aid for drill creation.
+
+Other improvements (non-features) that can be worked on include:
+
+   - Better integration and consolidation of player/coach screens.
+   - Better re-use of components shared among both type of users.
+   - Extraction and consolidation of styles and theming elements to ensure consistency and ease of adaptability and maintainability for changes.
+   - Consolidation of authentication and user data propagation.
+   - Improved state management (possibly using redux or React Reducers with native Context API).
+
+## Credits
+Developed by:
+   - Emmanuel Moncada (@efmmoncada)
+   - Eduardo Gonzalez (@Eduardo-Gonz)
+   - Kathleen Ashley (@srslyashh)
+   - Jermaine Lara (@Jermainelr)
+   - Getaneh Kudna (Getaneh90)
+   - Brendan Baldocchi (@BrendanBaldocchi2)
