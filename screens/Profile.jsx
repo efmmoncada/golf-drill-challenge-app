@@ -15,6 +15,8 @@ import { moderateScale } from "../src/components/scaling_utilities";
 import { useFonts } from "expo-font";
 
 import Buttons from "../src/components/Buttons";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const bennyProfilePic = require("../assets/images/bennyprofpic.png");
 
@@ -23,7 +25,10 @@ const bennyProfilePic = require("../assets/images/bennyprofpic.png");
  * @param {object} props
  * @param {string} props.userID
  */
-export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
+export default function Profile() {
+  const [user, setUser] = useContext(AuthContext);
+
+  const userID = "7lWe1aJgQ7O8ptsEVRrC";
   const [loaded] = useFonts({
     Karma: require("../assets/fonts/Karma-Regular.ttf"),
   });
@@ -54,7 +59,7 @@ export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
         <View style={styles.pictureContainer}>
           <Image source={bennyProfilePic} style={styles.profileImage} />
           <Text allowFontScaling={false} style={styles.title}>
-            {firstName} {lastName}
+            {user.name || `${firstName} ${lastName}`}
           </Text>
           <Text allowFontScaling={false} style={styles.subtitle}>
             Player
@@ -67,7 +72,7 @@ export default function Profile({ userID = "7lWe1aJgQ7O8ptsEVRrC" }) {
         </Text>
         <View style={styles.textContainer}>
           <Text allowFontScaling={false} style={styles.textGrey}>
-            {email}
+            {user.email}
           </Text>
         </View>
         <Pressable
