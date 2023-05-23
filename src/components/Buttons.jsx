@@ -98,6 +98,23 @@ export default function Buttons({ theme, onPress }) {
       </View>
     );
   }
+  if (theme === "createDrill") {
+    return (
+      <View style>
+        <Pressable
+          style={styles.backButtonContainer2}
+          onPress={() => navigation.navigate("CreateDrill")}
+        >
+          <FontAwesome
+            name="pencil"
+            size={30}
+            color="#D73F09"
+            style={styles.buttonIcon}
+          />
+        </Pressable>
+      </View>
+    );
+  }
   // add media button for the createDrill page.
   // Position is underneath the "Upload Media" title.
   if (theme == "addMedia") {
@@ -176,6 +193,16 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(15),
     marginLeft: moderateScale(25),
     top: moderateScale(8),
+  },
+  backButtonContainer2: {
+    backgroundColor: "white",
+    padding: moderateScale(4),
+    width: moderateScale(40, 0.2),
+    height: moderateScale(40, 0.2),
+    borderRadius: 20,
+    flexDirection: "row",
+    padding: moderateScale(4),
+    marginLeft: moderateScale(330),
   },
   topAdjustment:{
     marginTop: moderateScale(-6)

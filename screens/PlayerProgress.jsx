@@ -18,6 +18,7 @@ import {
 } from "firebase/firestore";
 import { useQuery } from "@tanstack/react-query";
 import { moderateScale } from "../src/components/scaling_utilities";
+import Banner from "../src/components/Banner";
 
 export default function HomeScreen({ navigation }) {
   const [drillData, setDrillData] = useState([]);
@@ -49,13 +50,10 @@ export default function HomeScreen({ navigation }) {
 
   return (
     //osu logo
+
     <SafeAreaView style={styles.container}>
-      <View>
-        <Image
-          source={require("../assets/images/ProgressScreenImg.png")}
-          style={styles.page_image}
-        />
-      </View>
+
+      <Banner themeOne="back" image={require("../assets/images/ProgressScreenImg.png")} />
 
       <View>
         <Image
@@ -64,14 +62,14 @@ export default function HomeScreen({ navigation }) {
         />
       </View>
 
-      <View>
+      {/* <View>
         <TouchableOpacity activeOpacity={0.5}>
           <Image
             source={require("../assets/Icons/BackArrow_icon.png")}
             style={styles.back_button}
           />
         </TouchableOpacity>
-      </View>
+      </View> */}
 
       <View>
         <TouchableOpacity activeOpacity={0.5}>

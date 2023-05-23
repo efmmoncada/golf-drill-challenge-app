@@ -31,7 +31,7 @@ export default function DrillsCoach() {
 
   return (
     <View style={styles.container}>
-      <Banner text="Drills" image={Fuenmayor} themeOne="back" />
+      <Banner text="Drills" image={Fuenmayor} themeOne="back" themeTwo="createDrill"/>
       <DrillList listData={drillData} />
     </View>
   );
