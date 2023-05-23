@@ -64,9 +64,9 @@ Other improvements (non-features) that can be worked on include:
 
 ## Credits
 Developed by:
-   - Emmanuel Moncada (@efmmoncada)
-   - Eduardo Gonzalez (@Eduardo-Gonz)
-   - Kathleen Ashley (@srslyashh)
-   - Jermaine Lara (@Jermainelr)
-   - Getaneh Kudna (Getaneh90)
-   - Brendan Baldocchi (@BrendanBaldocchi2)
+   - Emmanuel Moncada ([@efmmoncada](https://github.com/efmmoncada))
+   - Eduardo Gonzalez ([@Eduardo-Gonz](https://github.com/Eduardo-Gonz))
+   - Kathleen Ashley ([@srslyashh](https://github.com/srslyashh))
+   - Jermaine Lara ([@Jermainelr](http://github.com/Jermainelr))
+   - Getaneh Kudna ([@Getaneh90](https://github.com/Getaneh90))
+   - Brendan Baldocchi ([@BrendanBaldocchi2](https://github.com/BrendanBaldocchi2))
