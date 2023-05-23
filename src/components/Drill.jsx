@@ -14,6 +14,7 @@ import Banner from "./Banner";
 import ImageCarrousel from "./ImageCarrousel";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { moderateScale } from "./scaling_utilities";
+import { useRoute } from "@react-navigation/native";
 
 /**
  *
@@ -21,7 +22,11 @@ import { moderateScale } from "./scaling_utilities";
  * @param {string} props.id
  *
  */
-export default function Drill({ id = "YLHvka5gK5wHtP9NQWTZ" }) {
+export default function Drill() {
+
+  const route = useRoute();
+  const id = route.params.id || "YLHvka5gK5wHtP9NQWTZ"
+
   const { isLoading, isError, data, error } = useQuery({
     queryKey: ["drill", id],
     queryFn: async () => {

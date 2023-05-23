@@ -8,7 +8,7 @@ const DrillList = ({ listData }) => {
       <FlatList
         data={listData}
         renderItem={({ item }) => (
-          <DrillItem title={item.name} subtext={item.shortDesc} />
+          <DrillItem title={item.name} subtext={item.shortDesc} id={item.id} />
         )}
         keyExtractor={(item) => item.id}
       />

@@ -1,10 +1,13 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { moderateScale } from "./scaling_utilities";
+import { useNavigation } from "@react-navigation/native";
 
-const DrillItem = ({ title, subtext }) => {
+const DrillItem = ({ title, subtext, id }) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={item.itemContainer}>
+    <TouchableOpacity style={item.itemContainer} onPress={() => navigation.navigate('Drill', { id })}>
       <Text allowFontScaling={false} style={item.title}>
         {title}
       </Text>
