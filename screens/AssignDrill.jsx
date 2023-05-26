@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { db } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import Banner from "../src/components/Banner";
-import TeamList from "../src/components/TeamList";
 import TeamInfo from "../assets/teamInfo.jpg";
 import { useRoute } from "@react-navigation/native";
 import AssignList from "../src/components/AssignList";
@@ -18,7 +17,7 @@ import AssignList from "../src/components/AssignList";
 // Drill ID will be passed in
 export default function AssignDrill() {
   const route = useRoute();
-  const drillId = route.params.id || "YLHvka5gK5wHtP9NQWTZ";
+  const drillRef = route.params.drillRef || "YLHvka5gK5wHtP9NQWTZ";
 
   const [players, setPlayers] = useState([]);
 
@@ -30,7 +29,8 @@ export default function AssignDrill() {
     response.forEach((info) => {
       formattedData.push({
         id: info.id,
-        drillId: drillId,
+        playerRef: info.ref,
+        drillRef: drillRef,
         name: `${info.data().firstName}`,
         email: info.data().email,
       });

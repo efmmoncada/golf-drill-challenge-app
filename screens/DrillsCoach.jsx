@@ -20,6 +20,7 @@ export default function DrillsCoach() {
       response.forEach((info) => {
         formattedData.push({
           id: info.id,
+          drillRef: info.ref,
           ...info.data(),
         });
       });

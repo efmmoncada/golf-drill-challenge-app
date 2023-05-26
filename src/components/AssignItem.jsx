@@ -2,17 +2,20 @@ import React from "react";
 import { View } from "react-native";
 import { StyleSheet, Text } from "react-native";
 import { db } from "../../firebaseConfig";
-import { doc } from "firebase/firestore";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { moderateScale } from "./scaling_utilities";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const AssignItem = ({ title, subtext, playerId, drillId }) => {
+const AssignItem = ({ title, subtext, playerRef, drillRef }) => {
   const assignDrill = async () => {
-    console.log("player ID", playerId);
-    console.log("drill ID", drillId);
-    const playerRef = doc(db, "players", playerId);
-    const drillRef = doc(db, "players", drillId);
-    // add drill ref to player field 'assignedDrills'
+    // query for player and drill reference
+    // const playerRef = doc(db, "players", playerId);
+    // const drillRef = doc(db, "players", drillId);
+
+    // assign drill to player
+    await updateDoc(playerRef, {
+      assignedDrills: arrayUnion(drillRef),
+    });
   };
 
   return (

@@ -12,7 +12,8 @@ const AssignList = ({ listData }) => {
             title={item.name}
             subtext={item.email}
             playerId={item.id}
-            drillId={item.drillId}
+            playerRef={item.playerRef}
+            drillRef={item.drillRef}
           />
         )}
         keyExtractor={(item) => item.id}
