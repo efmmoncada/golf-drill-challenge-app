@@ -26,7 +26,13 @@ To begin developing:
    OR
 
    Use an emulator such as the [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/), or the [Android Studio Emulator](https://docs.expo.dev/workflow/android-studio-emulator/).
-
+   
+   *Note about running on Android Studio Emulator* 
+   
+   There is a known bug that prevents users from using the Sign-in with Google functionality. 
+   To bypass this, the emulator must be run from the command line with a flag disabling the Vulkan feature.
+   Read this article to learn how to run the emulator from the command line: (https://developer.android.com/studio/run/emulator-commandline), 
+   And this article on the flag to disable the Vulkan feature: (https://developer.android.com/studio/run/emulator-troubleshooting#error:-%60vulkan-1.dll)  
 
 4. Start the development server
    ```

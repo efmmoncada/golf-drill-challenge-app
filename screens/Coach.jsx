@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
   regButton: {
     width: moderateScale(370, 0.95),
     backgroundColor: "#E9E2E2",
-    alignItems: "left",
+    alignItems: "flex-start",
     height: moderateScale(45),
     borderRadius: 12,
     paddingTop: moderateScale(10),
