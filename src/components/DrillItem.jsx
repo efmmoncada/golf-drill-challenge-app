@@ -7,7 +7,7 @@ const DrillItem = ({ title, subtext, id, drillRef }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity style={item.itemContainer} onPress={() => navigation.navigate('AssignDrill', { drillRef })}>
+    <TouchableOpacity style={item.itemContainer} onPress={() => navigation.navigate('AssignDrill', { drillRef})}>
       <Text allowFontScaling={false} style={item.title}>
         {title}
       </Text>

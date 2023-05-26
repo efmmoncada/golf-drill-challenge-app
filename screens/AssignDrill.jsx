@@ -45,12 +45,6 @@ export default function AssignDrill() {
     queryFn: () => queryCollection(),
   });
 
-  // Set Error values
-
-  useEffect(() => {
-    refetch();
-  });
-
   return (
     <View style={styles.container}>
       <Banner text="Assign" image={TeamInfo} themeOne="back" />

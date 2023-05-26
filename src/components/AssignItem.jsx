@@ -8,10 +8,6 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 const AssignItem = ({ title, subtext, playerRef, drillRef }) => {
   const assignDrill = async () => {
-    // query for player and drill reference
-    // const playerRef = doc(db, "players", playerId);
-    // const drillRef = doc(db, "players", drillId);
-
     // assign drill to player
     await updateDoc(playerRef, {
       assignedDrills: arrayUnion(drillRef),
