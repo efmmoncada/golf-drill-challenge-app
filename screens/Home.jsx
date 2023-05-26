@@ -18,6 +18,9 @@ import { OSUBeaverLogo } from "../assets/Icons";
 export default function HomeScreen() {
   const navigation = useNavigation();
 
+  function navigateToCoachDrills() {
+    navigation.navigate("DrillsCoach");
+  }
   function navigateToDrills() {
     navigation.navigate("Drills");
   }
@@ -31,10 +34,7 @@ export default function HomeScreen() {
   return (
     //osu logo
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={OSUBeaverLogo}
-        style={styles.OSU_image}
-      >
+      <ImageBackground source={OSUBeaverLogo} style={styles.OSU_image}>
         <Icons theme={IconOptions.OsuBlockLetters} />
 
         <View style={styles.button_icons}>
@@ -47,6 +47,18 @@ export default function HomeScreen() {
             <Icons theme={IconOptions.PracticeDrill} />
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               Practice Drill
+            </Text>
+          </Pressable>
+
+          <Pressable
+            style={styles.buttonStyle}
+            onPress={() => {
+              navigateToCoachDrills();
+            }}
+          >
+            <Icons theme={IconOptions.PracticeDrill} />
+            <Text allowFontScaling={false} style={styles.buttonTextStyle}>
+              View Drills
             </Text>
           </Pressable>
 
