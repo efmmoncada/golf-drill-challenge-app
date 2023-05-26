@@ -10,6 +10,7 @@ import TeamInfo from "../screens/TeamInfo";
 import Drill from "../src/components/Drill";
 import DrillsCoach from "../screens/DrillsCoach";
 import CreateDrill from "../screens/CreateDrill";
+import AssignDrill from "../screens/AssignDrill";
 
 const AppStack = createStackNavigator();
 export default function HomeNavigator() {
@@ -31,7 +32,7 @@ export default function HomeNavigator() {
       <AppStack.Screen name="Leaderboard" component={Leaderboard} />
       <AppStack.Screen name="Drill" component={Drill} />
       <AppStack.Screen name="CreateDrill" component={CreateDrill} />
-
+      <AppStack.Screen name="AssignDrill" component={AssignDrill} />
     </AppStack.Navigator>
   );
 }
