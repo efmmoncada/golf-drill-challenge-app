@@ -38,7 +38,7 @@ export default function PlayerProgress({ navigation }) {
   const [selectedDrill, setSelectedDrill] = useState(null);
   const [drillNames, setDrillNames] = useState([]);
   const [open, setOpen] = useState(false);
-  const [timePeriod, setTimePeriod] = useState("Week");
+  const [timePeriod, setTimePeriod] = useState("Recent");
   const [selectedDataPointIndex, setSelectedDataPointIndex] = useState(null);
 
 

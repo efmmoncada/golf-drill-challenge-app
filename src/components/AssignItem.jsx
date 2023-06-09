@@ -12,6 +12,7 @@ const AssignItem = ({ title, subtext, playerRef, drillRef }) => {
     await updateDoc(playerRef, {
       assignedDrills: arrayUnion(drillRef),
     });
+    alert("Successfully assigned drill!");
   };
 
   return (

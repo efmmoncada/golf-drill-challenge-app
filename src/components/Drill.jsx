@@ -44,7 +44,7 @@ export default function Drill() {
   return (
     <View style={styles.container}>
       <Header />
-      <Banner text={name} image={Fuenmayor} />
+      <Banner text={name}  themeOne={"back"} image={Fuenmayor} />
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
         <View style={styles.media}>

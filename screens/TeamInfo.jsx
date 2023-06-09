@@ -14,10 +14,10 @@ export default function TeamInfo() {
 
   // Create drop down values
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("players");
+  const [value, setValue] = useState("Players");
   const [items, setItems] = useState([
-    { label: "Players", value: "players" },
-    { label: "Coaches", value: "coaches" },
+    { label: "Players", value: "Players" },
+    { label: "Coaches", value: "Coaches" },
   ]);
 
   const queryCollection = async (value) => {
@@ -38,7 +38,7 @@ export default function TeamInfo() {
 
   const { isLoading, isError, data, error, refetch } = useQuery({
     queryKey: ["teamInfo", value],
-    queryFn: () => queryCollection(value),
+    queryFn: () => queryCollection(value.toLowerCase()),
   });
 
   // Set Error values
