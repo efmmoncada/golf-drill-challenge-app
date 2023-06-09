@@ -62,7 +62,7 @@ export default function TeamInfo() {
           setItems={setItems}
           style={{ borderWidth: 0 }}
           containerStyle={styles.dropDownContainer}
-          textStyle={{ color: "#767170" }}
+          textStyle={{ color: "#767170", fontFamily: "Karma" }}
         />
         <TeamList listData={teamInfo} />
       </View>
@@ -73,7 +73,7 @@ export default function TeamInfo() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09F5",
+    backgroundColor: "#e6e6e6",
   },
   drills: {
     flex: 6,
@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     textAlign: "center",
-    color: "#F6F3F3",
+    color: "#767170",
+    fontFamily: "Karma"
   },
   dropDownContainer: {
     width: "30%",

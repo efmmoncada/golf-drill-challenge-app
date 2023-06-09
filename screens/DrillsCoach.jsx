@@ -41,7 +41,7 @@ export default function DrillsCoach() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09F5",
+    backgroundColor: "#e6e6e6",
   },
   drills: {
     flex: 6,

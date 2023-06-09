@@ -26,7 +26,7 @@ const AssignItem = ({ title, subtext, playerRef, drillRef }) => {
       </View>
       <View style={item.rightContainer}>
         <TouchableOpacity style={item.assignBtn} onPress={assignDrill}>
-          <Text style={item.assignText}>Assign</Text>
+          <Text allowFontScaling={false} style={item.assignText}>Assign</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -39,7 +39,7 @@ const item = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     borderRadius: 10,
-    backgroundColor: "#F6F3F3",
+    backgroundColor: "#ffffff",
     padding: moderateScale(15),
     marginVertical: moderateScale(10),
     marginHorizontal: moderateScale(25),
@@ -72,6 +72,7 @@ const item = StyleSheet.create({
   },
   assignText: {
     fontSize: moderateScale(16),
+    fontFamily: "Karma"
   },
 });
 

@@ -58,7 +58,7 @@ export default function AssignDrill() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09F5",
+    backgroundColor: "#e6e6e6",
   },
   drills: {
     flex: 6,
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     textAlign: "center",
-    color: "#F6F3F3",
+    color: "#767170",
   },
   dropDownContainer: {
     width: "30%",

@@ -90,7 +90,7 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
             marginTop: 15,
           }}
           textStyle={{
-            color: "#767170",
+            color: "#767170", fontFamily: "Karma"
           }}
         />
         <DrillList listData={drillData} />
@@ -102,7 +102,7 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09F5",
+    backgroundColor: "#e6e6e6",
   },
   drills: {
     flex: 6,
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: moderateScale(24),
     textAlign: "center",
-    color: "#F6F3F3",
+    color: "#767170",
+    fontFamily: "Karma"
   },
 });

@@ -46,7 +46,7 @@ export default function LeaderBoard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#D73F09F5",
+    backgroundColor: "#e6e6e6",
   },
 
   banner: {
@@ -62,16 +62,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   leftText: {
-    backgroundColor: "#D73F09F5",
-    color: "white",
+    color: "#767170",
     fontSize: moderateScale(15),
     fontFamily: "Karma",
     marginTop: moderateScale(20),
     marginLeft: moderateScale(50),
   },
   rightText: {
-    backgroundColor: "#D73F09F5",
-    color: "white",
+    color: "#767170",
     fontSize: moderateScale(15),
     fontFamily: "Karma",
     marginTop: moderateScale(20),

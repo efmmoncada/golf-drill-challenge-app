@@ -16,7 +16,7 @@ const item = StyleSheet.create({
   itemContainer: {
     flex: 1,
     borderRadius: moderateScale(10),
-    backgroundColor: "#F6F3F3",
+    backgroundColor: "#ffffff",
     padding: moderateScale(15),
     marginVertical: moderateScale(10),
     marginHorizontal: moderateScale(25),
