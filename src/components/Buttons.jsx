@@ -199,10 +199,9 @@ const styles = StyleSheet.create({
     padding: moderateScale(4),
     width: moderateScale(40, 0.2),
     height: moderateScale(40, 0.2),
-    borderRadius: 20,
-    flexDirection: "row",
-    padding: moderateScale(4),
-    marginLeft: moderateScale(330),
+    borderRadius: 30,
+    marginLeft: moderateScale(350, 1.05),
+    marginTop: -moderateScale(34),
   },
   topAdjustment:{
     marginTop: moderateScale(-6)

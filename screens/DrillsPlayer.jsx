@@ -20,10 +20,10 @@ import Headers from "../src/components/Headers"
 export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
   const [drillData, setDrillData] = useState([]);
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("assigned");
+  const [value, setValue] = useState("Assigned");
   const [items, setItems] = useState([
-    { label: "Assigned", value: "assigned" },
-    { label: "Available", value: "available" },
+    { label: "Assigned", value: "Assigned" },
+    { label: "Available", value: "Available" },
   ]);
 
   const getAssigned = async () => {
@@ -58,8 +58,8 @@ export default function DrillsPlayer({ id = "P9dkd0kpWFDmYbuY8sCR" }) {
   };
 
   const { isLoading, isError, data, error, refetch } = useQuery({
-    queryKey: ["assigned", id, value],
-    queryFn: value == "assigned" ? () => getAssigned() : () => getCompleted(),
+    queryKey: ["Assigned", id, value],
+    queryFn: value == "Assigned" ? () => getAssigned() : () => getCompleted(),
   });
 
   useEffect(() => {

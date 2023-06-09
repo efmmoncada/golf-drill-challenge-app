@@ -20,7 +20,7 @@ export default function HomeNavigator() {
       initialRouteName={user.isCoach ? "Coaches_HomeScreen" : "Home"}
       screenOptions={{ headerShown: false }}
     >
-      <AppStack.Screen name="Home" component={HomeScreen} />
+      <AppStack.Screen name="Player_HomeScreen" component={HomeScreen} />
       <AppStack.Screen
         name="Coaches_HomeScreen"
         component={Coaches_HomeScreen}

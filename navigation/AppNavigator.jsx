@@ -17,7 +17,7 @@ import Drill from "../src/components/Drill";
 import HomeNavigator from "./HomeNavigator";
 
 //Screen names
-const homeName = "Home2";
+const homeName = "Home";
 const settingsName = "Settings";
 const profileName = "Profile";
 const notifcationName = "Notification";

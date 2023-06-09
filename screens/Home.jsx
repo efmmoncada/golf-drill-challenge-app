@@ -50,7 +50,7 @@ export default function HomeScreen() {
             </Text>
           </Pressable>
 
-          <Pressable
+          {/* <Pressable
             style={styles.buttonStyle}
             onPress={() => {
               navigateToCoachDrills();
@@ -60,7 +60,7 @@ export default function HomeScreen() {
             <Text allowFontScaling={false} style={styles.buttonTextStyle}>
               View Drills
             </Text>
-          </Pressable>
+          </Pressable> */}
 
           <Pressable
             style={styles.buttonStyle}
