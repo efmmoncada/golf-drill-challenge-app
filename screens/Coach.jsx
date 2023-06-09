@@ -63,6 +63,7 @@ export default function Coach() {
     }
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      setUser((user) => ({ ...user, isCoach: true }));
     } catch (error) {
       setValidationMessage(error.message);
     }

@@ -14,7 +14,7 @@ export default function App() {
     setUser(user || null);
   }), []);
 
-  useEffect(() => console.log(user), [user]);
+  useEffect(() => console.log(user?.isCoach), [user]);
 
   return (
     <QueryClientProvider client={queryClient}>

@@ -16,13 +16,9 @@ import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { moderateScale } from "./scaling_utilities";
 import { useRoute } from "@react-navigation/native";
 
-/**
- *
- * @param {object} props
- * @param {string} props.id
- *
- */
+
 export default function Drill() {
+  const [showPopup, setShowPopup] = useState(false);
 
   const route = useRoute();
   const id = route.params.id || "YLHvka5gK5wHtP9NQWTZ"
@@ -59,7 +55,7 @@ export default function Drill() {
 
         <Pressable
           style={styles.button}
-          onPress={() => console.log("input score button pressed")}
+          onPress={() => setShowPopup(true)}
         >
           <Text allowFontScaling={false} style={styles.inputText}>
             Input Score
