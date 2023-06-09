@@ -17,19 +17,14 @@ export default function LeaderBoard() {
 
   return (
     <View style={styles.container}>
-      <Headers/>
-      {/* <View>
-        <Headers />
-      </View> */}
+      <Headers />
 
-      <View style={styles.banner}>
-        <Banner
-          text="Leaderboard"
-          themeOne="back"
-          themeTwo="filter"
-          image={BoardImage}
-        />
-      </View>
+      <Banner
+        text="Leaderboard"
+        themeOne="back"
+        themeTwo="filter"
+        image={BoardImage}
+      />
       <View style={styles.label}>
         <Text allowFontScaling={false} style={styles.leftText}>
           Name

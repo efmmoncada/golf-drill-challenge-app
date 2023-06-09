@@ -63,7 +63,13 @@ export default function AppNavigator() {
           headerShown: false,
         }}
       />
-      <Tabs.Screen name={profileName} component={Profile} />
+      <Tabs.Screen
+        name={profileName}
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
 
       <Tabs.Screen
         name={notifcationName}

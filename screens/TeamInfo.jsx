@@ -7,6 +7,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import Banner from "../src/components/Banner";
 import TeamList from "../src/components/TeamList";
 import TeamInfoPhoto from "../assets/teamInfo.jpg";
+import Header from "../src/components/Headers";
 
 export default function TeamInfo() {
   const [teamInfo, setTeamInfo] = useState([]);
@@ -48,6 +49,7 @@ export default function TeamInfo() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <Banner text="Team Info" image={TeamInfoPhoto} themeOne="back" />
 
       <View style={styles.drills}>

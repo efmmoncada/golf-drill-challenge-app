@@ -25,7 +25,15 @@ export default function HomeNavigator() {
         name="Coaches_HomeScreen"
         component={Coaches_HomeScreen}
       />
-      <AppStack.Screen name="Drills" component={DrillsPlayer} />
+      <AppStack.Screen
+        name="Drills"
+        component={DrillsPlayer}
+        options={
+          {
+            // headerShown: false,
+          }
+        }
+      />
       <AppStack.Screen name="DrillsCoach" component={DrillsCoach} />
       <AppStack.Screen name="PlayerProgress" component={PlayerProgress} />
       <AppStack.Screen name="TeamProgress" component={TeamInfo} />

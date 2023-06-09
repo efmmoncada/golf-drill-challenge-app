@@ -6,6 +6,7 @@ import Banner from "../src/components/Banner";
 import DrillList from "../src/components/DrillList";
 import Fuenmayor from "../assets/MateoFuenmayor.jpeg";
 import { useQuery } from "@tanstack/react-query";
+import Header from "../src/components/Headers";
 
 export default function DrillsCoach() {
   const [drillData, setDrillData] = useState([]);
@@ -32,6 +33,7 @@ export default function DrillsCoach() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <Banner text="Drills" image={Fuenmayor} themeOne="back" themeTwo="createDrill"/>
       <DrillList listData={drillData} />
     </View>

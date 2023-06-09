@@ -17,6 +17,7 @@ import { useFonts } from "expo-font";
 import Buttons from "../src/components/Buttons";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
+import Header from "../src/components/Headers";
 
 const bennyProfilePic = require("../assets/images/bennyprofpic.png");
 
@@ -53,6 +54,7 @@ export default function Profile() {
 
   return (
     <View style={styles.container}>
+      <Header height={90} />
       <View style={styles.profileContainer}>
         <Buttons theme="backOrange" style={styles.backButton} />
         <Buttons theme="editButton" />

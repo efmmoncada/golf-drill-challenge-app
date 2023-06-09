@@ -7,6 +7,7 @@ import Banner from "../src/components/Banner";
 import TeamInfo from "../assets/teamInfo.jpg";
 import { useRoute } from "@react-navigation/native";
 import AssignList from "../src/components/AssignList";
+import Header from "../src/components/Headers";
 
 /**
  *
@@ -47,6 +48,7 @@ export default function AssignDrill() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <Banner text="Assign" image={TeamInfo} themeOne="back" />
       <View style={styles.drills}>
         <AssignList listData={players} />
