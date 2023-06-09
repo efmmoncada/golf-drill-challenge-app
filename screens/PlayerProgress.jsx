@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   Button,
   Pressable,
-  ScrollView, 
+  ScrollView,
 } from "react-native";
 import { db } from "../firebaseConfig";
 import {
@@ -22,7 +22,6 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { moderateScale } from "../src/components/scaling_utilities";
 import Banner from "../src/components/Banner";
-import {Picker} from '@react-native-picker/picker';
 import {LineChart} from "react-native-chart-kit";
 import DropDownPicker from "react-native-dropdown-picker";
 import { FlatList } from 'react-native';
@@ -35,7 +34,7 @@ export default function PlayerProgress({ navigation }) {
   const id = "P9dkd0kpWFDmYbuY8sCR";
   const value = "";
   const [selectedDatasetIndex, setSelectedDatasetIndex] = useState(0);
- 
+
   const [selectedDrill, setSelectedDrill] = useState(null);
   const [drillNames, setDrillNames] = useState([]);
   const [open, setOpen] = useState(false);
@@ -78,9 +77,9 @@ const getRecentData = (data) => {
     default:
       return data;
   }
-  
+
 };
-  
+
   const getLabelByTimePeriod = (timePeriod, date) => {
     switch(timePeriod) {
       case 'Recent':
@@ -109,15 +108,15 @@ const getRecentData = (data) => {
     if (selectedDrill) {
       const playerRef = doc(db, "players", id);
       const drillRef = doc(db, "drills", selectedDrill);
-  
+
       const q = query(
         collection(db, "player-drills"),
         where("player", "==", playerRef),
         where("drill", "==", drillRef)
       );
-  
+
       const scoreDocs = await getDocs(q);
-  
+
       const drillScores = scoreDocs.docs.map((doc) => {
         const data = doc.data();
         return {
@@ -126,14 +125,14 @@ const getRecentData = (data) => {
           dateTime: data.dateTime.toDate(), // Store dateTime as a Date object
         };
       });
-  
+
          // Update drillData for FlatList
         setDrillData(drillScores);
 
       let filteredDrillScores = filterDataByTimePeriod(drillScores, timePeriod);
-  
+
       let finalScores;
-  
+
       // Only calculate averages for week, month, and year
       if (timePeriod !== 'Recent') {
         // Calculate the average for each time period
@@ -147,7 +146,7 @@ const getRecentData = (data) => {
             averages[label].count++;
           }
         });
-  
+
         finalScores = [];
         for (let label in averages) {
           finalScores.push({
@@ -155,9 +154,9 @@ const getRecentData = (data) => {
             score: averages[label].sum / averages[label].count
           });
         }
-  
+
         finalScores.sort((a, b) => new Date(a.label) - new Date(b.label)); // Sort by date
-  
+
       } else {
         // For 'Recent', just use the original scores
         finalScores = filteredDrillScores.map(score => ({
@@ -165,7 +164,7 @@ const getRecentData = (data) => {
           score: score.score
         }));
       }
-  
+
       // Create chart data
       const chartData = {
         labels: finalScores.map(score => score.label), // Get labels
@@ -175,13 +174,13 @@ const getRecentData = (data) => {
           },
         ],
       };
-  
+
       setChartData(chartData);
     }
   };
-  
-  
-  
+
+
+
   useEffect(() => {
     const fetchDrillNames = async () => {
       const playerRef = doc(db, "players", id);
@@ -200,41 +199,43 @@ const getRecentData = (data) => {
           label: doc.data().name,
           value: doc.id,
         };
-  
+
         if (!uniqueNames.some(name => name.value === drillInfo.value)) {
           uniqueNames.push(drillInfo);
         }
-  
+
         return uniqueNames;
       }, []);
-    
+
       setDrillNames(names);
-      
+
       // Select the first drill by default
       if (names.length > 0) {
         setSelectedDrill(names[0].value);
       }
     }
-  
+
     fetchDrillNames(); // Now fetchDrillNames function will be executed.
   }, []);
-  
-   
+
+
   useEffect(() => {
     getDrillScores().catch(error => {
       console.error(error);
     });
   }, [selectedDrill, timePeriod]);
-  
- 
+
+
   return (
     //osu logo
 
     <SafeAreaView style={styles.container}>
 
-      <Banner themeOne="back" image={require("../assets/images/ProgressScreenImg.png")} />
-      
-    
+      <Banner
+      text = "Player's Progress"
+      themeOne="back" image={require("../assets/images/ProgressScreenImg.png")} />
+
+
       <View style={styles.drills}>
       <DropDownPicker
   open={open}
@@ -246,7 +247,7 @@ const getRecentData = (data) => {
   setItems={setDrillNames}
   style={{ borderWidth: 0 }}
   containerStyle={{
-    
+
     width: "100%",
     marginLeft: moderateScale(2),
     marginTop: 0,
@@ -255,7 +256,7 @@ const getRecentData = (data) => {
     color: "#767170",
   }}
 />
-<View style={styles.timePeriodContainer}>   
+<View style={styles.timePeriodContainer}>
   <Pressable onPress={() => setTimePeriod('Recent')}>
     <Text style={timePeriod === 'Recent' ? styles.selectedText : styles.time_text}>Recent</Text>
   </Pressable>
@@ -270,34 +271,36 @@ const getRecentData = (data) => {
   </Pressable>
 </View>
 
-</View> 
+</View>
 
       {chartData.datasets[0].data.length > 0 ? (
 
- 
+<View style={styles.progress_graphImg}>
 
       <LineChart
 
+
         data={chartData}
-        getDotColor={(dataPoint, dataPointIndex) => 
-          dataPointIndex === selectedDataPointIndex ? "black" : "#ffa726"
+        getDotColor={(dataPoint, dataPointIndex) =>
+          dataPointIndex === selectedDataPointIndex ? "black" : "white"
         }
   height= {moderateScale(250)}
   width= {moderateScale(450) }
    chartConfig={{
-     backgroundColor: "#e26a00",
-     backgroundGradientFrom: "gray",
-     backgroundGradientTo: "#ffa726",
+     backgroundColor:  "red",
+     backgroundGradientFrom: "white",
+     backgroundGradientTo:  "white",
      decimalPlaces: 1, // optional, defaults to 2dp
-     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+     color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+     labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
      style: {
        borderRadius: 16
      },
      propsForDots: {
        r: "6",
        strokeWidth: "2",
-       stroke: "#ffa726"
+       stroke: "black",
+
      },
      yAxisLabel: "0",
      yAxisInterval: 10 // optional, defaults to 1
@@ -305,6 +308,7 @@ const getRecentData = (data) => {
    bezier
    style={styles.progress_graphImg}/>
 
+</View>
 ) : (
   <Text> No data available </Text>
 )}
@@ -349,7 +353,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#DB5525",
+    backgroundColor: "#e6e6e6",
   },
 
   backButton: {
@@ -359,7 +363,10 @@ const styles = StyleSheet.create({
     right: moderateScale(200),
     zIndex: 2,
   },
-   
+  progress_graphImg: {
+    marginTop: -moderateScale(40),
+  },
+
   drills: {
     flex: 0.5,
     width: "100%",
@@ -372,7 +379,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     width: '100%',  // Optional, based on your needs
   },
-  
+
   // TODO: adapt to responsive
   ScreenTitle: {
     color: "white",
@@ -389,7 +396,7 @@ const styles = StyleSheet.create({
     marginTop: moderateScale(60),
     padding: moderateScale(10),
     alignItems: 'center', // Add this
-     
+
 },
 buttonStyle: {
   backgroundColor: "white",
@@ -422,7 +429,7 @@ scoreDateContainer: {
     width: 35,
     resizeMode: "stretch",
   },
-  
+
 buttonTextStyle: {
   color: "black",
   fontFamily: "Karma",
@@ -453,17 +460,20 @@ buttonTextStyle_day: {
   },
 
   timePeriodContainer: {
-    flexDirection: "row", 
-    marginTop: 5, 
+    flexDirection: "row",
+    marginTop: 5,
     justifyContent: "space-between",
     marginRight: moderateScale(4),
+    marginBottom: moderateScale(50),
   },
   time_text: {
     color: 'gray',
+    paddingHorizontal: moderateScale(20),
+
   },
   selectedText: {
     color: 'black',
+    paddingHorizontal: moderateScale(20),
+
   },
 });
-
-
