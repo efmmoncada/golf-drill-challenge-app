@@ -15,6 +15,7 @@ import ImageCarrousel from "./ImageCarrousel";
 import Fuenmayor from "../../assets/MateoFuenmayor.jpeg";
 import { moderateScale } from "./scaling_utilities";
 import { useRoute } from "@react-navigation/native";
+import Header from "./Headers";
 
 
 export default function Drill() {
@@ -42,6 +43,7 @@ export default function Drill() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <Banner text={name} image={Fuenmayor} />
 
       <ScrollView contentContainerStyle={{ alignItems: "center" }}>
@@ -68,7 +70,7 @@ export default function Drill() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: moderateScale(30),
     fontFamily: "Karma",
-    color: "white",
+    color: "#767170",
     fontSize: moderateScale(15),
   },
   button: {
@@ -95,5 +97,6 @@ const styles = StyleSheet.create({
   },
   inputText: {
     fontFamily: "Karma",
+    color: "#767170"
   },
 });
