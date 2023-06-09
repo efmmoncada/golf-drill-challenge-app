@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { moderateScale } from "./scaling_utilities";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import AuthContext from "../../context/AuthContext";
 
 const DrillItem = ({ title, subtext, id, drillRef }) => {
+  const currRoute = useRoute();
   const navigation = useNavigation();
   const [user, setUser] = useContext(AuthContext);
 
@@ -12,7 +13,7 @@ const DrillItem = ({ title, subtext, id, drillRef }) => {
   const routeProps = user.isCoach ? { drillRef } : { id };
 
   return (
-    <TouchableOpacity style={item.itemContainer} onPress={() => navigation.navigate(route, routeProps)}>
+    <TouchableOpacity style={item.itemContainer} onPress={() => currRoute.name !== "TeamProgress" && navigation.navigate(route, routeProps)}>
       <Text allowFontScaling={false} style={item.title}>
         {title}
       </Text>

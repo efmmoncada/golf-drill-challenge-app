@@ -151,7 +151,7 @@ export default function Buttons({ theme, onPress }) {
       <View style>
         <Pressable
           style={styles.topLeftNeutral}
-          onPress={() => alert("You pressed Cancel.")}
+          onPress={navigation.goBack}
         >
           <Text allowFontScaling={false} style={styles.whiteText}>
             Cancel

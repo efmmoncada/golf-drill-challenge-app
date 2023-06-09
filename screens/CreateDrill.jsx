@@ -19,6 +19,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import createDrill from "../assets/createDrill.jpg";
 import { moderateScale } from "../src/components/scaling_utilities";
+import Header from "../src/components/Headers";
 
 const { width, height } = Dimensions.get("window");
 
@@ -135,13 +136,14 @@ export default function CreateDrill() {
   return (
     loaded && (
       <View style={styles.container}>
+        <Header />
         <Banner
           image={createDrill}
           text="Create Drills"
           themeOne="back"
           themeTwo="Cancel"
         />
-        <ScrollView>
+        <ScrollView style={{ paddingTop: moderateScale(12)}}>
           <SelectList
             setSelected={(val) => setType(val)}
             data={data}
@@ -151,7 +153,7 @@ export default function CreateDrill() {
             boxStyles={{
               width: moderateScale(350),
               height: moderateScale(45),
-              backgroundColor: "#F0E8E8",
+              backgroundColor: "#ffffff",
               borderRadius: moderateScale(10),
               paddingLeft: moderateScale(20.95),
               paddingRight: moderateScale(10),
@@ -165,7 +167,7 @@ export default function CreateDrill() {
             dropdownStyles={{
               width: moderateScale(350),
               height: moderateScale(90),
-              backgroundColor: "#e6e9ed",
+              backgroundColor: "#ffffff",
               borderRadius: moderateScale(10),
               paddingLeft: moderateScale(0.15),
               paddingRight: moderateScale(10),
@@ -229,14 +231,14 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#D73F09",
+    backgroundColor: "#e6e6e6",
     alignItems: "flex-start",
     justifyContent: "flex-start",
   },
   textContainer: {
     width: moderateScale(350),
     height: moderateScale(45),
-    backgroundColor: "#F0E8E8",
+    backgroundColor: "#ffffff",
     borderRadius: moderateScale(10),
     paddingLeft: moderateScale(15),
     paddingTop: moderateScale(4),
@@ -248,7 +250,7 @@ const styles = StyleSheet.create({
   textContainer2: {
     width: moderateScale(350),
     height: moderateScale(125),
-    backgroundColor: "#F0E8E8",
+    backgroundColor: "#ffffff",
     borderRadius: 10,
     paddingLeft: moderateScale(15),
     paddingRight: moderateScale(1),
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
     paddingTop: moderateScale(3),
   },
   normalText: {
-    color: "#F6F3F3",
+    color: "#767170",
     marginLeft: moderateScale(34),
     marginBottom: moderateScale(10),
     marginTop: moderateScale(10),
