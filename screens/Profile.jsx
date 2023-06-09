@@ -46,7 +46,7 @@ export default function Profile() {
 
   if (isError)
     return (
-      <Text>Error occured while fetching player data: {error.message}</Text>
+      <Text>Error occurred while fetching player data: {error.message}</Text>
     );
 
   const { firstName, lastName, email, assignedDrills } = data;
